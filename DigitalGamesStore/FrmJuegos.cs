@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DigitalGamesStore
 {
-    public partial class FrmLibreria : Form
+    public partial class FrmJuegos : Form
     {
-        public FrmLibreria()
+        public FrmJuegos()
         {
             InitializeComponent();
         }

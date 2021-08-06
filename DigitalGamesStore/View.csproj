@@ -46,25 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmLibreria.cs">
+    <Compile Include="FrmCarrito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLibreria.Designer.cs">
-      <DependentUpon>FrmLibreria.cs</DependentUpon>
+    <Compile Include="FrmCarrito.Designer.cs">
+      <DependentUpon>FrmCarrito.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenu.cs">
+    <Compile Include="FrmJuegos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenu.Designer.cs">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
+    <Compile Include="FrmJuegos.Designer.cs">
+      <DependentUpon>FrmJuegos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBiblioteca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBiblioteca.Designer.cs">
+      <DependentUpon>FrmBiblioteca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLauncher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLauncher.Designer.cs">
+      <DependentUpon>FrmLauncher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStart.Designer.cs">
+      <DependentUpon>FrmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmLibreria.resx">
-      <DependentUpon>FrmLibreria.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCarrito.resx">
+      <DependentUpon>FrmCarrito.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenu.resx">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
+    <EmbeddedResource Include="FrmJuegos.resx">
+      <DependentUpon>FrmJuegos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBiblioteca.resx">
+      <DependentUpon>FrmBiblioteca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLauncher.resx">
+      <DependentUpon>FrmLauncher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStart.resx">
+      <DependentUpon>FrmStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,6 +130,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\games.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{993f14c1-27b4-434e-a151-18f5474857e4}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\firstButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAddToCar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

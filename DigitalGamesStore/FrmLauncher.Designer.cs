@@ -1,7 +1,7 @@
 ﻿
 namespace DigitalGamesStore
 {
-    partial class FrmMenu
+    partial class FrmLauncher
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,12 @@ namespace DigitalGamesStore
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.btnConection = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnJuegos = new System.Windows.Forms.Button();
             this.btnCarrito = new System.Windows.Forms.Button();
             this.btnBiblioteca = new System.Windows.Forms.Button();
@@ -49,6 +51,8 @@ namespace DigitalGamesStore
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSideMenu.Controls.Add(this.btnExit);
+            this.panelSideMenu.Controls.Add(this.btnConection);
             this.panelSideMenu.Controls.Add(this.btnJuegos);
             this.panelSideMenu.Controls.Add(this.btnCarrito);
             this.panelSideMenu.Controls.Add(this.btnBiblioteca);
@@ -59,6 +63,16 @@ namespace DigitalGamesStore
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(250, 626);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // btnConection
+            // 
+            this.btnConection.Location = new System.Drawing.Point(33, 363);
+            this.btnConection.Name = "btnConection";
+            this.btnConection.Size = new System.Drawing.Size(147, 53);
+            this.btnConection.TabIndex = 4;
+            this.btnConection.Text = "Test de Conexion";
+            this.btnConection.UseVisualStyleBackColor = true;
+            this.btnConection.Click += new System.EventHandler(this.btnConection_Click);
             // 
             // panelLogo
             // 
@@ -103,6 +117,21 @@ namespace DigitalGamesStore
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.Group_11;
+            this.btnExit.Location = new System.Drawing.Point(0, 591);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(92, 35);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnBiblioteca_MouseHover);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnBiblioteca_MouseLeave);
+            // 
             // btnJuegos
             // 
             this.btnJuegos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -121,6 +150,7 @@ namespace DigitalGamesStore
             this.btnJuegos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnJuegos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnJuegos.UseVisualStyleBackColor = true;
+            this.btnJuegos.Click += new System.EventHandler(this.btnJuegos_Click);
             this.btnJuegos.MouseEnter += new System.EventHandler(this.btnBiblioteca_MouseHover);
             this.btnJuegos.MouseLeave += new System.EventHandler(this.btnBiblioteca_MouseLeave);
             // 
@@ -142,6 +172,7 @@ namespace DigitalGamesStore
             this.btnCarrito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCarrito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCarrito.UseVisualStyleBackColor = true;
+            this.btnCarrito.Click += new System.EventHandler(this.btnCarrito_Click);
             this.btnCarrito.MouseEnter += new System.EventHandler(this.btnBiblioteca_MouseHover);
             this.btnCarrito.MouseLeave += new System.EventHandler(this.btnBiblioteca_MouseLeave);
             // 
@@ -200,14 +231,14 @@ namespace DigitalGamesStore
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // FrmMenu
+            // FrmLauncher
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1154, 626);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSideMenu);
-            this.Name = "FrmMenu";
+            this.Name = "FrmLauncher";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -232,6 +263,8 @@ namespace DigitalGamesStore
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnConection;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

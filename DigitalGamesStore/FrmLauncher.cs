@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace DigitalGamesStore{
     public partial class FrmLauncher : Form{
 
-        AdmDigitalGames adm = new AdmDigitalGames();
+        AdmDigitalGames adm = AdmDigitalGames.GetAdm();
 
         //Fields
         //private IconButton currentBtn;
@@ -72,7 +72,7 @@ namespace DigitalGamesStore{
         }
 
         private void btnExit_Click(object sender, EventArgs e){
-            this.Close();
+            Application.Exit();
         }
 
         private void btnCarrito_Click(object sender, EventArgs e){

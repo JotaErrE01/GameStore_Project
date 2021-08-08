@@ -16,7 +16,11 @@ namespace DigitalGamesStore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmStart());
+            //Application.Run(new FrmStart());
+
+            FrmStart start = new FrmStart();
+            start.Show();
+            Application.Run();
         }
     }
 }

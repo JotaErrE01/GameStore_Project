@@ -122,10 +122,10 @@ namespace DigitalGamesStore
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.Group_11;
-            this.btnExit.Location = new System.Drawing.Point(0, 591);
+            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.btnSalir;
+            this.btnExit.Location = new System.Drawing.Point(0, 588);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(92, 35);
+            this.btnExit.Size = new System.Drawing.Size(92, 38);
             this.btnExit.TabIndex = 5;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -238,6 +238,7 @@ namespace DigitalGamesStore
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSideMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLauncher";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

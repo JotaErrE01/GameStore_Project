@@ -32,6 +32,7 @@ namespace DigitalGamesStore
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnStartAdmin = new System.Windows.Forms.PictureBox();
             this.btnStartLauncher = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnStartAdmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnStartLauncher)).BeginInit();
@@ -71,12 +72,26 @@ namespace DigitalGamesStore
             this.btnStartLauncher.TabStop = false;
             this.btnStartLauncher.Click += new System.EventHandler(this.btnStartLauncher_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.btnSalir;
+            this.btnExit.Location = new System.Drawing.Point(0, 506);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(92, 38);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // FrmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(473, 544);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnStartAdmin);
             this.Controls.Add(this.btnStartLauncher);
@@ -97,5 +112,6 @@ namespace DigitalGamesStore
         private System.Windows.Forms.PictureBox btnStartLauncher;
         private System.Windows.Forms.PictureBox btnStartAdmin;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnExit;
     }
 }

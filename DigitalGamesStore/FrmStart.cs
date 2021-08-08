@@ -11,18 +11,23 @@ using System.Windows.Forms;
 
 namespace DigitalGamesStore
 {
-    public partial class FrmStart : Form
-    {
+    public partial class FrmStart : Form{
+
         public FrmStart()
         {
             InitializeComponent();
         }
 
         private void btnStartLauncher_Click(object sender, EventArgs e){
-            FrmLauncher frmLauncher = new FrmLauncher();
-            this.Hide();
+            //FrmLauncher frmLauncher = new FrmLauncher();
+            FrmLogin frmLauncher = new FrmLogin();
+            //this.Hide();
             frmLauncher.ShowDialog();
             this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e){
+            Application.Exit();
         }
     }
 }

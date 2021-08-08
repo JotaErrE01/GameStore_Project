@@ -13,21 +13,26 @@ namespace DigitalGamesStore
 {
     public partial class FrmStart : Form{
 
-        public FrmStart()
-        {
+        public FrmStart(){
             InitializeComponent();
         }
 
         private void btnStartLauncher_Click(object sender, EventArgs e){
             //FrmLauncher frmLauncher = new FrmLauncher();
             FrmLogin frmLauncher = new FrmLogin();
-            //this.Hide();
-            frmLauncher.ShowDialog();
+            frmLauncher.Show();
             this.Close();
+            //this.Hide();
         }
 
         private void btnExit_Click(object sender, EventArgs e){
             Application.Exit();
+        }
+
+        private void btnStartAdmin_Click(object sender, EventArgs e){
+            FrmLoginAdmin frmLoginAdmin = new FrmLoginAdmin();
+            frmLoginAdmin.Show();
+            this.Close();
         }
     }
 }

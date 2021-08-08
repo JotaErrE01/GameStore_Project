@@ -59,11 +59,12 @@ namespace DigitalGamesStore
             this.btnStartAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnStartAdmin.TabIndex = 1;
             this.btnStartAdmin.TabStop = false;
+            this.btnStartAdmin.Click += new System.EventHandler(this.btnStartAdmin_Click);
             // 
             // btnStartLauncher
             // 
             this.btnStartLauncher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStartLauncher.Image = global::DigitalGamesStore.Properties.Resources.firstButton;
+            this.btnStartLauncher.Image = global::DigitalGamesStore.Properties.Resources.btnLogin;
             this.btnStartLauncher.Location = new System.Drawing.Point(119, 271);
             this.btnStartLauncher.Name = "btnStartLauncher";
             this.btnStartLauncher.Size = new System.Drawing.Size(237, 61);

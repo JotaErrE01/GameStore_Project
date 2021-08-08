@@ -70,6 +70,12 @@
     <Compile Include="FrmLauncher.Designer.cs">
       <DependentUpon>FrmLauncher.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLoginAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoginAdmin.Designer.cs">
+      <DependentUpon>FrmLoginAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLauncher.resx">
       <DependentUpon>FrmLauncher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoginAdmin.resx">
+      <DependentUpon>FrmLoginAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
@@ -175,6 +184,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnSalir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnAtras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Registrarse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRegistro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RegisterScreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

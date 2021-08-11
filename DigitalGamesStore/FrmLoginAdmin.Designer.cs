@@ -29,6 +29,7 @@ namespace DigitalGamesStore
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoginAdmin));
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnAtras = new System.Windows.Forms.Button();
@@ -72,13 +73,14 @@ namespace DigitalGamesStore
             // btnStartLauncher
             // 
             this.btnStartLauncher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStartLauncher.Image = global::DigitalGamesStore.Properties.Resources.firstButton;
+            this.btnStartLauncher.Image = ((System.Drawing.Image)(resources.GetObject("btnStartLauncher.Image")));
             this.btnStartLauncher.Location = new System.Drawing.Point(118, 442);
             this.btnStartLauncher.Name = "btnStartLauncher";
             this.btnStartLauncher.Size = new System.Drawing.Size(237, 61);
             this.btnStartLauncher.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.btnStartLauncher.TabIndex = 9;
             this.btnStartLauncher.TabStop = false;
+            this.btnStartLauncher.Click += new System.EventHandler(this.btnStartLauncher_Click);
             // 
             // FrmLoginAdmin
             // 

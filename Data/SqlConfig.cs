@@ -9,23 +9,25 @@ using System.Windows.Forms;
 namespace Data{
     public class SqlConfig{
 
+        string conectionString = "Data Source = DESKTOP-N6UR074\\SQLEXPRESS; Initial Catalog=DigitalGames; Integrated Security=True";
+
+        SqlConnection connection = null;
+
         public void SqlConection(){
 
-            string stringConection = "Data Source = DESKTOP-N6UR074\\SQLEXPRESS; Initial Catalog=DigitalGames; Integrated Security=True";
-
-            SqlConnection connection = null;
-            try
-            {
-                connection = new SqlConnection(stringConection);
+            try{
+                connection = new SqlConnection(conectionString);
                 connection.Open();
                 MessageBox.Show("Conection Success");
-                connection.Close();
-                MessageBox.Show("Se cerró la conexión.");
             }
-            catch
-            {
+            catch{
                 MessageBox.Show("Error de Conexion con la BD");
             }
+        }
+
+        public void CloseConection(){
+            connection.Close();
+            MessageBox.Show("Se cerró la conexión.");
         }
 
     }

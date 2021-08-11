@@ -15,8 +15,7 @@ namespace DigitalGamesStore
 
         AdmDigitalGames adm = AdmDigitalGames.GetAdm();
 
-        public FrmRegister()
-        {
+        public FrmRegister(){
             InitializeComponent();
             txtPassword.PasswordChar = '●';
             txtConfirmPass.PasswordChar = '●';
@@ -40,10 +39,14 @@ namespace DigitalGamesStore
             this.Close();
         }
 
+        public void SaldoScreen(){
+            FrmSaldo saldo =  new FrmSaldo();
+            saldo.ShowDialog();
+        }
+
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e){
             char c = e.KeyChar;
-            if (!char.IsLetter(c) && (e.KeyChar != Convert.ToChar(Keys.Back)) && c != ' ')
-            {
+            if (!char.IsLetter(c) && (e.KeyChar != Convert.ToChar(Keys.Back)) && c != ' '){
                 e.Handled = true;
                 return;
             }

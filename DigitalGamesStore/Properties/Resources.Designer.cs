@@ -213,6 +213,16 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Listar {
+            get {
+                object obj = ResourceManager.GetObject("Listar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RegisterScreen {
             get {
                 object obj = ResourceManager.GetObject("RegisterScreen", resourceCulture);

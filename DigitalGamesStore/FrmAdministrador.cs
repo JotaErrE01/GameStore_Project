@@ -1,5 +1,4 @@
-﻿using Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,28 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DigitalGamesStore{
-    public partial class FrmLauncher : Form{
-
-        AdmDigitalGames adm = AdmDigitalGames.GetAdm();
+    public partial class FrmAdministrador : Form{
 
         //Fields
         //private IconButton currentBtn;
         private Form activeForm = null;
 
-        public FrmLauncher(){
+        public FrmAdministrador(){
             InitializeComponent();
         }
 
+        private void btnExit_Click(object sender, EventArgs e){
+            Application.Exit();
+        }
+
         //Ui Mehods
-        private void btnBiblioteca_MouseHover(object sender, EventArgs e){
+        private void btnRegistrar_MouseHover(object sender, EventArgs e){
             Button btn = (Button)sender;
-            btn.BackColor = Color.FromArgb(37,36,81);
+            btn.BackColor = Color.FromArgb(37, 36, 81);
             //btnBiblioteca.ForeColor = color;
         }
 
-        private void btnBiblioteca_MouseLeave(object sender, EventArgs e){
-            if (sender != null)
-            {
+        private void btnRegistrar_MouseLeave(object sender, EventArgs e){
+            if (sender != null){
                 Button btn = (Button)sender;
                 btn.BackColor = Color.FromArgb(11, 7, 17);
                 //btnBiblioteca.ForeColor = color;
@@ -39,7 +39,7 @@ namespace DigitalGamesStore{
         }
 
         private void openChildForm(Form childForm){
-            if(activeForm != null){
+            if (activeForm != null){
                 activeForm.Close();
             }
 
@@ -53,30 +53,14 @@ namespace DigitalGamesStore{
             childForm.Show();
         }
 
-        private void btnBiblioteca_Click(object sender, EventArgs e){
-            openChildForm(new FrmBiblioteca());
-        }
-
-        private void btnInicio_Click(object sender, EventArgs e){
-            if(activeForm != null){
+        private void btnRegistrar_Click(object sender, EventArgs e){
+            if (activeForm != null){
                 activeForm.Close();
             }
         }
 
-        private void btnConection_Click(object sender, EventArgs e){
-            adm.conectionSql();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e){
-            Application.Exit();
-        }
-
-        private void btnCarrito_Click(object sender, EventArgs e){
-            openChildForm(new FrmCarrito());
-        }
-
-        private void btnJuegos_Click(object sender, EventArgs e){
-            openChildForm(new FrmJuegos());
+        private void btnListar_Click(object sender, EventArgs e){
+            //openChildForm(new FrmCarrito());
         }
     }
 }

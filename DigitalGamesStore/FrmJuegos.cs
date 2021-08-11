@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace DigitalGamesStore
 {
-    public partial class FrmJuegos : Form
-    {
-        public FrmJuegos()
-        {
+    public partial class FrmJuegos : Form{
+        public FrmJuegos(){
             InitializeComponent();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e){
+            //Listar los juegos del cliente segun el nombre
         }
     }
 }

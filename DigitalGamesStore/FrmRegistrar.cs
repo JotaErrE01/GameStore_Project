@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DigitalGamesStore{
-    public partial class FrmBiblioteca : Form{
-        public FrmBiblioteca(){
+namespace DigitalGamesStore
+{
+    public partial class FrmRegistrar : Form
+    {
+        public FrmRegistrar()
+        {
             InitializeComponent();
-            cmbGenero.SelectedItem = "Todos";
-            txtDesde.Text = "0";
-            txtHasta.Text = "0";
         }
     }
 }

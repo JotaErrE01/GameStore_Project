@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdministrador.Designer.cs">
+      <DependentUpon>FrmAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCarrito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,18 @@
     <Compile Include="FrmRegister.Designer.cs">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrar.Designer.cs">
+      <DependentUpon>FrmRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSaldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSaldo.Designer.cs">
+      <DependentUpon>FrmSaldo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +114,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAdministrador.resx">
+      <DependentUpon>FrmAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCarrito.resx">
       <DependentUpon>FrmCarrito.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrar.resx">
+      <DependentUpon>FrmRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaldo.resx">
+      <DependentUpon>FrmSaldo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStart.resx">
       <DependentUpon>FrmStart.cs</DependentUpon>
@@ -202,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\RegisterScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Listar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,17 +7,19 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Controller
-{
+namespace Controller{
     public class AdmDigitalGames{
 
         private static AdmDigitalGames adm = null;
+        Validacion v = null;
         List<string> lista = null;
+        SqlConfig bd = null;
         //Validacion v = null;
 
         private AdmDigitalGames(){
             //inicializamos la lista
             lista = new List<string>();
+            bd = new SqlConfig();
         }
 
         public static AdmDigitalGames GetAdm(){
@@ -25,7 +27,12 @@ namespace Controller
                 adm = new AdmDigitalGames();
             }
             return adm;
+        }
 
+        public bool validarSaldo(TextBox txtSaldo){
+            string saldo = txtSaldo.Text;
+            if (!v.EsReal(saldo)) return false;
+            return true;
         }
 
         public bool ValidarFormulario(TextBox txtCorreo, TextBox txtPassword){
@@ -93,11 +100,8 @@ namespace Controller
             //validar con la base de datos
         }
 
-        public void conectionSql()
-        {
-            SqlConfig conect = new SqlConfig();
-            conect.SqlConection();
+        public void conectionSql(){
+            bd.SqlConection();
         }
-
     }
 }

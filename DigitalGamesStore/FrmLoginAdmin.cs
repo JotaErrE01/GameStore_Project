@@ -35,5 +35,16 @@ namespace DigitalGamesStore
                 return;
             }
         }
+
+        private void btnStartLauncher_Click(object sender, EventArgs e){
+
+            /**
+             *TODO: VALIDAR DATOS DEL ADMIN
+             */
+
+            FrmAdministrador frmAdministrador = new FrmAdministrador();
+            frmAdministrador.Show();
+            this.Close();
+        }
     }
 }

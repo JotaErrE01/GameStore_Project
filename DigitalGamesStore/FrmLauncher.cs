@@ -63,10 +63,6 @@ namespace DigitalGamesStore{
             }
         }
 
-        private void btnConection_Click(object sender, EventArgs e){
-            adm.conectionSql();
-        }
-
         private void btnExit_Click(object sender, EventArgs e){
             Application.Exit();
         }

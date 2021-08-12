@@ -14,6 +14,7 @@ namespace DigitalGamesStore
 
         public FrmLoginAdmin(){
             InitializeComponent();
+            txtPassword.PasswordChar = '●';
         }
 
         private void btnAtras_Click(object sender, EventArgs e){

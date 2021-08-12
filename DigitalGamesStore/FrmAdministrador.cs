@@ -38,7 +38,7 @@ namespace DigitalGamesStore{
             }
         }
 
-        private void openChildForm(Form childForm){
+        public void openChildForm(Form childForm){
             if (activeForm != null){
                 activeForm.Close();
             }

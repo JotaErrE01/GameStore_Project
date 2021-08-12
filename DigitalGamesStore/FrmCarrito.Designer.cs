@@ -173,7 +173,7 @@ namespace DigitalGamesStore
             this.btnComprar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
             this.btnComprar.FlatAppearance.BorderSize = 0;
             this.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComprar.Image = ((System.Drawing.Image)(resources.GetObject("btnComprar.Image")));
+            this.btnComprar.Image = global::DigitalGamesStore.Properties.Resources.btnComprar;
             this.btnComprar.Location = new System.Drawing.Point(598, 471);
             this.btnComprar.Name = "btnComprar";
             this.btnComprar.Size = new System.Drawing.Size(209, 39);
@@ -209,7 +209,7 @@ namespace DigitalGamesStore
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Image = global::DigitalGamesStore.Properties.Resources.btnEliminar;
             this.button1.Location = new System.Drawing.Point(76, 471);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(171, 39);

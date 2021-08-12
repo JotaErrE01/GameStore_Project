@@ -93,6 +93,46 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnCambios {
+            get {
+                object obj = ResourceManager.GetObject("btnCambios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnComprar {
+            get {
+                object obj = ResourceManager.GetObject("btnComprar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnEliminar {
+            get {
+                object obj = ResourceManager.GetObject("btnEliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnImagen {
+            get {
+                object obj = ResourceManager.GetObject("btnImagen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnLogin {
             get {
                 object obj = ResourceManager.GetObject("btnLogin", resourceCulture);
@@ -123,6 +163,16 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap conexion {
+            get {
+                object obj = ResourceManager.GetObject("conexion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap firstButton {
             get {
                 object obj = ResourceManager.GetObject("firstButton", resourceCulture);
@@ -136,6 +186,16 @@ namespace DigitalGamesStore.Properties {
         internal static System.Drawing.Bitmap Frame_2 {
             get {
                 object obj = ResourceManager.GetObject("Frame 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FrmBiblioteca {
+            get {
+                object obj = ResourceManager.GetObject("FrmBiblioteca", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +243,26 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Group_31 {
+            get {
+                object obj = ResourceManager.GetObject("Group 31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Group_36 {
+            get {
+                object obj = ResourceManager.GetObject("Group 36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Group_9 {
             get {
                 object obj = ResourceManager.GetObject("Group 9", resourceCulture);
@@ -223,6 +303,16 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Registerbtn {
+            get {
+                object obj = ResourceManager.GetObject("Registerbtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RegisterScreen {
             get {
                 object obj = ResourceManager.GetObject("RegisterScreen", resourceCulture);
@@ -236,6 +326,16 @@ namespace DigitalGamesStore.Properties {
         internal static System.Drawing.Bitmap Registrarse {
             get {
                 object obj = ResourceManager.GetObject("Registrarse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Registro {
+            get {
+                object obj = ResourceManager.GetObject("Registro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

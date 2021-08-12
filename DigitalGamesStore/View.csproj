@@ -58,6 +58,12 @@
     <Compile Include="FrmCarrito.Designer.cs">
       <DependentUpon>FrmCarrito.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditar.Designer.cs">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmJuegos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCarrito.resx">
       <DependentUpon>FrmCarrito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditar.resx">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmJuegos.resx">
       <DependentUpon>FrmJuegos.cs</DependentUpon>
@@ -232,6 +241,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Listar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCambios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnImagen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Registerbtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Registro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conexion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnEliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnComprar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FrmBiblioteca.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿
 namespace DigitalGamesStore
 {
-    partial class FrmRegistrar
+    partial class FrmListar
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,17 @@ namespace DigitalGamesStore
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrar));
             this.SuspendLayout();
             // 
-            // FrmRegistrar
+            // FrmListar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(823, 485);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.ClientSize = new System.Drawing.Size(896, 500);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmRegistrar";
-            this.Text = "FrmRegistrar";
+            this.Name = "FrmListar";
+            this.Text = "FrmListar";
             this.ResumeLayout(false);
 
         }

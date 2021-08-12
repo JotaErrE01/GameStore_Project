@@ -76,6 +76,12 @@
     <Compile Include="FrmLauncher.Designer.cs">
       <DependentUpon>FrmLauncher.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListar.Designer.cs">
+      <DependentUpon>FrmListar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLoginAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,12 +93,6 @@
     </Compile>
     <Compile Include="FrmRegister.Designer.cs">
       <DependentUpon>FrmRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRegistrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegistrar.Designer.cs">
-      <DependentUpon>FrmRegistrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSaldo.cs">
       <SubType>Form</SubType>
@@ -129,14 +129,14 @@
     <EmbeddedResource Include="FrmLauncher.resx">
       <DependentUpon>FrmLauncher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListar.resx">
+      <DependentUpon>FrmListar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLoginAdmin.resx">
       <DependentUpon>FrmLoginAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistrar.resx">
-      <DependentUpon>FrmRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaldo.resx">
       <DependentUpon>FrmSaldo.cs</DependentUpon>

@@ -12,11 +12,11 @@ namespace DigitalGamesStore{
     public partial class FrmAdministrador : Form{
 
         //Fields
-        //private IconButton currentBtn;
         private Form activeForm = null;
 
         public FrmAdministrador(){
             InitializeComponent();
+            cmbClasificacion.SelectedItem = "E – Everyone";
         }
 
         private void btnExit_Click(object sender, EventArgs e){
@@ -60,7 +60,7 @@ namespace DigitalGamesStore{
         }
 
         private void btnListar_Click(object sender, EventArgs e){
-            //openChildForm(new FrmCarrito());
+            openChildForm(new FrmListar());
         }
     }
 }

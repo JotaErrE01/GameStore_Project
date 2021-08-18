@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace DigitalGamesStore
-{
+namespace DigitalGamesStore{
     public partial class FrmStart : Form{
 
         public FrmStart(){
@@ -19,8 +18,8 @@ namespace DigitalGamesStore
 
         private void btnStartLauncher_Click(object sender, EventArgs e){
             //FrmLauncher frmLauncher = new FrmLauncher();
-            FrmLogin frmLauncher = new FrmLogin();
-            frmLauncher.Show();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
             this.Close();
             //this.Hide();
         }

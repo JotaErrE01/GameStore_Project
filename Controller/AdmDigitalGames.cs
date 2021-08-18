@@ -1,6 +1,9 @@
 ﻿using Data;
+using Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,14 +15,15 @@ namespace Controller{
 
         private static AdmDigitalGames adm = null;
         Validacion v = null;
-        List<string> lista = null;
+        List<Juego> juegos= null;
+        Cliente cliente = null;
         SqlConfig bd = null;
         //Validacion v = null;
 
         private AdmDigitalGames(){
             //inicializamos la lista
-            lista = new List<string>();
-            bd = new SqlConfig();
+            juegos = new List<Juego>();
+            bd = SqlConfig.GetSql();
         }
 
         public static AdmDigitalGames GetAdm(){
@@ -29,9 +33,32 @@ namespace Controller{
             return adm;
         }
 
+        public void LLenarGrid(DataGridView dgvBiblioteca)
+        {
+            // Consultar Juegos de la base de datos
+            juegos = bd.ConsultarJuegos();
+
+            juegos.ForEach( juego => {
+                dgvBiblioteca.Rows.Add(Image.FromFile(juego.RutaImagen), juego.Clasificacion, juego.Precio.ToString(), "otro texto");
+            } );
+        }
+
         public bool validarSaldo(TextBox txtSaldo){
             string saldo = txtSaldo.Text;
             if (!v.EsReal(saldo)) return false;
+            return true;
+        }
+
+        public bool ValidarLoginCliente(TextBox txtCorreo, TextBox txtPassword){
+
+            string correo = txtCorreo.Text;
+            string password = txtPassword.Text;
+
+            cliente = bd.ObtenerCliente(correo, password);
+
+            if (cliente == null) return false;
+
+            //MessageBox.Show(cliente.Saldo.ToString());
             return true;
         }
 
@@ -90,10 +117,9 @@ namespace Controller{
             return true;
         }
 
-        public bool ValidarLoginCliente(TextBox txtCorreo, TextBox txtPassword){
-            //validar con la base de datos
-
-            return true;
+        public void IniciarLauncher(Label lblNombre, Label lblSaldo){
+            lblNombre.Text = $"Bienvenido {cliente.Nombre}";
+            lblSaldo.Text = $"Saldo = ${cliente.Saldo}";
         }
 
         public void ValidarLoginAdministrador(TextBox txtCorreo, TextBox txtPassword){
@@ -101,7 +127,7 @@ namespace Controller{
         }
 
         public void conectionSql(){
-            bd.SqlConection();
+            //bd.mysql();
         }
     }
 }

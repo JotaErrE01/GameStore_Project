@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,8 @@ using System.Windows.Forms;
 namespace DigitalGamesStore
 {
     public partial class FrmLoginAdmin : Form{
+
+        AdmDigitalGames adm = AdmDigitalGames.GetAdm();
 
         public FrmLoginAdmin(){
             InitializeComponent();
@@ -42,6 +45,8 @@ namespace DigitalGamesStore
             /**
              *TODO: VALIDAR DATOS DEL ADMIN
              */
+
+            //adm.VerificarAdmin(txtCorreo, txtPassword);
 
             FrmAdministrador frmAdministrador = new FrmAdministrador();
             frmAdministrador.Show();

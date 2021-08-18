@@ -20,14 +20,15 @@ namespace DigitalGamesStore{
         }
 
         private void btnStartLauncher_Click(object sender, EventArgs e){
+
             //validar que la contraseña y el correo esten correctos
             if (!adm.ValidarFormulario(txtCorreo, txtPassword)) return;
-            if (!adm.ValidarLoginCliente(txtCorreo, txtPassword)) return;
 
+            if (!adm.ValidarLoginCliente(txtCorreo, txtPassword)) return;
+            
             FrmLauncher frmLauncher = new FrmLauncher();
             frmLauncher.Show();
             this.Close();
-            //this.Hide();
         }
 
         private void btnRegister_Click(object sender, EventArgs e){
@@ -44,7 +45,7 @@ namespace DigitalGamesStore{
         }
 
         private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e){
-            char c = e.KeyChar;
+            //char c = e.KeyChar;
             if (e.KeyChar == Convert.ToChar(Keys.Enter)){
                 e.Handled = true;
                 return;
@@ -52,7 +53,7 @@ namespace DigitalGamesStore{
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e){
-            char c = e.KeyChar;
+            //char c = e.KeyChar;
             if (e.KeyChar == Convert.ToChar(Keys.Enter)){
                 e.Handled = true;
                 return;

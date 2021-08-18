@@ -32,8 +32,14 @@ namespace DigitalGamesStore
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.btnImagen = new System.Windows.Forms.Button();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
@@ -47,22 +53,17 @@ namespace DigitalGamesStore
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnImagen = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
-            this.btnListar = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbPlataforma = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,6 +101,86 @@ namespace DigitalGamesStore
             this.panelSideMenu.Size = new System.Drawing.Size(250, 575);
             this.panelSideMenu.TabIndex = 3;
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.btnSalir;
+            this.btnExit.Location = new System.Drawing.Point(0, 537);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(92, 38);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
+            // 
+            // btnTest
+            // 
+            this.btnTest.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTest.FlatAppearance.BorderSize = 0;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnTest.Image = global::DigitalGamesStore.Properties.Resources.conexion;
+            this.btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTest.Location = new System.Drawing.Point(0, 220);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnTest.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnTest.Size = new System.Drawing.Size(250, 60);
+            this.btnTest.TabIndex = 3;
+            this.btnTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTest.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
+            this.btnTest.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnListar.FlatAppearance.BorderSize = 0;
+            this.btnListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnListar.Image = global::DigitalGamesStore.Properties.Resources.Listar;
+            this.btnListar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListar.Location = new System.Drawing.Point(0, 160);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnListar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnListar.Size = new System.Drawing.Size(250, 60);
+            this.btnListar.TabIndex = 1;
+            this.btnListar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            this.btnListar.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
+            this.btnListar.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnRegistrar.Image = global::DigitalGamesStore.Properties.Resources.Registro;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.Location = new System.Drawing.Point(0, 100);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnRegistrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnRegistrar.Size = new System.Drawing.Size(250, 60);
+            this.btnRegistrar.TabIndex = 0;
+            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.btnRegistrar.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
+            this.btnRegistrar.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
+            // 
             // panelLogo
             // 
             this.panelLogo.Controls.Add(this.pictureBox1);
@@ -109,9 +190,21 @@ namespace DigitalGamesStore
             this.panelLogo.Size = new System.Drawing.Size(250, 100);
             this.panelLogo.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.pictureBox1.Image = global::DigitalGamesStore.Properties.Resources.Frame_2;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelChildForm.Controls.Add(this.cmbPlataforma);
             this.panelChildForm.Controls.Add(this.btnImagen);
             this.panelChildForm.Controls.Add(this.checkBox9);
             this.panelChildForm.Controls.Add(this.checkBox8);
@@ -135,6 +228,19 @@ namespace DigitalGamesStore
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(896, 500);
             this.panelChildForm.TabIndex = 5;
+            // 
+            // btnImagen
+            // 
+            this.btnImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnImagen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImagen.FlatAppearance.BorderSize = 0;
+            this.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImagen.Image = global::DigitalGamesStore.Properties.Resources.btnImagen;
+            this.btnImagen.Location = new System.Drawing.Point(590, 197);
+            this.btnImagen.Name = "btnImagen";
+            this.btnImagen.Size = new System.Drawing.Size(156, 40);
+            this.btnImagen.TabIndex = 17;
+            this.btnImagen.UseVisualStyleBackColor = false;
             // 
             // checkBox9
             // 
@@ -287,19 +393,6 @@ namespace DigitalGamesStore
             this.textBox1.Size = new System.Drawing.Size(173, 28);
             this.textBox1.TabIndex = 4;
             // 
-            // btnImagen
-            // 
-            this.btnImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImagen.FlatAppearance.BorderSize = 0;
-            this.btnImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImagen.Image = global::DigitalGamesStore.Properties.Resources.btnImagen;
-            this.btnImagen.Location = new System.Drawing.Point(590, 197);
-            this.btnImagen.Name = "btnImagen";
-            this.btnImagen.Size = new System.Drawing.Size(156, 40);
-            this.btnImagen.TabIndex = 17;
-            this.btnImagen.UseVisualStyleBackColor = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(562, 51);
@@ -315,7 +408,7 @@ namespace DigitalGamesStore
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Image = global::DigitalGamesStore.Properties.Resources.Group_31;
-            this.btnGuardar.Location = new System.Drawing.Point(165, 369);
+            this.btnGuardar.Location = new System.Drawing.Point(154, 406);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(156, 39);
             this.btnGuardar.TabIndex = 1;
@@ -331,96 +424,22 @@ namespace DigitalGamesStore
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // btnExit
+            // cmbPlataforma
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.btnSalir;
-            this.btnExit.Location = new System.Drawing.Point(0, 537);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(92, 38);
-            this.btnExit.TabIndex = 5;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            this.btnExit.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
-            this.btnExit.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
-            // 
-            // btnTest
-            // 
-            this.btnTest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTest.FlatAppearance.BorderSize = 0;
-            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnTest.Image = global::DigitalGamesStore.Properties.Resources.conexion;
-            this.btnTest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTest.Location = new System.Drawing.Point(0, 220);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnTest.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnTest.Size = new System.Drawing.Size(250, 60);
-            this.btnTest.TabIndex = 3;
-            this.btnTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTest.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
-            this.btnTest.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
-            // 
-            // btnListar
-            // 
-            this.btnListar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnListar.FlatAppearance.BorderSize = 0;
-            this.btnListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnListar.Image = global::DigitalGamesStore.Properties.Resources.Listar;
-            this.btnListar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListar.Location = new System.Drawing.Point(0, 160);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnListar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnListar.Size = new System.Drawing.Size(250, 60);
-            this.btnListar.TabIndex = 1;
-            this.btnListar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
-            this.btnListar.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
-            this.btnListar.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegistrar.FlatAppearance.BorderSize = 0;
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnRegistrar.Image = global::DigitalGamesStore.Properties.Resources.Registro;
-            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(0, 100);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnRegistrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnRegistrar.Size = new System.Drawing.Size(250, 60);
-            this.btnRegistrar.TabIndex = 0;
-            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            this.btnRegistrar.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
-            this.btnRegistrar.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.pictureBox1.Image = global::DigitalGamesStore.Properties.Resources.Frame_2;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.cmbPlataforma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPlataforma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPlataforma.FormattingEnabled = true;
+            this.cmbPlataforma.Items.AddRange(new object[] {
+            "E – Everyone",
+            "EC – Early Childhood",
+            "E 10+",
+            "T – Teen ",
+            "M – Mature 17+ ",
+            "AO – Adults only 18+"});
+            this.cmbPlataforma.Location = new System.Drawing.Point(266, 327);
+            this.cmbPlataforma.Name = "cmbPlataforma";
+            this.cmbPlataforma.Size = new System.Drawing.Size(173, 28);
+            this.cmbPlataforma.TabIndex = 18;
             // 
             // FrmAdministrador
             // 
@@ -434,15 +453,16 @@ namespace DigitalGamesStore
             this.Name = "FrmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAdministrador";
+            this.Load += new System.EventHandler(this.FrmAdministrador_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelSideMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             this.panelChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -475,5 +495,6 @@ namespace DigitalGamesStore
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox cmbPlataforma;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +14,10 @@ namespace DigitalGamesStore{
 
         //Fields
         private Form activeForm = null;
+        AdmDigitalGames adm = AdmDigitalGames.GetAdm();
 
         public FrmAdministrador(){
+            adm.conectionSql();
             InitializeComponent();
             cmbClasificacion.SelectedItem = "E – Everyone";
         }
@@ -61,6 +64,10 @@ namespace DigitalGamesStore{
 
         private void btnListar_Click(object sender, EventArgs e){
             openChildForm(new FrmListar());
+        }
+
+        private void FrmAdministrador_Load(object sender, EventArgs e){
+            //adm.CargarLauncherAdmin(cmbPlataforma);
         }
     }
 }

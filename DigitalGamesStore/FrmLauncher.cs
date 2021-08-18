@@ -74,5 +74,9 @@ namespace DigitalGamesStore{
         private void btnJuegos_Click(object sender, EventArgs e){
             openChildForm(new FrmJuegos());
         }
+
+        private void FrmLauncher_Load(object sender, EventArgs e){
+            adm.IniciarLauncher(lblNombre, lblSaldo);
+        }
     }
 }

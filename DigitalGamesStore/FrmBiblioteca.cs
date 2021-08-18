@@ -24,7 +24,11 @@ namespace DigitalGamesStore{
         }
 
         private void FrmBiblioteca_Load(object sender, EventArgs e){
-            adm.LLenarGrid(dgvBiblioteca);
+            adm.LLenarGridBiblioteca(dgvBiblioteca);
+        }
+
+        private void btnCarrito_Click(object sender, EventArgs e){
+            adm.agregarAlCarrito(dgvBiblioteca);
         }
     }
 }

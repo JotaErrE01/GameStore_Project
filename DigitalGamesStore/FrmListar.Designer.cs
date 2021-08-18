@@ -190,9 +190,9 @@ namespace DigitalGamesStore
             // 
             // panelChild
             // 
-            this.panelChild.Location = new System.Drawing.Point(342, 371);
+            this.panelChild.Location = new System.Drawing.Point(352, 365);
             this.panelChild.Name = "panelChild";
-            this.panelChild.Size = new System.Drawing.Size(203, 88);
+            this.panelChild.Size = new System.Drawing.Size(147, 87);
             this.panelChild.TabIndex = 19;
             this.panelChild.Visible = false;
             // 

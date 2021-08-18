@@ -16,6 +16,7 @@ namespace Controller{
         private static AdmDigitalGames adm = null;
         Validacion v = null;
         List<Juego> juegos= null;
+        List<Juego> carrito = null;
         Cliente cliente = null;
         SqlConfig bd = null;
         //Validacion v = null;
@@ -23,7 +24,20 @@ namespace Controller{
         private AdmDigitalGames(){
             //inicializamos la lista
             juegos = new List<Juego>();
+            carrito = new List<Juego>();
             bd = SqlConfig.GetSql();
+        }
+
+        public void GetEliminarJuegoCarrito(DataGridView dgvCarrito){
+            if (dgvCarrito.SelectedRows.Count != 1) {
+                MessageBox.Show("Selleccione un juego para eliminarlo del carrito");
+                return;
+            }
+
+            carrito.RemoveAt(dgvCarrito.CurrentRow.Index);
+
+            LlenarGridCarrito(dgvCarrito);
+
         }
 
         public static AdmDigitalGames GetAdm(){
@@ -33,14 +47,38 @@ namespace Controller{
             return adm;
         }
 
-        public void LLenarGrid(DataGridView dgvBiblioteca)
-        {
+        public void LLenarGridBiblioteca(DataGridView dgvBiblioteca){
             // Consultar Juegos de la base de datos
             juegos = bd.ConsultarJuegos();
+            LlenarTablasDeJuegos(juegos, dgvBiblioteca);            
+        }
 
-            juegos.ForEach( juego => {
-                dgvBiblioteca.Rows.Add(Image.FromFile(juego.RutaImagen), juego.Clasificacion, juego.Precio.ToString(), "otro texto");
-            } );
+        public void LlenarTablasDeJuegos(List<Juego> juegos, DataGridView dgvBiblioteca){
+            juegos.ForEach(juego => {
+                dgvBiblioteca.Rows.Add(Image.FromFile(juego.RutaImagen), juego.Nombre, juego.Genero, juego.FechaLanzamiento.ToString("yyyy-MM-dd"), juego.Clasificacion, "$" + juego.Precio, juego.Peso, juego.Plataforma);
+            });
+        }
+
+        public void agregarAlCarrito(DataGridView dgvBiblioteca){
+            if (dgvBiblioteca.SelectedRows.Count != 1) {
+                MessageBox.Show("Seleccione un Juego para agregarlo al carrito");
+                return;
+            }
+
+            /*
+             * TODO: MEJORAR AGREGAR AL CARRITO, NO FUNCIONA CUANDO SE FILTRA
+             * **/
+
+            carrito.Add(juegos.ElementAt(dgvBiblioteca.CurrentRow.Index));          
+        }
+
+        public void LlenarGridCarrito(DataGridView dgvCarrito){
+
+            dgvCarrito.Rows.Clear();
+
+            carrito.ForEach( juego => {
+                dgvCarrito.Rows.Add(Image.FromFile(juego.RutaImagen), juego.Nombre, juego.Genero, juego.FechaLanzamiento.ToString("yyyy-mm-dd"), juego.Clasificacion, "$" + juego.Precio);
+            });
         }
 
         public bool validarSaldo(TextBox txtSaldo){

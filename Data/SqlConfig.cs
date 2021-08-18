@@ -11,8 +11,9 @@ using MySql.Data.MySqlClient;
 namespace Data{
     public class SqlConfig{
 
+        string connectionString = "Data Source = DESKTOP-N6UR074\\SQLEXPRESS; Initial Catalog=DigitalGames; Integrated Security=True";
         private static SqlConfig sql = null;
-        private MySqlConnection connection = null;
+        private SqlConnection connection = null;
         //private List<Usuario> usuarios = null;
         private Cliente cliente = null;
         private Juego juego = null;
@@ -21,7 +22,8 @@ namespace Data{
         private SqlConfig (){
             //MysqlConnect();
             //usuarios = new List<Usuario>();
-            connection = new MySqlConnection("Database= digitalgames; Data Source= localhost; Port= 3306; User Id= root; Password= jotaerre01");
+            //connection = new MySqlConnection("Database= digitalgames; Data Source= localhost; Port= 3306; User Id= root; Password= jotaerre01");
+            connection = new SqlConnection(connectionString);
             juegos = new List<Juego>();
         }
 
@@ -37,13 +39,14 @@ namespace Data{
         }
 
         public List<Juego> ConsultarJuegos(){
-            string query = "SELECT juegos.id, ruta_imagen, precio, clasificacion, fecha_salida, nombre, tipo_plataforma, tipo_genero, peso FROM juegosplataformas INNER JOIN juegosgeneros ON juegosgeneros.idJuego = juegosplataformas.idJuego INNER JOIN juegos ON juegos.id = juegosgeneros.idJuego INNER JOIN plataformas ON plataformas.id = idPlataforma INNER JOIN generos ON generos.id = idGenero; ";
-
+            string query = "SELECT juegos.id, ruta_imagen, precio, clasificacion, fecha_Lanzamiento, nombre, tipo_plataforma, tipo_genero, peso FROM juegosplataformas INNER JOIN juegosgeneros ON juegosgeneros.idJuego = juegosplataformas.idJuego INNER JOIN juegos ON juegos.id = juegosgeneros.idJuego INNER JOIN plataformas ON plataformas.id = idPlataforma INNER JOIN generos ON generos.id = idGenero; ";
             try{
                 connection.Open();
-                MySqlCommand comando = new MySqlCommand(query);
+                SqlCommand comando = new SqlCommand(query);
                 comando.Connection = connection;
-                MySqlDataReader reader = comando.ExecuteReader();
+                SqlDataReader reader = comando.ExecuteReader();
+
+                juegos.Clear();
 
                 while (reader.Read()){
 
@@ -52,18 +55,11 @@ namespace Data{
                     string nombre = reader["nombre"].ToString();
                     string genero = reader["tipo_genero"].ToString();
                     string clasificacion = reader["clasificacion"].ToString();
-                    double peso = (double)reader["peso"];
+                    double peso = Convert.ToDouble(reader["peso"]);
                     decimal precio = (decimal)reader["precio"];
                     string plataforma = reader["tipo_plataforma"].ToString();
-                    DateTime fechaLanzamiento = (DateTime)reader["fecha_salida"];
-
+                    DateTime fechaLanzamiento = (DateTime)reader["fecha_Lanzamiento"];
                     juego = new Juego(id, rutaImagen, nombre, precio, genero, clasificacion, peso, plataforma, fechaLanzamiento);
-
-                    //if (juego.Nombre == nombre){
-                    //    plataforma = "Windows y Mac";
-                    //    juegos.RemoveAt(juegos.Count - 1);
-                    //}
-
                     juegos.Add(juego);
                 }
             }
@@ -91,12 +87,12 @@ namespace Data{
         //}
 
         public Cliente ObtenerCliente(string correo, string password){
-            string query = $"SELECT * FROM clientes WHERE email= '{correo}' AND password= '{password}';";
+            string query = $"SELECT * FROM clientes WHERE email LIKE '{correo}' AND password LIKE '{password}';";
             try{
                 connection.Open();
-                MySqlCommand comando = new MySqlCommand(query);
+                SqlCommand comando = new SqlCommand(query);
                 comando.Connection = connection;
-                MySqlDataReader reader = comando.ExecuteReader();
+                SqlDataReader reader = comando.ExecuteReader();
 
 
                 while (reader.Read()){
@@ -123,25 +119,3 @@ namespace Data{
         }
     }
 }
-
-
-//string conectionString = "Data Source = DESKTOP-N6UR074\\SQLEXPRESS; Initial Catalog=DigitalGames; Integrated Security=True";
-
-//SqlConnection connection = null;
-
-//public void SqlConection(){
-
-//    try{
-//        connection = new SqlConnection(conectionString);
-//        connection.Open();
-//        MessageBox.Show("Conection Success");
-//    }
-//    catch{
-//        MessageBox.Show("Error de Conexion con la BD");
-//    }
-//}
-
-//public void CloseConection(){
-//    connection.Close();
-//    MessageBox.Show("Se cerró la conexión.");
-//}

@@ -29,6 +29,7 @@ namespace DigitalGamesStore
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrador));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panelSideMenu = new System.Windows.Forms.Panel();
@@ -39,16 +40,8 @@ namespace DigitalGamesStore
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.cmbPlataforma = new System.Windows.Forms.ComboBox();
             this.btnImagen = new System.Windows.Forms.Button();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cmbClasificacion = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -56,7 +49,7 @@ namespace DigitalGamesStore
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cmbPlataforma = new System.Windows.Forms.ComboBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -204,17 +197,9 @@ namespace DigitalGamesStore
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelChildForm.Controls.Add(this.txtPeso);
             this.panelChildForm.Controls.Add(this.cmbPlataforma);
             this.panelChildForm.Controls.Add(this.btnImagen);
-            this.panelChildForm.Controls.Add(this.checkBox9);
-            this.panelChildForm.Controls.Add(this.checkBox8);
-            this.panelChildForm.Controls.Add(this.checkBox7);
-            this.panelChildForm.Controls.Add(this.checkBox6);
-            this.panelChildForm.Controls.Add(this.checkBox5);
-            this.panelChildForm.Controls.Add(this.checkBox4);
-            this.panelChildForm.Controls.Add(this.checkBox3);
-            this.panelChildForm.Controls.Add(this.checkBox2);
-            this.panelChildForm.Controls.Add(this.checkBox1);
             this.panelChildForm.Controls.Add(this.cmbClasificacion);
             this.panelChildForm.Controls.Add(this.dateTimePicker1);
             this.panelChildForm.Controls.Add(this.textBox2);
@@ -229,6 +214,23 @@ namespace DigitalGamesStore
             this.panelChildForm.Size = new System.Drawing.Size(896, 500);
             this.panelChildForm.TabIndex = 5;
             // 
+            // cmbPlataforma
+            // 
+            this.cmbPlataforma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPlataforma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPlataforma.FormattingEnabled = true;
+            this.cmbPlataforma.Items.AddRange(new object[] {
+            "E – Everyone",
+            "EC – Early Childhood",
+            "E 10+",
+            "T – Teen ",
+            "M – Mature 17+ ",
+            "AO – Adults only 18+"});
+            this.cmbPlataforma.Location = new System.Drawing.Point(653, 273);
+            this.cmbPlataforma.Name = "cmbPlataforma";
+            this.cmbPlataforma.Size = new System.Drawing.Size(173, 28);
+            this.cmbPlataforma.TabIndex = 18;
+            // 
             // btnImagen
             // 
             this.btnImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
@@ -241,114 +243,6 @@ namespace DigitalGamesStore
             this.btnImagen.Size = new System.Drawing.Size(156, 40);
             this.btnImagen.TabIndex = 17;
             this.btnImagen.UseVisualStyleBackColor = false;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox9.ForeColor = System.Drawing.Color.White;
-            this.checkBox9.Location = new System.Drawing.Point(746, 449);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(61, 20);
-            this.checkBox9.TabIndex = 16;
-            this.checkBox9.Text = "Sigilo";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox8.ForeColor = System.Drawing.Color.White;
-            this.checkBox8.Location = new System.Drawing.Point(468, 388);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(88, 20);
-            this.checkBox8.TabIndex = 15;
-            this.checkBox8.Text = "Estrategia";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox7.ForeColor = System.Drawing.Color.White;
-            this.checkBox7.Location = new System.Drawing.Point(606, 327);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(80, 20);
-            this.checkBox7.TabIndex = 14;
-            this.checkBox7.Text = "Aventura";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.ForeColor = System.Drawing.Color.White;
-            this.checkBox6.Location = new System.Drawing.Point(606, 388);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(63, 20);
-            this.checkBox6.TabIndex = 13;
-            this.checkBox6.Text = "Lucha";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.ForeColor = System.Drawing.Color.White;
-            this.checkBox5.Location = new System.Drawing.Point(746, 327);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(100, 20);
-            this.checkBox5.TabIndex = 12;
-            this.checkBox5.Text = "Battle Royal";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.ForeColor = System.Drawing.Color.White;
-            this.checkBox4.Location = new System.Drawing.Point(746, 388);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(88, 20);
-            this.checkBox4.TabIndex = 11;
-            this.checkBox4.Text = "MMORPG";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(468, 449);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(66, 20);
-            this.checkBox3.TabIndex = 10;
-            this.checkBox3.Text = "MOBA";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(606, 449);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(93, 20);
-            this.checkBox2.TabIndex = 9;
-            this.checkBox2.Text = "Simulacion";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(468, 327);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(68, 20);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Accion";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // cmbClasificacion
             // 
@@ -417,29 +311,21 @@ namespace DigitalGamesStore
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::DigitalGamesStore.Properties.Resources.Registerbtn;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(896, 500);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // cmbPlataforma
+            // txtPeso
             // 
-            this.cmbPlataforma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPlataforma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPlataforma.FormattingEnabled = true;
-            this.cmbPlataforma.Items.AddRange(new object[] {
-            "E – Everyone",
-            "EC – Early Childhood",
-            "E 10+",
-            "T – Teen ",
-            "M – Mature 17+ ",
-            "AO – Adults only 18+"});
-            this.cmbPlataforma.Location = new System.Drawing.Point(266, 327);
-            this.cmbPlataforma.Name = "cmbPlataforma";
-            this.cmbPlataforma.Size = new System.Drawing.Size(173, 28);
-            this.cmbPlataforma.TabIndex = 18;
+            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeso.Location = new System.Drawing.Point(204, 339);
+            this.txtPeso.Multiline = true;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(106, 28);
+            this.txtPeso.TabIndex = 19;
             // 
             // FrmAdministrador
             // 
@@ -486,15 +372,7 @@ namespace DigitalGamesStore
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ComboBox cmbClasificacion;
         private System.Windows.Forms.Button btnImagen;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox cmbPlataforma;
+        private System.Windows.Forms.TextBox txtPeso;
     }
 }

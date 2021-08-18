@@ -273,8 +273,5 @@
     <None Include="Resources\FrmBiblioteca.png" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Images\League of Legends.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

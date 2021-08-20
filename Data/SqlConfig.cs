@@ -20,9 +20,6 @@ namespace Data{
         private List<Juego> juegos = null;
 
         private SqlConfig (){
-            //MysqlConnect();
-            //usuarios = new List<Usuario>();
-            //connection = new MySqlConnection("Database= digitalgames; Data Source= localhost; Port= 3306; User Id= root; Password= jotaerre01");
             connection = new SqlConnection(connectionString);
             juegos = new List<Juego>();
         }
@@ -74,17 +71,6 @@ namespace Data{
             return juegos;
 
         }
-
-        //public void MysqlConnect(){
-        //    try{
-        //        //connection = 
-        //        connection.Open();
-        //        MessageBox.Show("Conection Success");
-        //    }
-        //    catch (Exception){
-        //        MessageBox.Show("Error en la Conexion de la base de datos");
-        //    }
-        //}
 
         public Cliente ObtenerCliente(string correo, string password){
             string query = $"SELECT * FROM clientes WHERE email LIKE '{correo}' AND password LIKE '{password}';";

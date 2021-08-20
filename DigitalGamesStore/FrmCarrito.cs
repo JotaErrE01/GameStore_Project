@@ -9,8 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DigitalGamesStore
-{
+namespace DigitalGamesStore{
     public partial class FrmCarrito : Form{
 
         AdmDigitalGames adm = AdmDigitalGames.GetAdm();

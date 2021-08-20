@@ -67,9 +67,31 @@ namespace Controller{
 
             /*
              * TODO: MEJORAR AGREGAR AL CARRITO, NO FUNCIONA CUANDO SE FILTRA
+             * filtrar mediante la misma lista juegos es la  unica opcion, sobreescribirla al filtrar
              * **/
 
-            carrito.Add(juegos.ElementAt(dgvBiblioteca.CurrentRow.Index));          
+            //MessageBox.Show(dgvBiblioteca[1, dgvBiblioteca.CurrentRow.Index].Value.ToString());
+
+            //DataGridViewCellCollection coleccion = dgvBiblioteca.CurrentRow.Cells;
+
+            //Juego game = null;
+
+            bool flag = true;
+
+            carrito.ForEach((juego) => {
+                if (juego.Nombre == dgvBiblioteca[1, dgvBiblioteca.CurrentRow.Index].Value.ToString()){
+                    MessageBox.Show("Ya se encuentra registrado ese juego en el carrito");
+                    //game = juego;
+                    flag = false;
+                    return;
+                }
+            });
+
+            if (flag){
+                carrito.Add(juegos.ElementAt(dgvBiblioteca.CurrentRow.Index));
+            }
+
+            //carrito.Remove(game);
         }
 
         public void LlenarGridCarrito(DataGridView dgvCarrito){

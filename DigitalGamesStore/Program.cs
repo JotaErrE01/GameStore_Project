@@ -12,13 +12,12 @@ namespace DigitalGamesStore
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
-        {
+        static void Main(){
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FrmStart());
 
-            FrmStart start = new FrmStart();
+            FrmVendedor start = new FrmVendedor();
             start.Show();
             Application.Run();
         }

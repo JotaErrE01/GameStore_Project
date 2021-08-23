@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DigitalGamesStore{
-    public partial class FrmAdministrador : Form{
+    public partial class FrmVendedor : Form{
 
         //Fields
         private Form activeForm = null;
         AdmDigitalGames adm = AdmDigitalGames.GetAdm();
 
-        public FrmAdministrador(){
+        public FrmVendedor(){
             adm.conectionSql();
             InitializeComponent();
             cmbClasificacion.SelectedItem = "E – Everyone";
@@ -68,6 +68,14 @@ namespace DigitalGamesStore{
 
         private void FrmAdministrador_Load(object sender, EventArgs e){
             //adm.CargarLauncherAdmin(cmbPlataforma);
+        }
+
+        private void btnPago_Click(object sender, EventArgs e){
+            openChildForm(new FrmPago());
+        }
+
+        private void btnListarPagos_Click(object sender, EventArgs e){
+            openChildForm(new FrmListarPago());
         }
     }
 }

@@ -18,7 +18,58 @@ namespace Controller{
         List<Juego> juegos= null;
         List<Juego> carrito = null;
         Cliente cliente = null;
+        Vendedor vendedor = null;
+        Juego juego = null;
         SqlConfig bd = null;
+
+        public void EliminarPago(DataGridView dgvPago){
+            if(dgvPago.SelectedRows.Count != 1){
+                MessageBox.Show("Seleccione una Fila");
+                return;
+            }
+
+            int id = (int)dgvPago[0, dgvPago.CurrentRow.Index].Value;
+            //MessageBox.Show(id.ToString());
+
+            if (bd.EliminarPago(id)){
+                MessageBox.Show("Pago Eliminado Exitosamente");
+                ListarPagos(dgvPago);
+            }
+        }
+
+        public void RegistrarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtPrecio, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
+
+            string cedulaCliente = txtCedulaCliente.Text;
+            string cedulaVendedor = txtCedulaVendedor.Text;
+            int juegoId = Convert.ToInt32(txtidJuego.Text);
+            int cantidad = Convert.ToInt32(txtCantidad.Text);
+            decimal precio = Convert.ToDecimal(txtPrecio.Text);
+            string tipo_pago = cmbTipoPago.Text;
+            DateTime fechaPago = DateTime.Now.Date;
+
+            //MessageBox.Show(fechaPago.ToString());
+
+            // Validacion
+
+            cliente = bd.ConsultarCliente(cedulaCliente);
+
+            //MessageBox.Show(bd.ConsultarCliente(cedulaCliente).Cedula);
+            vendedor = bd.ConsultarVendedor(cedulaVendedor);
+            //MessageBox.Show(bd.ConsultarVendedor(cedulaVendedor).Cedula);
+            juego = bd.ConsultarJuego(juegoId);
+            //MessageBox.Show(juego.IdJuego.ToString());
+
+            Pago pago = new Pago(tipo_pago, cantidad, juego, cliente, vendedor, fechaPago, fechaPago);
+
+            bd.InsertarPago(pago);
+
+        }
+
+        public void ListarPagos(DataGridView dgvPago){
+            dgvPago.Rows.Clear();
+            bd.ConsultarPagos(dgvPago);
+        }
+
         //Validacion v = null;
 
         private AdmDigitalGames(){
@@ -179,7 +230,7 @@ namespace Controller{
 
         public void IniciarLauncher(Label lblNombre, Label lblSaldo){
             lblNombre.Text = $"Bienvenido {cliente.Nombre}";
-            lblSaldo.Text = $"Saldo = ${cliente.Saldo}";
+            //lblSaldo.Text = $"Saldo = ${cliente.Saldo}";
         }
 
         public void ValidarLoginAdministrador(TextBox txtCorreo, TextBox txtPassword){

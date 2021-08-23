@@ -37,16 +37,16 @@ namespace DigitalGamesStore
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCarrito));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCarrito = new System.Windows.Forms.DataGridView();
-            this.btnComprar = new System.Windows.Forms.Button();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.ImageCol = new System.Windows.Forms.DataGridViewImageColumn();
             this.NameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReleaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AgeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnComprar = new System.Windows.Forms.Button();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +118,56 @@ namespace DigitalGamesStore
             this.dgvCarrito.Size = new System.Drawing.Size(731, 308);
             this.dgvCarrito.TabIndex = 1;
             // 
+            // ImageCol
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(80)))));
+            this.ImageCol.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ImageCol.HeaderText = "Imagen";
+            this.ImageCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.ImageCol.Name = "ImageCol";
+            this.ImageCol.ReadOnly = true;
+            this.ImageCol.Width = 63;
+            // 
+            // NameCol
+            // 
+            this.NameCol.HeaderText = "Juego";
+            this.NameCol.Name = "NameCol";
+            this.NameCol.ReadOnly = true;
+            this.NameCol.Width = 74;
+            // 
+            // TypeCol
+            // 
+            this.TypeCol.HeaderText = "Genero";
+            this.TypeCol.Name = "TypeCol";
+            this.TypeCol.ReadOnly = true;
+            this.TypeCol.Width = 82;
+            // 
+            // ReleaseDate
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ReleaseDate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ReleaseDate.HeaderText = "Fecha de Lanzamiento";
+            this.ReleaseDate.Name = "ReleaseDate";
+            this.ReleaseDate.ReadOnly = true;
+            this.ReleaseDate.Width = 187;
+            // 
+            // AgeCol
+            // 
+            this.AgeCol.HeaderText = "Clasificacion";
+            this.AgeCol.Name = "AgeCol";
+            this.AgeCol.ReadOnly = true;
+            this.AgeCol.Width = 120;
+            // 
+            // PriceCol
+            // 
+            this.PriceCol.HeaderText = "Precio";
+            this.PriceCol.Name = "PriceCol";
+            this.PriceCol.ReadOnly = true;
+            this.PriceCol.Width = 76;
+            // 
             // btnComprar
             // 
             this.btnComprar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
@@ -168,56 +218,6 @@ namespace DigitalGamesStore
             this.btnEliminar.TabIndex = 13;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // ImageCol
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(80)))));
-            this.ImageCol.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ImageCol.HeaderText = "Imagen";
-            this.ImageCol.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.ImageCol.Name = "ImageCol";
-            this.ImageCol.ReadOnly = true;
-            this.ImageCol.Width = 63;
-            // 
-            // NameCol
-            // 
-            this.NameCol.HeaderText = "Juego";
-            this.NameCol.Name = "NameCol";
-            this.NameCol.ReadOnly = true;
-            this.NameCol.Width = 74;
-            // 
-            // TypeCol
-            // 
-            this.TypeCol.HeaderText = "Genero";
-            this.TypeCol.Name = "TypeCol";
-            this.TypeCol.ReadOnly = true;
-            this.TypeCol.Width = 82;
-            // 
-            // ReleaseDate
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ReleaseDate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ReleaseDate.HeaderText = "Fecha de Lanzamiento";
-            this.ReleaseDate.Name = "ReleaseDate";
-            this.ReleaseDate.ReadOnly = true;
-            this.ReleaseDate.Width = 187;
-            // 
-            // AgeCol
-            // 
-            this.AgeCol.HeaderText = "Clasificacion";
-            this.AgeCol.Name = "AgeCol";
-            this.AgeCol.ReadOnly = true;
-            this.AgeCol.Width = 120;
-            // 
-            // PriceCol
-            // 
-            this.PriceCol.HeaderText = "Precio";
-            this.PriceCol.Name = "PriceCol";
-            this.PriceCol.ReadOnly = true;
-            this.PriceCol.Width = 76;
             // 
             // FrmCarrito
             // 

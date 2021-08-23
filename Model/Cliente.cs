@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Model{
     public class Cliente : Usuario{
 
-        decimal saldo;
+        string direccion;
 
-        public Cliente(int id, string nombre, string email, string password, decimal saldo) : base(id, nombre, email, password){
-            this.Saldo = saldo;
+        public Cliente(string cedula, string nombre, string email, string direccion) : base(cedula, nombre, email){
+            this.Direccion = direccion;
         }
 
-        public decimal Saldo { get => saldo; set => saldo = value; }
+        public string Direccion { get => direccion; set => direccion = value; }
 
         public double CalcularSaldo(double saldo, double total) {
 

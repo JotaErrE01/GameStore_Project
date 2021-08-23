@@ -48,7 +48,7 @@ namespace DigitalGamesStore
 
             //adm.VerificarAdmin(txtCorreo, txtPassword);
 
-            FrmAdministrador frmAdministrador = new FrmAdministrador();
+            FrmVendedor frmAdministrador = new FrmVendedor();
             frmAdministrador.Show();
             this.Close();
         }

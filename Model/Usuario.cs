@@ -8,20 +8,20 @@ namespace Model{
     public class Usuario{
 
         int id;
+        string cedula;
         string nombre;
         string email;
-        string password;
 
-        public Usuario(int id, string nombre, string email, string password){
+        public Usuario(string cedula, string nombre, string email){
             this.Id = id;
+            this.Cedula = cedula;
             this.Nombre = nombre;
             this.Email = email;
-            this.Password = password;
         }
 
         public int Id { get => id; set => id = value; }
+        public string Cedula { get => cedula; set => cedula = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Email { get => email; set => email = value; }
-        public string Password { get => password; set => password = value; }
     }
 }

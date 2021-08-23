@@ -39,30 +39,36 @@ namespace Controller{
 
         public void RegistrarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtPrecio, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
 
+            //Validacion
+            if (txtCedulaCliente.Text.Trim() == "" || txtCedulaVendedor.Text.Trim() == "" || txtidJuego.Text.Trim() == "" || txtPrecio.Text.Trim() == "" || txtCantidad.Text.Trim() == ""){
+                MessageBox.Show("Por favor llene todos los campos");
+                return;
+            }
+
+
+
             string cedulaCliente = txtCedulaCliente.Text;
             string cedulaVendedor = txtCedulaVendedor.Text;
             int juegoId = Convert.ToInt32(txtidJuego.Text);
             int cantidad = Convert.ToInt32(txtCantidad.Text);
-            decimal precio = Convert.ToDecimal(txtPrecio.Text);
-            string tipo_pago = cmbTipoPago.Text;
+            //decimal precio = Convert.ToDecimal(txtPrecio.Text);
+            string tipo_pago = (cmbTipoPago.SelectedIndex + 1) + "";
             DateTime fechaPago = DateTime.Now.Date;
+            DateTime fechaPagoFinal = dtpFechaPagoFinal.Value.Date;
 
-            //MessageBox.Show(fechaPago.ToString());
+            //if (dtpFechaPagoFinal.Enabled){
+            //    fechaPagoFinal = dtpFechaPagoFinal.Value;
+            //}
 
-            // Validacion
 
             cliente = bd.ConsultarCliente(cedulaCliente);
-
-            //MessageBox.Show(bd.ConsultarCliente(cedulaCliente).Cedula);
             vendedor = bd.ConsultarVendedor(cedulaVendedor);
-            //MessageBox.Show(bd.ConsultarVendedor(cedulaVendedor).Cedula);
             juego = bd.ConsultarJuego(juegoId);
-            //MessageBox.Show(juego.IdJuego.ToString());
 
-            Pago pago = new Pago(tipo_pago, cantidad, juego, cliente, vendedor, fechaPago, fechaPago);
+            Pago pago = new Pago(tipo_pago, cantidad, juego, cliente, vendedor, fechaPago, fechaPagoFinal);
+            //MessageBox.Show(fechaPago.ToString());
 
             bd.InsertarPago(pago);
-
         }
 
         public void ListarPagos(DataGridView dgvPago){

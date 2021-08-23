@@ -22,5 +22,11 @@ namespace DigitalGamesStore
         private void btnRegistrarPago_Click(object sender, EventArgs e){
             adm.RegistrarPago(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtPrecio, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
         }
+
+        private void cmbTipoPago_TextUpdate(object sender, EventArgs e){
+            if(cmbTipoPago.Text == "Credito"){
+                dtpFechaPagoFinal.Enabled = true;
+            }
+        }
     }
 }

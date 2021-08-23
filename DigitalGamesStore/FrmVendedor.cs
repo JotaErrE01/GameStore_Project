@@ -19,7 +19,8 @@ namespace DigitalGamesStore{
         public FrmVendedor(){
             adm.conectionSql();
             InitializeComponent();
-            cmbClasificacion.SelectedItem = "E – Everyone";
+            cmbTipoPago.SelectedItem = "Efectivo";
+            //cmbClasificacion.SelectedItem = "E – Everyone";
         }
 
         private void btnExit_Click(object sender, EventArgs e){
@@ -56,26 +57,23 @@ namespace DigitalGamesStore{
             childForm.Show();
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e){
+        private void btnPago_Click(object sender, EventArgs e){
+            //openChildForm(new FrmPago());
             if (activeForm != null){
                 activeForm.Close();
             }
         }
 
-        private void btnListar_Click(object sender, EventArgs e){
-            openChildForm(new FrmListar());
-        }
-
-        private void FrmAdministrador_Load(object sender, EventArgs e){
-            //adm.CargarLauncherAdmin(cmbPlataforma);
-        }
-
-        private void btnPago_Click(object sender, EventArgs e){
-            openChildForm(new FrmPago());
-        }
-
         private void btnListarPagos_Click(object sender, EventArgs e){
             openChildForm(new FrmListarPago());
+        }
+
+        private void btnRegistrarPago_Click(object sender, EventArgs e){
+            adm.RegistrarPago(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtPrecio, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
+        }
+
+        private void cmbTipoPago_SelectedIndexChanged(object sender, EventArgs e){
+            if (cmbTipoPago.Text == "Credito") dtpFechaPagoFinal.Enabled = true;
         }
     }
 }

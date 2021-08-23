@@ -98,9 +98,11 @@ namespace DigitalGamesStore
             this.cmbTipoPago.Name = "cmbTipoPago";
             this.cmbTipoPago.Size = new System.Drawing.Size(168, 28);
             this.cmbTipoPago.TabIndex = 5;
+            this.cmbTipoPago.TextUpdate += new System.EventHandler(this.cmbTipoPago_TextUpdate);
             // 
             // dtpFechaPagoFinal
             // 
+            this.dtpFechaPagoFinal.Enabled = false;
             this.dtpFechaPagoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaPagoFinal.Location = new System.Drawing.Point(271, 270);
             this.dtpFechaPagoFinal.Name = "dtpFechaPagoFinal";

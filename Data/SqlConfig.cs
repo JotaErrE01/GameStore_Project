@@ -201,12 +201,15 @@ namespace Data{
                     string tipoPago = reader["tipoPago"].ToString();
                     decimal precio = (decimal)reader["precio"];
                     DateTime fechaPago = (DateTime)reader["fechaPago"];
-                    if(reader["fechaPagoFinal"].GetType() != typeof(System.DBNull)){
-                        DateTime fechaPagoFinal = (DateTime)reader["fechaPagoFinal"];
+                    object fechaPagoFinal;
+                    if (reader["fechaPagoFinal"].GetType() != typeof(System.DBNull)){
+                        fechaPagoFinal = ((DateTime)reader["fechaPagoFinal"]).ToString("yyyy-MM-dd");
+                    }else {
+                        fechaPagoFinal = "";
                     }
                     decimal total = precio * cantidad;
 
-                    dgvPago.Rows.Add(id, cedulaVendedor, cedulaCliente, nombre, cantidad, precio, total,tipoPago, fechaPago.ToString("yyyy-MM-dd"), "");
+                    dgvPago.Rows.Add(id, cedulaVendedor, cedulaCliente, nombre, cantidad, precio, total,tipoPago, fechaPago.ToString("yyyy-MM-dd"), fechaPagoFinal);
                 }
             }
             catch (Exception e){
@@ -223,7 +226,12 @@ namespace Data{
 
             //MessageBox.Show($"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}')");
 
-            string query = $"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}')";
+            string query = $"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago, fechaPagoFinal) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}', '{pago.FechaPagoFin.ToString("yyyy-MM-dd")}')";
+
+            if (pago.FechaPagoFin.ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd"))){
+
+                query = $"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}')";
+            }
 
             try{
                 connection.Open();

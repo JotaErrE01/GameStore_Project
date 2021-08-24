@@ -290,6 +290,20 @@
   <ItemGroup>
     <None Include="Resources\FrmBiblioteca.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagobtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btneliminarpago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnlistarp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 38.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

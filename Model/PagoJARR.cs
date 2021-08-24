@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Model{
 
-    public class Pago{
+    public class PagoJARR{
 
         string tipoPago;
         int cantidadJuegos;
-        Juego juego;
-        Cliente cliente;
-        Vendedor vendedor;
+        JuegoJARR juego;
+        ClienteJARR cliente;
+        VendedorJARR vendedor;
         DateTime fechaPago;
         DateTime fechaPagoFin;
 
-        public Pago(string tipoPago, int cantidadJuegos, Juego juego, Cliente cliente, Vendedor vendedor, DateTime fechaPago, DateTime fechaPagoFin){
+        public PagoJARR(string tipoPago, int cantidadJuegos, JuegoJARR juego, ClienteJARR cliente, VendedorJARR vendedor, DateTime fechaPago, DateTime fechaPagoFin){
             this.tipoPago = tipoPago;
             this.cantidadJuegos = cantidadJuegos;
             this.juego = juego;
@@ -28,11 +28,11 @@ namespace Model{
 
         public string TipoPago { get => tipoPago; set => tipoPago = value; }
         public int CantidadJuegos { get => cantidadJuegos; set => cantidadJuegos = value; }
-        public Juego Juego { get => juego; set => juego = value; }
-        public Cliente Cliente { get => cliente; set => cliente = value; }
+        public JuegoJARR Juego { get => juego; set => juego = value; }
+        public ClienteJARR Cliente { get => cliente; set => cliente = value; }
         public DateTime FechaPago { get => fechaPago; set => fechaPago = value; }
         public DateTime FechaPagoFin { get => fechaPagoFin; set => fechaPagoFin = value; }
-        public Vendedor Vendedor { get => vendedor; set => vendedor = value; }
+        public VendedorJARR Vendedor { get => vendedor; set => vendedor = value; }
 
 
         public decimal calcularTotal(decimal precio, int cantidad){

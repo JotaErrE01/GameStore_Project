@@ -15,11 +15,11 @@ namespace Controller{
 
         private static AdmDigitalGames adm = null;
         Validacion v = null;
-        List<Juego> juegos= null;
-        List<Juego> carrito = null;
-        Cliente cliente = null;
-        Vendedor vendedor = null;
-        Juego juego = null;
+        List<JuegoJARR> juegos= null;
+        List<JuegoJARR> carrito = null;
+        ClienteJARR cliente = null;
+        VendedorJARR vendedor = null;
+        JuegoJARR juego = null;
         SqlConfig bd = null;
 
         public void EliminarPago(DataGridView dgvPago){
@@ -45,8 +45,6 @@ namespace Controller{
                 return;
             }
 
-
-
             string cedulaCliente = txtCedulaCliente.Text;
             string cedulaVendedor = txtCedulaVendedor.Text;
             int juegoId = Convert.ToInt32(txtidJuego.Text);
@@ -56,16 +54,12 @@ namespace Controller{
             DateTime fechaPago = DateTime.Now.Date;
             DateTime fechaPagoFinal = dtpFechaPagoFinal.Value.Date;
 
-            //if (dtpFechaPagoFinal.Enabled){
-            //    fechaPagoFinal = dtpFechaPagoFinal.Value;
-            //}
-
 
             cliente = bd.ConsultarCliente(cedulaCliente);
             vendedor = bd.ConsultarVendedor(cedulaVendedor);
             juego = bd.ConsultarJuego(juegoId);
 
-            Pago pago = new Pago(tipo_pago, cantidad, juego, cliente, vendedor, fechaPago, fechaPagoFinal);
+            PagoJARR pago = new PagoJARR(tipo_pago, cantidad, juego, cliente, vendedor, fechaPago, fechaPagoFinal);
             //MessageBox.Show(fechaPago.ToString());
 
             bd.InsertarPago(pago);
@@ -80,8 +74,8 @@ namespace Controller{
 
         private AdmDigitalGames(){
             //inicializamos la lista
-            juegos = new List<Juego>();
-            carrito = new List<Juego>();
+            juegos = new List<JuegoJARR>();
+            carrito = new List<JuegoJARR>();
             bd = SqlConfig.GetSql();
         }
 
@@ -110,7 +104,7 @@ namespace Controller{
             LlenarTablasDeJuegos(juegos, dgvBiblioteca);            
         }
 
-        public void LlenarTablasDeJuegos(List<Juego> juegos, DataGridView dgvBiblioteca){
+        public void LlenarTablasDeJuegos(List<JuegoJARR> juegos, DataGridView dgvBiblioteca){
             juegos.ForEach(juego => {
                 dgvBiblioteca.Rows.Add(Image.FromFile(juego.RutaImagen), juego.Nombre, juego.Genero, juego.FechaLanzamiento.ToString("yyyy-MM-dd"), juego.Clasificacion, "$" + juego.Precio, juego.Peso, juego.Plataforma);
             });

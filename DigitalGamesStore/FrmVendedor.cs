@@ -73,7 +73,51 @@ namespace DigitalGamesStore{
         }
 
         private void cmbTipoPago_SelectedIndexChanged(object sender, EventArgs e){
-            if (cmbTipoPago.Text == "Credito") dtpFechaPagoFinal.Enabled = true;
+            if (cmbTipoPago.Text == "Credito") {  
+                dtpFechaPagoFinal.Enabled = true;
+            }else{
+                dtpFechaPagoFinal.Enabled = false;
+            }
+        }
+
+        private void txtidJuego_KeyPress(object sender, KeyPressEventArgs e){
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e){
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCedulaVendedor_KeyPress(object sender, KeyPressEventArgs e){
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e){
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e){
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back)) && (e.KeyChar != '.')){
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

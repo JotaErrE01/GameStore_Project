@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model{
-    class Factura{
+    class FacturaJARR{
 
         int id;
         string emisor;
         string receptor;
 
-        public Factura(int id, string emisor, string receptor){
+        public FacturaJARR(int id, string emisor, string receptor){
             this.id = id;
             this.emisor = emisor;
             this.receptor = receptor;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model{
-    public class Juego{
+    public class JuegoJARR{
 
         int idJuego;
         string rutaImagen;
@@ -17,7 +17,7 @@ namespace Model{
         string genero;
         DateTime fechaLanzamiento;
 
-        public Juego (int idJuego, string rutaImagen, string nombre, decimal precio, string genero, string clasificacion, double peso, string plataforma, DateTime fechaLanzamiento){
+        public JuegoJARR (int idJuego, string rutaImagen, string nombre, decimal precio, string genero, string clasificacion, double peso, string plataforma, DateTime fechaLanzamiento){
             this.idJuego = idJuego;
             this.rutaImagen = rutaImagen;
             this.nombre = nombre;

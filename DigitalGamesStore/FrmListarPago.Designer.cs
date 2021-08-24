@@ -33,9 +33,7 @@ namespace DigitalGamesStore
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListarPago));
             this.dgvPago = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.idCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedulaVendedorCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedulaClienteCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,7 @@ namespace DigitalGamesStore
             this.tipoPagoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPagoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPagoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPago)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,28 +120,13 @@ namespace DigitalGamesStore
             this.dgvPago.Size = new System.Drawing.Size(857, 308);
             this.dgvPago.TabIndex = 1;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(9)))), ((int)(((byte)(77)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(49, 420);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(171, 39);
-            this.btnEliminar.TabIndex = 14;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // idCol
             // 
             this.idCol.HeaderText = "ID";
             this.idCol.Name = "idCol";
             this.idCol.ReadOnly = true;
             this.idCol.Visible = false;
-            this.idCol.Width = 46;
+            this.idCol.Width = 48;
             // 
             // cedulaVendedorCol
             // 
@@ -206,6 +190,21 @@ namespace DigitalGamesStore
             this.fechaPagoFinal.Name = "fechaPagoFinal";
             this.fechaPagoFinal.ReadOnly = true;
             this.fechaPagoFinal.Width = 106;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(9)))), ((int)(((byte)(77)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Image = global::DigitalGamesStore.Properties.Resources.btneliminarpago;
+            this.btnEliminar.Location = new System.Drawing.Point(49, 420);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(171, 39);
+            this.btnEliminar.TabIndex = 14;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FrmListarPago
             // 

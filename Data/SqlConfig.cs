@@ -15,13 +15,13 @@ namespace Data{
         private static SqlConfig sql = null;
         private SqlConnection connection = null;
         //private List<Usuario> usuarios = null;
-        private Cliente cliente = null;
-        private Juego juego = null;
-        private List<Juego> juegos = null;
+        private ClienteJARR cliente = null;
+        private JuegoJARR juego = null;
+        private List<JuegoJARR> juegos = null;
 
         private SqlConfig (){
             connection = new SqlConnection(connectionString);
-            juegos = new List<Juego>();
+            juegos = new List<JuegoJARR>();
         }
 
         public static SqlConfig GetSql(){
@@ -52,7 +52,7 @@ namespace Data{
             return true;
         }
 
-        public List<Juego> ConsultarJuegos(){
+        public List<JuegoJARR> ConsultarJuegos(){
             string query = "SELECT juegos.id, ruta_imagen, precio, clasificacion, fecha_Lanzamiento, nombre, tipo_plataforma, tipo_genero, peso FROM juegosplataformas INNER JOIN juegosgeneros ON juegosgeneros.idJuego = juegosplataformas.idJuego INNER JOIN juegos ON juegos.id = juegosgeneros.idJuego INNER JOIN plataformas ON plataformas.id = idPlataforma INNER JOIN generos ON generos.id = idGenero;";
             try{
                 connection.Open();
@@ -73,7 +73,7 @@ namespace Data{
                     decimal precio = (decimal)reader["precio"];
                     string plataforma = reader["tipo_plataforma"].ToString();
                     DateTime fechaLanzamiento = (DateTime)reader["fecha_Lanzamiento"];
-                    juego = new Juego(id, rutaImagen, nombre, precio, genero, clasificacion, peso, plataforma, fechaLanzamiento);
+                    juego = new JuegoJARR(id, rutaImagen, nombre, precio, genero, clasificacion, peso, plataforma, fechaLanzamiento);
                     juegos.Add(juego);
                 }
             }
@@ -89,7 +89,7 @@ namespace Data{
 
         }
 
-        public Juego ConsultarJuego(int juegoId){
+        public JuegoJARR ConsultarJuego(int juegoId){
             string query = $"SELECT juegos.id, ruta_imagen, precio, clasificacion, fecha_Lanzamiento, nombre, tipo_plataforma, tipo_genero, peso FROM juegos INNER JOIN juegosgeneros ON juegos.id = juegosgeneros.idJuego INNER JOIN generos ON juegosgeneros.idGenero = generos.id INNER JOIN juegosplataformas ON juegosplataformas.idJuego = juegos.id INNER JOIN plataformas ON plataformas.id = juegosplataformas.idPlataforma WHERE juegos.id = {juegoId}";
 
             try{
@@ -109,7 +109,7 @@ namespace Data{
                     string plataforma = reader["tipo_plataforma"].ToString();
                     DateTime fechaLanzamiento = (DateTime)reader["fecha_Lanzamiento"];
 
-                    juego = new Juego(id, rutaImagen, nombre, precio, genero, clasificacion, peso, plataforma, fechaLanzamiento);
+                    juego = new JuegoJARR(id, rutaImagen, nombre, precio, genero, clasificacion, peso, plataforma, fechaLanzamiento);
                 }
 
             }catch (Exception e){
@@ -124,9 +124,9 @@ namespace Data{
             return juego;
         }
 
-        public Vendedor ConsultarVendedor(string cedulaVendedor){
+        public VendedorJARR ConsultarVendedor(string cedulaVendedor){
             string query = $"SELECT * FROM vendedores WHERE cedula = {cedulaVendedor}";
-            Vendedor vendedor = null;
+            VendedorJARR vendedor = null;
             try{
                 connection.Open();
                 SqlCommand comando = new SqlCommand(query);
@@ -139,7 +139,7 @@ namespace Data{
                     string email = reader["email"].ToString();
                     string codigo = reader["codigo"].ToString();
 
-                    vendedor = new Vendedor(cedula, nombre, email, codigo);
+                    vendedor = new VendedorJARR(cedula, nombre, email, codigo);
                 }
             }
             catch (Exception e){
@@ -152,9 +152,9 @@ namespace Data{
             return vendedor;
         }
 
-        public Cliente ConsultarCliente(string cedulaCliente){
+        public ClienteJARR ConsultarCliente(string cedulaCliente){
 
-            Cliente cliente = null;
+            ClienteJARR cliente = null;
 
             try{
                 string query = $"SELECT * FROM clientes WHERE cedula = {cedulaCliente}";
@@ -169,7 +169,7 @@ namespace Data{
                     string email = reader["email"].ToString();
                     string direccion = reader["direccion"].ToString();
 
-                    cliente = new Cliente(cedula, nombre, email, direccion);
+                    cliente = new ClienteJARR(cedula, nombre, email, direccion);
                 }
             }
             catch (Exception e){
@@ -222,14 +222,11 @@ namespace Data{
             return true;
         }
 
-        public void InsertarPago(Pago pago){
-
-            //MessageBox.Show($"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}')");
+        public void InsertarPago(PagoJARR pago){
 
             string query = $"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago, fechaPagoFinal) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}', '{pago.FechaPagoFin.ToString("yyyy-MM-dd")}')";
 
             if (pago.FechaPagoFin.ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd"))){
-
                 query = $"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}')";
             }
 
@@ -247,7 +244,7 @@ namespace Data{
             }
         }
 
-        public Cliente ObtenerCliente(string correo, string password){
+        public ClienteJARR ObtenerCliente(string correo, string password){
             string query = $"SELECT * FROM clientes WHERE email LIKE '{correo}' AND password LIKE '{password}';";
             try{
                 connection.Open();

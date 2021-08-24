@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model{
-    public class Usuario{
+    public class UsuarioJARR{
 
         int id;
         string cedula;
         string nombre;
         string email;
 
-        public Usuario(string cedula, string nombre, string email){
+        public UsuarioJARR(string cedula, string nombre, string email){
             this.Id = id;
             this.Cedula = cedula;
             this.Nombre = nombre;

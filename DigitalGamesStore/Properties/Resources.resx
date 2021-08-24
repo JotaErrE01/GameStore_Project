@@ -124,8 +124,14 @@
   <data name="libraryIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\libraryIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pagobtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pagobtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Group 9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Group 9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnSalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSalir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="homeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\homeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,17 +139,29 @@
   <data name="btnComprar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnComprar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnEliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnEliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnlistarp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnlistarp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RegisterScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RegisterScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSalir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="v" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\v.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frameee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frameee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnImagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnImagen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Registrarse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Registrarse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FrmBiblioteca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FrmBiblioteca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Group 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Group 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,8 +184,8 @@
   <data name="Group 36" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Group 36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Group 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Group 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btneliminarpago" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btneliminarpago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BtnAtras" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BtnAtras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,8 +208,8 @@
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnEliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnEliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Group 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnCambios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnCambios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,7 +220,7 @@
   <data name="Group 31" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Group 31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FrmBiblioteca" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FrmBiblioteca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Group 38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

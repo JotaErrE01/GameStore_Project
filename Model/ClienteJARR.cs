@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model{
-    public class Cliente : Usuario{
+    public class ClienteJARR : UsuarioJARR{
 
         string direccion;
 
-        public Cliente(string cedula, string nombre, string email, string direccion) : base(cedula, nombre, email){
+        public ClienteJARR(string cedula, string nombre, string email, string direccion) : base(cedula, nombre, email){
             this.Direccion = direccion;
         }
 

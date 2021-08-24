@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model{
-    public class Vendedor : Usuario{
+    public class VendedorJARR : UsuarioJARR{
 
         string codigo;
 
-        public Vendedor(string cedula, string nombre, string email, string codigo) : base (cedula, nombre, email){
+        public VendedorJARR(string cedula, string nombre, string email, string codigo) : base (cedula, nombre, email){
             this.Codigo = codigo;
         }
 

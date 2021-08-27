@@ -9,9 +9,12 @@ namespace Model{
 
         string direccion;
 
-        public ClienteJARR(string cedula, string nombre, string email, string direccion) : base(cedula, nombre, email){
-            this.Direccion = direccion;
-        }
+
+        //public ClienteJARR(string cedula, string nombre, string email, string direccion) : base(cedula, nombre, email){
+        //    this.Direccion = direccion;
+        //}
+
+        public ClienteJARR() { }
 
         public string Direccion { get => direccion; set => direccion = value; }
 

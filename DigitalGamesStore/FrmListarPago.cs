@@ -9,8 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DigitalGamesStore
-{
+namespace DigitalGamesStore{
     public partial class FrmListarPago : Form{
 
         AdmDigitalGames adm = AdmDigitalGames.GetAdm();
@@ -25,6 +24,19 @@ namespace DigitalGamesStore
         }
 
         private void FrmListarPago_Load(object sender, EventArgs e){
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e){
+            if(!adm.EditarPago(dgvPago)) return;
+            FrmPago frm = new FrmPago();
+            panel1.Dock = DockStyle.Fill;
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+            panel1.Controls.Add(frm);
+            panel1.Tag = frm;
+            frm.BringToFront();
+            frm.Show();
         }
     }
 }

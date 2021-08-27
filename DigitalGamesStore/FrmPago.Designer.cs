@@ -37,7 +37,7 @@ namespace DigitalGamesStore
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.cmbTipoPago = new System.Windows.Forms.ComboBox();
             this.dtpFechaPagoFinal = new System.Windows.Forms.DateTimePicker();
-            this.btnRegistrarPago = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtidJuego
@@ -87,6 +87,7 @@ namespace DigitalGamesStore
             // 
             // cmbTipoPago
             // 
+            this.cmbTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoPago.FormattingEnabled = true;
             this.cmbTipoPago.Items.AddRange(new object[] {
@@ -98,7 +99,7 @@ namespace DigitalGamesStore
             this.cmbTipoPago.Name = "cmbTipoPago";
             this.cmbTipoPago.Size = new System.Drawing.Size(168, 28);
             this.cmbTipoPago.TabIndex = 5;
-            this.cmbTipoPago.TextUpdate += new System.EventHandler(this.cmbTipoPago_TextUpdate);
+            this.cmbTipoPago.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPago_SelectedIndexChanged);
             // 
             // dtpFechaPagoFinal
             // 
@@ -109,19 +110,19 @@ namespace DigitalGamesStore
             this.dtpFechaPagoFinal.Size = new System.Drawing.Size(200, 26);
             this.dtpFechaPagoFinal.TabIndex = 6;
             // 
-            // btnRegistrarPago
+            // btnGuardar
             // 
-            this.btnRegistrarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnRegistrarPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarPago.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarPago.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarPago.Image")));
-            this.btnRegistrarPago.Location = new System.Drawing.Point(373, 365);
-            this.btnRegistrarPago.Name = "btnRegistrarPago";
-            this.btnRegistrarPago.Size = new System.Drawing.Size(201, 39);
-            this.btnRegistrarPago.TabIndex = 7;
-            this.btnRegistrarPago.UseVisualStyleBackColor = false;
-            this.btnRegistrarPago.Click += new System.EventHandler(this.btnRegistrarPago_Click);
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Image = global::DigitalGamesStore.Properties.Resources.Group_31;
+            this.btnGuardar.Location = new System.Drawing.Point(373, 365);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(201, 39);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnRegistrarPago_Click);
             // 
             // FrmPago
             // 
@@ -130,7 +131,7 @@ namespace DigitalGamesStore
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(896, 500);
-            this.Controls.Add(this.btnRegistrarPago);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dtpFechaPagoFinal);
             this.Controls.Add(this.cmbTipoPago);
             this.Controls.Add(this.txtCedulaCliente);
@@ -155,6 +156,6 @@ namespace DigitalGamesStore
         private System.Windows.Forms.TextBox txtCedulaCliente;
         private System.Windows.Forms.ComboBox cmbTipoPago;
         private System.Windows.Forms.DateTimePicker dtpFechaPagoFinal;
-        private System.Windows.Forms.Button btnRegistrarPago;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

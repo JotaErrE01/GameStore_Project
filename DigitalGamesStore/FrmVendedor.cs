@@ -17,10 +17,8 @@ namespace DigitalGamesStore{
         AdmDigitalGames adm = AdmDigitalGames.GetAdm();
 
         public FrmVendedor(){
-            adm.conectionSql();
             InitializeComponent();
             cmbTipoPago.SelectedItem = "Efectivo";
-            //cmbClasificacion.SelectedItem = "E – Everyone";
         }
 
         private void btnExit_Click(object sender, EventArgs e){

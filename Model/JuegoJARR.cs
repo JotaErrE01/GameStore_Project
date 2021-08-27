@@ -17,17 +17,17 @@ namespace Model{
         string genero;
         DateTime fechaLanzamiento;
 
-        public JuegoJARR (int idJuego, string rutaImagen, string nombre, decimal precio, string genero, string clasificacion, double peso, string plataforma, DateTime fechaLanzamiento){
-            this.idJuego = idJuego;
-            this.rutaImagen = rutaImagen;
-            this.nombre = nombre;
-            this.precio = precio;
-            this.genero = genero;
-            this.clasificacion = clasificacion;
-            this.peso = peso;
-            this.plataforma = plataforma;
-            this.fechaLanzamiento = fechaLanzamiento;
-        }
+        //public JuegoJARR (int idJuego, string rutaImagen, string nombre, decimal precio, string genero, string clasificacion, double peso, string plataforma, DateTime fechaLanzamiento){
+        //    this.idJuego = idJuego;
+        //    this.rutaImagen = rutaImagen;
+        //    this.nombre = nombre;
+        //    this.precio = precio;
+        //    this.genero = genero;
+        //    this.clasificacion = clasificacion;
+        //    this.peso = peso;
+        //    this.plataforma = plataforma;
+        //    this.fechaLanzamiento = fechaLanzamiento;
+        //}
 
         public int IdJuego { get => idJuego; set => idJuego = value; }
         public string RutaImagen { get => rutaImagen; set => rutaImagen = value; }

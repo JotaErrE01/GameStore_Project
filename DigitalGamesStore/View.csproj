@@ -52,36 +52,6 @@
     <Compile Include="FrmVendedor.Designer.cs">
       <DependentUpon>FrmVendedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCarrito.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCarrito.Designer.cs">
-      <DependentUpon>FrmCarrito.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEditar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEditar.Designer.cs">
-      <DependentUpon>FrmEditar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmJuegos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmJuegos.Designer.cs">
-      <DependentUpon>FrmJuegos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBiblioteca.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBiblioteca.Designer.cs">
-      <DependentUpon>FrmBiblioteca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLauncher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLauncher.Designer.cs">
-      <DependentUpon>FrmLauncher.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmListar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,61 +64,16 @@
     <Compile Include="FrmListarPago.Designer.cs">
       <DependentUpon>FrmListarPago.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLoginAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLoginAdmin.Designer.cs">
-      <DependentUpon>FrmLoginAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmPago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPago.Designer.cs">
       <DependentUpon>FrmPago.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegister.Designer.cs">
-      <DependentUpon>FrmRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSaldo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSaldo.Designer.cs">
-      <DependentUpon>FrmSaldo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmStart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStart.Designer.cs">
-      <DependentUpon>FrmStart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmVendedor.resx">
       <DependentUpon>FrmVendedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCarrito.resx">
-      <DependentUpon>FrmCarrito.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditar.resx">
-      <DependentUpon>FrmEditar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmJuegos.resx">
-      <DependentUpon>FrmJuegos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBiblioteca.resx">
-      <DependentUpon>FrmBiblioteca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLauncher.resx">
-      <DependentUpon>FrmLauncher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListar.resx">
       <DependentUpon>FrmListar.cs</DependentUpon>
@@ -156,23 +81,8 @@
     <EmbeddedResource Include="FrmListarPago.resx">
       <DependentUpon>FrmListarPago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLoginAdmin.resx">
-      <DependentUpon>FrmLoginAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmPago.resx">
       <DependentUpon>FrmPago.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegister.resx">
-      <DependentUpon>FrmRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSaldo.resx">
-      <DependentUpon>FrmSaldo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmStart.resx">
-      <DependentUpon>FrmStart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

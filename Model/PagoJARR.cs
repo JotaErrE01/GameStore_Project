@@ -8,6 +8,7 @@ namespace Model{
 
     public class PagoJARR{
 
+        int id;
         string tipoPago;
         int cantidadJuegos;
         JuegoJARR juego;
@@ -15,6 +16,8 @@ namespace Model{
         VendedorJARR vendedor;
         DateTime fechaPago;
         DateTime fechaPagoFin;
+
+        public PagoJARR(){ }
 
         public PagoJARR(string tipoPago, int cantidadJuegos, JuegoJARR juego, ClienteJARR cliente, VendedorJARR vendedor, DateTime fechaPago, DateTime fechaPagoFin){
             this.tipoPago = tipoPago;
@@ -26,6 +29,7 @@ namespace Model{
             this.fechaPagoFin = fechaPagoFin;
         }
 
+        public int Id { get => id; set => id = value; }
         public string TipoPago { get => tipoPago; set => tipoPago = value; }
         public int CantidadJuegos { get => cantidadJuegos; set => cantidadJuegos = value; }
         public JuegoJARR Juego { get => juego; set => juego = value; }
@@ -34,11 +38,8 @@ namespace Model{
         public DateTime FechaPagoFin { get => fechaPagoFin; set => fechaPagoFin = value; }
         public VendedorJARR Vendedor { get => vendedor; set => vendedor = value; }
 
-
         public decimal calcularTotal(decimal precio, int cantidad){
-
             decimal total = precio * cantidad;
-
             return total;
         }
     }

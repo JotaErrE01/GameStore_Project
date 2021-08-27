@@ -14,14 +14,15 @@ namespace Data{
         string connectionString = "Data Source = DESKTOP-N6UR074\\SQLEXPRESS; Initial Catalog=DigitalGames; Integrated Security=True";
         private static SqlConfig sql = null;
         private SqlConnection connection = null;
-        //private List<Usuario> usuarios = null;
+        private List<PagoJARR> pagos = null;
         private ClienteJARR cliente = null;
+        private VendedorJARR vendedor = null;
         private JuegoJARR juego = null;
-        private List<JuegoJARR> juegos = null;
+        private PagoJARR pago = null;
 
         private SqlConfig (){
             connection = new SqlConnection(connectionString);
-            juegos = new List<JuegoJARR>();
+            pagos = new List<PagoJARR>();
         }
 
         public static SqlConfig GetSql(){
@@ -52,45 +53,8 @@ namespace Data{
             return true;
         }
 
-        public List<JuegoJARR> ConsultarJuegos(){
-            string query = "SELECT juegos.id, ruta_imagen, precio, clasificacion, fecha_Lanzamiento, nombre, tipo_plataforma, tipo_genero, peso FROM juegosplataformas INNER JOIN juegosgeneros ON juegosgeneros.idJuego = juegosplataformas.idJuego INNER JOIN juegos ON juegos.id = juegosgeneros.idJuego INNER JOIN plataformas ON plataformas.id = idPlataforma INNER JOIN generos ON generos.id = idGenero;";
-            try{
-                connection.Open();
-                SqlCommand comando = new SqlCommand(query);
-                comando.Connection = connection;
-                SqlDataReader reader = comando.ExecuteReader();
-
-                juegos.Clear();
-
-                while (reader.Read()){
-
-                    int id = (int)reader["id"];
-                    string rutaImagen = reader["ruta_imagen"].ToString();
-                    string nombre = reader["nombre"].ToString();
-                    string genero = reader["tipo_genero"].ToString();
-                    string clasificacion = reader["clasificacion"].ToString();
-                    double peso = Convert.ToDouble(reader["peso"]);
-                    decimal precio = (decimal)reader["precio"];
-                    string plataforma = reader["tipo_plataforma"].ToString();
-                    DateTime fechaLanzamiento = (DateTime)reader["fecha_Lanzamiento"];
-                    juego = new JuegoJARR(id, rutaImagen, nombre, precio, genero, clasificacion, peso, plataforma, fechaLanzamiento);
-                    juegos.Add(juego);
-                }
-            }
-            catch (Exception e){
-
-                MessageBox.Show("ERROR: " + e);
-            }
-            finally{
-                connection.Close();
-            }
-
-            return juegos;
-
-        }
-
-        public JuegoJARR ConsultarJuego(int juegoId){
-            string query = $"SELECT juegos.id, ruta_imagen, precio, clasificacion, fecha_Lanzamiento, nombre, tipo_plataforma, tipo_genero, peso FROM juegos INNER JOIN juegosgeneros ON juegos.id = juegosgeneros.idJuego INNER JOIN generos ON juegosgeneros.idGenero = generos.id INNER JOIN juegosplataformas ON juegosplataformas.idJuego = juegos.id INNER JOIN plataformas ON plataformas.id = juegosplataformas.idPlataforma WHERE juegos.id = {juegoId}";
+        public PagoJARR ConsultarPago(int id){
+            string query = $"SELECT * FROM pagos INNER JOIN TipoPagos ON pagos.idTipoPago = TipoPagos.id WHERE pagos.id= ${id};";
 
             try{
                 connection.Open();
@@ -99,89 +63,52 @@ namespace Data{
                 SqlDataReader reader = comando.ExecuteReader();
 
                 while (reader.Read()){
-                    int id = (int)reader["id"];
-                    string rutaImagen = reader["ruta_imagen"].ToString();
-                    string nombre = reader["nombre"].ToString();
-                    decimal precio = (decimal)reader["precio"];
-                    string genero = reader["tipo_genero"].ToString();
-                    string clasificacion = reader["clasificacion"].ToString();
-                    double peso = Convert.ToDouble(reader["peso"]);
-                    string plataforma = reader["tipo_plataforma"].ToString();
-                    DateTime fechaLanzamiento = (DateTime)reader["fecha_Lanzamiento"];
+                    juego = new JuegoJARR();
+                    juego.IdJuego = (int)reader["idJuego"];
+                    
+                    vendedor = new VendedorJARR();
+                    vendedor.Cedula = reader["cedulaVendedor"].ToString();
 
-                    juego = new JuegoJARR(id, rutaImagen, nombre, precio, genero, clasificacion, peso, plataforma, fechaLanzamiento);
+                    cliente = new ClienteJARR();
+                    cliente.Cedula = reader["cedulaCliente"].ToString();
+
+                    pago = new PagoJARR();
+                    pago.Juego = juego;
+                    pago.Cliente = cliente;
+                    pago.Vendedor = vendedor;
+                    pago.CantidadJuegos = (int)reader["cantidad"];
+                    pago.FechaPago = (DateTime)reader["fechaPago"];
+                    
+                    pago.TipoPago = reader["tipoPago"].ToString();
                 }
 
+                return pago;
             }catch (Exception e){
-
                 MessageBox.Show($"Error en la consulta {e}");
-                
             }finally {
                 connection.Close();
             }
 
-
-            return juego;
+            return pago;
         }
 
-        public VendedorJARR ConsultarVendedor(string cedulaVendedor){
-            string query = $"SELECT * FROM vendedores WHERE cedula = {cedulaVendedor}";
-            VendedorJARR vendedor = null;
+        public void EditarPago(PagoJARR pago, int id){
+
+            string query = $"UPDATE pagos SET cedulaCliente={pago.Cliente.Cedula}, cedulaVendedor={pago.Vendedor.Cedula}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos} WHERE id={id}";
+
             try{
                 connection.Open();
                 SqlCommand comando = new SqlCommand(query);
                 comando.Connection = connection;
-                SqlDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read()){
-                    string cedula = reader["cedula"].ToString();
-                    string nombre = reader["nombre"].ToString();
-                    string email = reader["email"].ToString();
-                    string codigo = reader["codigo"].ToString();
-
-                    vendedor = new VendedorJARR(cedula, nombre, email, codigo);
-                }
-            }
-            catch (Exception e){
-
-                MessageBox.Show($"Error en la consulta {e}");
+                comando.ExecuteNonQuery();
+            }catch (Exception e){
+                MessageBox.Show($"Error al actualizar {e}");
             }finally{
                 connection.Close();
             }
-
-            return vendedor;
         }
 
-        public ClienteJARR ConsultarCliente(string cedulaCliente){
-
-            ClienteJARR cliente = null;
-
-            try{
-                string query = $"SELECT * FROM clientes WHERE cedula = {cedulaCliente}";
-                connection.Open();
-                SqlCommand comando = new SqlCommand(query);
-                comando.Connection = connection;
-                SqlDataReader reader = comando.ExecuteReader();
-                while (reader.Read()){
-
-                    string cedula = reader["cedula"].ToString();
-                    string nombre = reader["nombre"].ToString();
-                    string email = reader["email"].ToString();
-                    string direccion = reader["direccion"].ToString();
-
-                    cliente = new ClienteJARR(cedula, nombre, email, direccion);
-                }
-            }
-            catch (Exception e){
-
-                MessageBox.Show($"Error en la consulta {e}");
-            }finally{
-                connection.Close();
-            }
-            return cliente;
-        }
-
-        public bool ConsultarPagos(DataGridView dgvPago){
+        public List<PagoJARR> ConsultarPagos(){
             string query = $"SELECT pagos.id, cedulaCliente, cedulaVendedor, juegos.nombre, cantidad, precio, tipoPago, fechaPago, fechaPagoFinal FROM pagos INNER JOIN clientes ON clientes.cedula = pagos.cedulaCliente INNER JOIN Vendedores ON pagos.cedulaVendedor = Vendedores.cedula INNER JOIN juegos ON juegos.id = pagos.idJuego INNER JOIN TipoPagos ON TipoPagos.id = pagos.idTipoPago;";
 
             //Pago pago = null;
@@ -190,36 +117,45 @@ namespace Data{
                 connection.Open();
                 SqlCommand comando = new SqlCommand(query);
                 comando.Connection = connection;
-                SqlDataReader reader =  comando.ExecuteReader();
+                SqlDataReader reader = comando.ExecuteReader();
 
                 while (reader.Read()) {
-                    int id = (int)reader["id"];
-                    string cedulaVendedor = reader["cedulaVendedor"].ToString();
-                    string cedulaCliente = reader["cedulaCliente"].ToString();
-                    string nombre = reader["nombre"].ToString();
-                    int cantidad = (int)reader["cantidad"];
-                    string tipoPago = reader["tipoPago"].ToString();
-                    decimal precio = (decimal)reader["precio"];
-                    DateTime fechaPago = (DateTime)reader["fechaPago"];
-                    object fechaPagoFinal;
-                    if (reader["fechaPagoFinal"].GetType() != typeof(System.DBNull)){
-                        fechaPagoFinal = ((DateTime)reader["fechaPagoFinal"]).ToString("yyyy-MM-dd");
-                    }else {
-                        fechaPagoFinal = "";
-                    }
-                    decimal total = precio * cantidad;
+                    vendedor = new VendedorJARR();
+                    vendedor.Cedula = reader["cedulaVendedor"].ToString();
 
-                    dgvPago.Rows.Add(id, cedulaVendedor, cedulaCliente, nombre, cantidad, precio, total,tipoPago, fechaPago.ToString("yyyy-MM-dd"), fechaPagoFinal);
+                    cliente = new ClienteJARR();
+                    cliente.Cedula = reader["cedulaCliente"].ToString();
+
+                    juego = new JuegoJARR();
+                    juego.Precio = (decimal)reader["precio"];
+                    juego.Nombre = reader["nombre"].ToString();
+
+                    pago = new PagoJARR();
+                    pago.Id = (int)reader["id"];
+                    pago.TipoPago = reader["tipoPago"].ToString();
+                    pago.CantidadJuegos = (int)reader["cantidad"];
+                    pago.FechaPago = (DateTime)reader["fechaPago"];
+                    pago.Cliente = cliente;
+                    pago.Vendedor = vendedor;
+                    pago.Juego = juego;
+                    if (reader["fechaPagoFinal"].GetType() != typeof(DBNull)){
+                        pago.FechaPagoFin = (DateTime)reader["fechaPagoFinal"];
+                    }else{
+                        pago.FechaPagoFin = DateTime.Today;
+                    }
+
+                    pagos.Add(pago);
                 }
             }
             catch (Exception e){
                 MessageBox.Show($"Ocurrio un error al consuiltar los datos {e}");
-                return false;
-            }finally{
+                return pagos;
+            }
+            finally{
                 connection.Close();
             }
 
-            return true;
+            return pagos;
         }
 
         public void InsertarPago(PagoJARR pago){
@@ -242,38 +178,6 @@ namespace Data{
             }finally{
                 connection.Close();
             }
-        }
-
-        public ClienteJARR ObtenerCliente(string correo, string password){
-            string query = $"SELECT * FROM clientes WHERE email LIKE '{correo}' AND password LIKE '{password}';";
-            try{
-                connection.Open();
-                SqlCommand comando = new SqlCommand(query);
-                comando.Connection = connection;
-                SqlDataReader reader = comando.ExecuteReader();
-
-
-                while (reader.Read()){
-
-                    int id = (int)reader["id"];
-                    string nombre = reader["nombre"].ToString();
-                    decimal saldo = (decimal)reader["saldo"];
-
-                    //cliente = new Cliente(id, nombre, correo, password, saldo);
-
-                    //usuarios.Add(cliente);
-                }
-
-                if (cliente == null){
-                    MessageBox.Show("Correo o Contraseña incorrectos");
-                }
-
-            }catch (Exception e){
-                MessageBox.Show("ERROR " + e);
-            }finally{
-                connection.Close();
-            }
-            return cliente;
         }
     }
 }

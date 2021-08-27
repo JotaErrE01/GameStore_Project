@@ -1,2 +1,13 @@
-# GameStore_Project
-Iniciando la creación de la Interfaz grafica.
+# GameStore Project
+
+<h3>CRUD de pagos<h3>
+  
+<h4>Consultas finalizadas:</h4>
+  
+```
+CREATE, READ, UPDATE, DELETE
+```
+
+```
+TODO: Agregar busquedad mediante filtros
+```

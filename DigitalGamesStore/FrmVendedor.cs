@@ -67,7 +67,7 @@ namespace DigitalGamesStore{
         }
 
         private void btnRegistrarPago_Click(object sender, EventArgs e){
-            adm.RegistrarPago(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtPrecio, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
+            adm.RegistrarPago(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
         }
 
         private void cmbTipoPago_SelectedIndexChanged(object sender, EventArgs e){
@@ -105,14 +105,6 @@ namespace DigitalGamesStore{
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e){
             char c = e.KeyChar;
             if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
-                e.Handled = true;
-                return;
-            }
-        }
-
-        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e){
-            char c = e.KeyChar;
-            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back)) && (e.KeyChar != '.')){
                 e.Handled = true;
                 return;
             }

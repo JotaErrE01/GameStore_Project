@@ -23,9 +23,6 @@ namespace DigitalGamesStore{
             adm.EliminarPago(dgvPago);
         }
 
-        private void FrmListarPago_Load(object sender, EventArgs e){
-        }
-
         private void btnEditar_Click(object sender, EventArgs e){
             if(!adm.EditarPago(dgvPago)) return;
             FrmPago frm = new FrmPago();
@@ -37,6 +34,10 @@ namespace DigitalGamesStore{
             panel1.Tag = frm;
             frm.BringToFront();
             frm.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e){
+            adm.BuscarJuego(txtJuego, dgvPago);
         }
     }
 }

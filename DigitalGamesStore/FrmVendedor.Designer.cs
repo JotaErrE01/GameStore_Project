@@ -32,27 +32,27 @@ namespace DigitalGamesStore
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.btnListarPagos = new System.Windows.Forms.Button();
+            this.btnPago = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.btnRegistrarPago = new System.Windows.Forms.Button();
             this.dtpFechaPagoFinal = new System.Windows.Forms.DateTimePicker();
             this.cmbTipoPago = new System.Windows.Forms.ComboBox();
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.txtCedulaVendedor = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtidJuego = new System.Windows.Forms.TextBox();
-            this.btnRegistrarPago = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnListarPagos = new System.Windows.Forms.Button();
-            this.btnPago = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,133 +88,6 @@ namespace DigitalGamesStore
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(250, 575);
             this.panelSideMenu.TabIndex = 3;
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 100);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panelChildForm.Controls.Add(this.btnRegistrarPago);
-            this.panelChildForm.Controls.Add(this.dtpFechaPagoFinal);
-            this.panelChildForm.Controls.Add(this.cmbTipoPago);
-            this.panelChildForm.Controls.Add(this.txtCedulaCliente);
-            this.panelChildForm.Controls.Add(this.txtCedulaVendedor);
-            this.panelChildForm.Controls.Add(this.txtCantidad);
-            this.panelChildForm.Controls.Add(this.txtPrecio);
-            this.panelChildForm.Controls.Add(this.txtidJuego);
-            this.panelChildForm.Controls.Add(this.pictureBox2);
-            this.panelChildForm.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(250, 75);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(896, 500);
-            this.panelChildForm.TabIndex = 5;
-            // 
-            // dtpFechaPagoFinal
-            // 
-            this.dtpFechaPagoFinal.Enabled = false;
-            this.dtpFechaPagoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaPagoFinal.Location = new System.Drawing.Point(271, 269);
-            this.dtpFechaPagoFinal.Name = "dtpFechaPagoFinal";
-            this.dtpFechaPagoFinal.Size = new System.Drawing.Size(200, 26);
-            this.dtpFechaPagoFinal.TabIndex = 14;
-            // 
-            // cmbTipoPago
-            // 
-            this.cmbTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipoPago.FormattingEnabled = true;
-            this.cmbTipoPago.Items.AddRange(new object[] {
-            "Efectivo",
-            "Credito",
-            "Bitcoin",
-            "Paypal"});
-            this.cmbTipoPago.Location = new System.Drawing.Point(694, 67);
-            this.cmbTipoPago.Name = "cmbTipoPago";
-            this.cmbTipoPago.Size = new System.Drawing.Size(168, 28);
-            this.cmbTipoPago.TabIndex = 13;
-            this.cmbTipoPago.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPago_SelectedIndexChanged);
-            // 
-            // txtCedulaCliente
-            // 
-            this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaCliente.Location = new System.Drawing.Point(290, 129);
-            this.txtCedulaCliente.Multiline = true;
-            this.txtCedulaCliente.Name = "txtCedulaCliente";
-            this.txtCedulaCliente.Size = new System.Drawing.Size(168, 29);
-            this.txtCedulaCliente.TabIndex = 12;
-            this.txtCedulaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCliente_KeyPress);
-            // 
-            // txtCedulaVendedor
-            // 
-            this.txtCedulaVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaVendedor.Location = new System.Drawing.Point(290, 200);
-            this.txtCedulaVendedor.Multiline = true;
-            this.txtCedulaVendedor.Name = "txtCedulaVendedor";
-            this.txtCedulaVendedor.Size = new System.Drawing.Size(168, 29);
-            this.txtCedulaVendedor.TabIndex = 11;
-            this.txtCedulaVendedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaVendedor_KeyPress);
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(694, 138);
-            this.txtCantidad.Multiline = true;
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(168, 29);
-            this.txtCantidad.TabIndex = 10;
-            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(694, 200);
-            this.txtPrecio.Multiline = true;
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(92, 29);
-            this.txtPrecio.TabIndex = 9;
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
-            // 
-            // txtidJuego
-            // 
-            this.txtidJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtidJuego.Location = new System.Drawing.Point(290, 66);
-            this.txtidJuego.Multiline = true;
-            this.txtidJuego.Name = "txtidJuego";
-            this.txtidJuego.Size = new System.Drawing.Size(168, 29);
-            this.txtidJuego.TabIndex = 8;
-            this.txtidJuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtidJuego_KeyPress);
-            // 
-            // btnRegistrarPago
-            // 
-            this.btnRegistrarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnRegistrarPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarPago.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarPago.Image = global::DigitalGamesStore.Properties.Resources.pagobtn;
-            this.btnRegistrarPago.Location = new System.Drawing.Point(373, 364);
-            this.btnRegistrarPago.Name = "btnRegistrarPago";
-            this.btnRegistrarPago.Size = new System.Drawing.Size(201, 39);
-            this.btnRegistrarPago.TabIndex = 15;
-            this.btnRegistrarPago.UseVisualStyleBackColor = false;
-            this.btnRegistrarPago.Click += new System.EventHandler(this.btnRegistrarPago_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::DigitalGamesStore.Properties.Resources.v;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(896, 500);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // btnListarPagos
             // 
@@ -271,6 +144,15 @@ namespace DigitalGamesStore
             this.btnExit.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
             // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(250, 100);
+            this.panelLogo.TabIndex = 0;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
@@ -281,6 +163,121 @@ namespace DigitalGamesStore
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelChildForm.Controls.Add(this.panel2);
+            this.panelChildForm.Controls.Add(this.btnRegistrarPago);
+            this.panelChildForm.Controls.Add(this.dtpFechaPagoFinal);
+            this.panelChildForm.Controls.Add(this.cmbTipoPago);
+            this.panelChildForm.Controls.Add(this.txtCedulaCliente);
+            this.panelChildForm.Controls.Add(this.txtCedulaVendedor);
+            this.panelChildForm.Controls.Add(this.txtCantidad);
+            this.panelChildForm.Controls.Add(this.txtidJuego);
+            this.panelChildForm.Controls.Add(this.pictureBox2);
+            this.panelChildForm.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(250, 75);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(896, 500);
+            this.panelChildForm.TabIndex = 5;
+            // 
+            // btnRegistrarPago
+            // 
+            this.btnRegistrarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnRegistrarPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarPago.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarPago.Image = global::DigitalGamesStore.Properties.Resources.pagobtn;
+            this.btnRegistrarPago.Location = new System.Drawing.Point(373, 364);
+            this.btnRegistrarPago.Name = "btnRegistrarPago";
+            this.btnRegistrarPago.Size = new System.Drawing.Size(201, 39);
+            this.btnRegistrarPago.TabIndex = 15;
+            this.btnRegistrarPago.UseVisualStyleBackColor = false;
+            this.btnRegistrarPago.Click += new System.EventHandler(this.btnRegistrarPago_Click);
+            // 
+            // dtpFechaPagoFinal
+            // 
+            this.dtpFechaPagoFinal.Enabled = false;
+            this.dtpFechaPagoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaPagoFinal.Location = new System.Drawing.Point(271, 269);
+            this.dtpFechaPagoFinal.Name = "dtpFechaPagoFinal";
+            this.dtpFechaPagoFinal.Size = new System.Drawing.Size(200, 26);
+            this.dtpFechaPagoFinal.TabIndex = 14;
+            // 
+            // cmbTipoPago
+            // 
+            this.cmbTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoPago.FormattingEnabled = true;
+            this.cmbTipoPago.Items.AddRange(new object[] {
+            "Efectivo",
+            "Credito",
+            "Bitcoin",
+            "Paypal"});
+            this.cmbTipoPago.Location = new System.Drawing.Point(694, 67);
+            this.cmbTipoPago.Name = "cmbTipoPago";
+            this.cmbTipoPago.Size = new System.Drawing.Size(168, 28);
+            this.cmbTipoPago.TabIndex = 13;
+            this.cmbTipoPago.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPago_SelectedIndexChanged);
+            // 
+            // txtCedulaCliente
+            // 
+            this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaCliente.Location = new System.Drawing.Point(290, 129);
+            this.txtCedulaCliente.Multiline = true;
+            this.txtCedulaCliente.Name = "txtCedulaCliente";
+            this.txtCedulaCliente.Size = new System.Drawing.Size(168, 29);
+            this.txtCedulaCliente.TabIndex = 12;
+            this.txtCedulaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCliente_KeyPress);
+            // 
+            // txtCedulaVendedor
+            // 
+            this.txtCedulaVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaVendedor.Location = new System.Drawing.Point(290, 200);
+            this.txtCedulaVendedor.Multiline = true;
+            this.txtCedulaVendedor.Name = "txtCedulaVendedor";
+            this.txtCedulaVendedor.Size = new System.Drawing.Size(168, 29);
+            this.txtCedulaVendedor.TabIndex = 11;
+            this.txtCedulaVendedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaVendedor_KeyPress);
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.Location = new System.Drawing.Point(694, 138);
+            this.txtCantidad.Multiline = true;
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(168, 29);
+            this.txtCantidad.TabIndex = 10;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            // 
+            // txtidJuego
+            // 
+            this.txtidJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtidJuego.Location = new System.Drawing.Point(290, 66);
+            this.txtidJuego.Multiline = true;
+            this.txtidJuego.Name = "txtidJuego";
+            this.txtidJuego.Size = new System.Drawing.Size(168, 29);
+            this.txtidJuego.TabIndex = 8;
+            this.txtidJuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtidJuego_KeyPress);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::DigitalGamesStore.Properties.Resources.v;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(896, 500);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(564, 200);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(248, 48);
+            this.panel2.TabIndex = 16;
             // 
             // FrmVendedor
             // 
@@ -298,10 +295,10 @@ namespace DigitalGamesStore
             this.panel1.PerformLayout();
             this.panelSideMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             this.panelChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,7 +320,7 @@ namespace DigitalGamesStore
         private System.Windows.Forms.TextBox txtCedulaCliente;
         private System.Windows.Forms.TextBox txtCedulaVendedor;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtidJuego;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -52,12 +52,6 @@
     <Compile Include="FrmVendedor.Designer.cs">
       <DependentUpon>FrmVendedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmListar.Designer.cs">
-      <DependentUpon>FrmListar.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmListarPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,9 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmVendedor.resx">
       <DependentUpon>FrmVendedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmListar.resx">
-      <DependentUpon>FrmListar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListarPago.resx">
       <DependentUpon>FrmListarPago.cs</DependentUpon>

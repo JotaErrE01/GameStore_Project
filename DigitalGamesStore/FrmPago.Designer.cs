@@ -29,15 +29,14 @@ namespace DigitalGamesStore
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPago));
             this.txtidJuego = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtCedulaVendedor = new System.Windows.Forms.TextBox();
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.cmbTipoPago = new System.Windows.Forms.ComboBox();
             this.dtpFechaPagoFinal = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // txtidJuego
@@ -48,15 +47,6 @@ namespace DigitalGamesStore
             this.txtidJuego.Name = "txtidJuego";
             this.txtidJuego.Size = new System.Drawing.Size(168, 29);
             this.txtidJuego.TabIndex = 0;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(694, 201);
-            this.txtPrecio.Multiline = true;
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(92, 29);
-            this.txtPrecio.TabIndex = 1;
             // 
             // txtCantidad
             // 
@@ -124,20 +114,27 @@ namespace DigitalGamesStore
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnRegistrarPago_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(559, 201);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(267, 79);
+            this.panel1.TabIndex = 8;
+            // 
             // FrmPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::DigitalGamesStore.Properties.Resources.v;
             this.ClientSize = new System.Drawing.Size(896, 500);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dtpFechaPagoFinal);
             this.Controls.Add(this.cmbTipoPago);
             this.Controls.Add(this.txtCedulaCliente);
             this.Controls.Add(this.txtCedulaVendedor);
             this.Controls.Add(this.txtCantidad);
-            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtidJuego);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPago";
@@ -150,12 +147,12 @@ namespace DigitalGamesStore
         #endregion
 
         private System.Windows.Forms.TextBox txtidJuego;
-        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtCedulaVendedor;
         private System.Windows.Forms.TextBox txtCedulaCliente;
         private System.Windows.Forms.ComboBox cmbTipoPago;
         private System.Windows.Forms.DateTimePicker dtpFechaPagoFinal;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Panel panel1;
     }
 }

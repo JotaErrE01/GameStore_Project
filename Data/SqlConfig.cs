@@ -78,8 +78,11 @@ namespace Data{
                     pago.Vendedor = vendedor;
                     pago.CantidadJuegos = (int)reader["cantidad"];
                     pago.FechaPago = (DateTime)reader["fechaPago"];
-                    
                     pago.TipoPago = reader["tipoPago"].ToString();
+
+                    if(pago.TipoPago == "Credito"){
+                        pago.FechaPagoFin = (DateTime)reader["fechaPagoFinal"];
+                    }
                 }
 
                 return pago;
@@ -94,7 +97,11 @@ namespace Data{
 
         public void EditarPago(PagoJARR pago, int id){
 
-            string query = $"UPDATE pagos SET cedulaCliente={pago.Cliente.Cedula}, cedulaVendedor={pago.Vendedor.Cedula}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos} WHERE id={id}";
+            string query = $"UPDATE pagos SET cedulaCliente={pago.Cliente.Cedula}, cedulaVendedor={pago.Vendedor.Cedula}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos}, fechaPagoFinal='{pago.FechaPagoFin.ToString("yyyy-MM-dd")}' WHERE id={id}";
+
+            if (pago.FechaPagoFin.ToString("yyyy-MM-dd").Equals(DateTime.Today)){
+                query = $"UPDATE pagos SET cedulaCliente={pago.Cliente.Cedula}, cedulaVendedor={pago.Vendedor.Cedula}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos} WHERE id={id}";
+            }
 
             try{
                 connection.Open();

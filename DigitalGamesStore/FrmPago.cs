@@ -16,12 +16,12 @@ namespace DigitalGamesStore{
 
         public FrmPago(){
             InitializeComponent();
-            adm.LlenarCampos(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, txtPrecio, cmbTipoPago, dtpFechaPagoFinal);
-            cmbTipoPago.SelectedItem = "Efectivo";
+            adm.LlenarCampos(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, cmbTipoPago, dtpFechaPagoFinal);
+            //cmbTipoPago.SelectedItem = "Efectivo";
         }
 
         private void btnRegistrarPago_Click(object sender, EventArgs e){
-            adm.ActualizarPago(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtPrecio, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
+            adm.ActualizarPago(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
         }
 
         private void cmbTipoPago_SelectedIndexChanged(object sender, EventArgs e){

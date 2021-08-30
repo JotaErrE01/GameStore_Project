@@ -49,7 +49,23 @@ namespace Controller{
             }
         }
 
-        public void LlenarCampos(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtCantidad, TextBox txtPrecio, ComboBox cmbTipoPago, DateTimePicker dtpFechaPagoFinal){
+        public void BuscarJuego(TextBox txtJuego, DataGridView dgvPago){
+            //validar si hay campos vacios
+            string nombreJuego = txtJuego.Text;
+
+            if (nombreJuego.Trim() == "") return;
+
+            List<PagoJARR> pagosFiltro = new List<PagoJARR>();
+
+            pagosFiltro = pagos.FindAll( pago => pago.Juego.Nombre == nombreJuego );
+            
+            // Limpiar el grid
+            dgvPago.Rows.Clear();
+
+            llenarGrid(dgvPago, pagosFiltro);
+        }
+
+        public void LlenarCampos(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtCantidad, ComboBox cmbTipoPago, DateTimePicker dtpFechaPagoFinal){
 
             pago = bd.ConsultarPago(id);
 
@@ -58,7 +74,7 @@ namespace Controller{
             txtidJuego.Text = pago.Juego.IdJuego.ToString();
             txtCantidad.Text = pago.CantidadJuegos.ToString();
             cmbTipoPago.SelectedItem = pago.TipoPago;
-
+            dtpFechaPagoFinal.Value = dtpFechaPagoFinal.Enabled ? pago.FechaPagoFin : DateTime.Today;
         }
 
         public bool EditarPago(DataGridView dgvPago){
@@ -74,21 +90,20 @@ namespace Controller{
             return true;            
         }
 
-        public void ActualizarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtPrecio, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
+        public void ActualizarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
 
-            pago = CrearObjs(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtPrecio, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
+            pago = CrearObjs(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
 
             if (pago == null) return;
 
             bd.EditarPago(pago, id);
 
             MessageBox.Show("Pago actualizado exitosamente");
-
         }
 
-        public void RegistrarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtPrecio, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
+        public void RegistrarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
 
-            pago = CrearObjs(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtPrecio, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
+            pago = CrearObjs(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
 
             if (pago == null) return;
 
@@ -97,9 +112,9 @@ namespace Controller{
             MessageBox.Show("Registro guardado exitosamente");
         }
 
-        public PagoJARR CrearObjs(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtPrecio, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
+        public PagoJARR CrearObjs(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego,  TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
             //Validacion
-            if (txtCedulaCliente.Text.Trim() == "" || txtCedulaVendedor.Text.Trim() == "" || txtidJuego.Text.Trim() == "" || txtPrecio.Text.Trim() == "" || txtCantidad.Text.Trim() == ""){
+            if (txtCedulaCliente.Text.Trim() == "" || txtCedulaVendedor.Text.Trim() == "" || txtidJuego.Text.Trim() == "" || txtCantidad.Text.Trim() == ""){
                 MessageBox.Show("Por favor llene todos los campos");
                 return null;
             }
@@ -108,7 +123,6 @@ namespace Controller{
             string cedulaVendedor = txtCedulaVendedor.Text;
             int juegoId = Convert.ToInt32(txtidJuego.Text);
             int cantidad = Convert.ToInt32(txtCantidad.Text);
-            //decimal precio = Convert.ToDecimal(txtPrecio.Text);
             string tipo_pago = (cmbTipoPago.SelectedIndex + 1) + "";
             DateTime fechaPago = DateTime.Now.Date;
             DateTime fechaPagoFinal = dtpFechaPagoFinal.Value.Date;
@@ -143,8 +157,12 @@ namespace Controller{
             if (pagos != null) pagos.Clear();
 
             pagos = bd.ConsultarPagos();
-            int index = 0;
 
+            llenarGrid(dgvPago, pagos);
+        }
+
+        public void llenarGrid(DataGridView dgvPago, List<PagoJARR> pagos){
+            int index = 0;
             pagos.ForEach(pago => {
                 dgvPago.Rows.Add(pago.Id, pago.Vendedor.Cedula, pago.Cliente.Cedula, pago.Juego.Nombre, pago.CantidadJuegos, pago.Juego.Precio, pago.calcularTotal(pago.Juego.Precio, pago.CantidadJuegos), pago.TipoPago, pago.FechaPago.ToString("yyyy-MM-dd"));
 
@@ -154,7 +172,6 @@ namespace Controller{
 
                 index++;
             });
-
         }
     }
 }

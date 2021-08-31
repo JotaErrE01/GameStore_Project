@@ -102,37 +102,13 @@
     <None Include="Resources\Frame 2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\homeIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\libraryIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Group 2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\games.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Controller\Controller.csproj">
       <Project>{993f14c1-27b4-434e-a151-18f5474857e4}</Project>
       <Name>Controller</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Group 11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\firstButton.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnAdmin.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Group 9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnAddToCar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Search.png" />
@@ -144,52 +120,16 @@
     <None Include="Resources\BtnAtras.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btnLogin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Registrarse.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Group 17.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnRegistro.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RegisterScreen.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Listar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnCambios.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Group 31.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btnImagen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Registerbtn.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Registro.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\conexion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnEliminar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Group 36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btnComprar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FrmBiblioteca.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\v.png" />

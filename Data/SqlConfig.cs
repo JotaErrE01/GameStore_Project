@@ -180,7 +180,6 @@ namespace Data{
                 comando.ExecuteNonQuery();
             }
             catch (Exception e){
-
                 MessageBox.Show($"Ocurrio un error al insertar los datos {e}");
             }finally{
                 connection.Close();

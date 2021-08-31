@@ -11,7 +11,7 @@ namespace Controller{
             try{
                 double valor = Convert.ToDouble(saldo);
                 return true;
-            }catch (Exception e){
+            }catch (Exception){
                 MessageBox.Show("El Valor Ingresado no es un Numero Valido para el Saldo");
                 return false;
             }

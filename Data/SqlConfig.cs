@@ -53,54 +53,54 @@ namespace Data{
             return true;
         }
 
-        public PagoJARR ConsultarPago(int id){
-            string query = $"SELECT * FROM pagos INNER JOIN TipoPagos ON pagos.idTipoPago = TipoPagos.id WHERE pagos.id= ${id};";
+        //public PagoJARR ConsultarPago(int id){
+        //    string query = $"SELECT * FROM pagos INNER JOIN TipoPagos ON pagos.idTipoPago = TipoPagos.id WHERE pagos.id= ${id};";
 
-            try{
-                connection.Open();
-                SqlCommand comando = new SqlCommand(query);
-                comando.Connection = connection;
-                SqlDataReader reader = comando.ExecuteReader();
+        //    try{
+        //        connection.Open();
+        //        SqlCommand comando = new SqlCommand(query);
+        //        comando.Connection = connection;
+        //        SqlDataReader reader = comando.ExecuteReader();
 
-                while (reader.Read()){
-                    juego = new JuegoJARR();
-                    juego.IdJuego = (int)reader["idJuego"];
+        //        while (reader.Read()){
+        //            juego = new JuegoJARR();
+        //            juego.IdJuego = (int)reader["idJuego"];
                     
-                    vendedor = new VendedorJARR();
-                    vendedor.Cedula = reader["cedulaVendedor"].ToString();
+        //            vendedor = new VendedorJARR();
+        //            vendedor.Cedula = reader["cedulaVendedor"].ToString();
 
-                    cliente = new ClienteJARR();
-                    cliente.Cedula = reader["cedulaCliente"].ToString();
+        //            cliente = new ClienteJARR();
+        //            cliente.Cedula = reader["cedulaCliente"].ToString();
 
-                    pago = new PagoJARR();
-                    pago.Juego = juego;
-                    pago.Cliente = cliente;
-                    pago.Vendedor = vendedor;
-                    pago.CantidadJuegos = (int)reader["cantidad"];
-                    pago.FechaPago = (DateTime)reader["fechaPago"];
-                    pago.TipoPago = reader["tipoPago"].ToString();
+        //            pago = new PagoJARR();
+        //            pago.Juego = juego;
+        //            pago.Cliente = cliente;
+        //            pago.Vendedor = vendedor;
+        //            pago.CantidadJuegos = (int)reader["cantidad"];
+        //            pago.FechaPago = (DateTime)reader["fechaPago"];
+        //            pago.TipoPago = reader["tipoPago"].ToString();
 
-                    if(pago.TipoPago == "Credito"){
-                        pago.FechaPagoFin = (DateTime)reader["fechaPagoFinal"];
-                    }
-                }
+        //            if(pago.TipoPago == "Credito"){
+        //                pago.FechaPagoFin = (DateTime)reader["fechaPagoFinal"];
+        //            }
+        //        }
 
-                return pago;
-            }catch (Exception e){
-                MessageBox.Show($"Error en la consulta {e}");
-            }finally {
-                connection.Close();
-            }
+        //        return pago;
+        //    }catch (Exception e){
+        //        MessageBox.Show($"Error en la consulta {e}");
+        //    }finally {
+        //        connection.Close();
+        //    }
 
-            return pago;
-        }
+        //    return pago;
+        //}
 
         public void EditarPago(PagoJARR pago, int id){
 
-            string query = $"UPDATE pagos SET cedulaCliente={pago.Cliente.Cedula}, cedulaVendedor={pago.Vendedor.Cedula}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos}, fechaPagoFinal='{pago.FechaPagoFin.ToString("yyyy-MM-dd")}' WHERE id={id}";
+            string query = $"UPDATE pagos SET idCliente={pago.Cliente.Id}, idVendedor={pago.Vendedor.Id}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos}, fechaPagoFinal='{pago.FechaPagoFin.ToString("yyyy-MM-dd")}' WHERE id={id}";
 
             if (pago.FechaPagoFin.ToString("yyyy-MM-dd").Equals(DateTime.Today)){
-                query = $"UPDATE pagos SET cedulaCliente={pago.Cliente.Cedula}, cedulaVendedor={pago.Vendedor.Cedula}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos} WHERE id={id}";
+                query = $"UPDATE pagos SET idCliente={pago.Cliente.Id}, idVendedor={pago.Vendedor.Id}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos} WHERE id={id}";
             }
 
             try{
@@ -116,9 +116,7 @@ namespace Data{
         }
 
         public List<PagoJARR> ConsultarPagos(){
-            string query = $"SELECT pagos.id, cedulaCliente, cedulaVendedor, juegos.nombre, cantidad, precio, tipoPago, fechaPago, fechaPagoFinal FROM pagos INNER JOIN clientes ON clientes.cedula = pagos.cedulaCliente INNER JOIN Vendedores ON pagos.cedulaVendedor = Vendedores.cedula INNER JOIN juegos ON juegos.id = pagos.idJuego INNER JOIN TipoPagos ON TipoPagos.id = pagos.idTipoPago;";
-
-            //Pago pago = null;
+            string query = $"SELECT pagos.id, clientes.cedula as cedulaCliente, vendedores.cedula as cedulaVendedor, idJuego, juegos.nombre, cantidad, precio, tipoPago, fechaPago, fechaPagoFinal FROM pagos INNER JOIN clientes ON clientes.id = pagos.idCliente INNER JOIN vendedores ON pagos.idVendedor = Vendedores.id INNER JOIN juegos ON juegos.id = pagos.idJuego INNER JOIN TipoPagos ON TipoPagos.id = pagos.idTipoPago;";
 
             try{
                 connection.Open();
@@ -134,6 +132,7 @@ namespace Data{
                     cliente.Cedula = reader["cedulaCliente"].ToString();
 
                     juego = new JuegoJARR();
+                    juego.IdJuego = (int)reader["idJuego"];
                     juego.Precio = (decimal)reader["precio"];
                     juego.Nombre = reader["nombre"].ToString();
 
@@ -165,12 +164,58 @@ namespace Data{
             return pagos;
         }
 
+        public VendedorJARR ConsultarVendedor(string cedulaVendedor) {
+            string query = $"SELECT * FROM vendedores WHERE cedula = '{cedulaVendedor}'";
+            try {
+                connection.Open();
+                SqlCommand comando = new SqlCommand(query);
+                comando.Connection = connection;
+                SqlDataReader reader = comando.ExecuteReader();
+                vendedor = new VendedorJARR();
+
+                while (reader.Read()) {
+                    vendedor.Id = (int)reader["id"];
+                    vendedor.Cedula = cedulaVendedor;
+                }
+            } catch (Exception e) {
+                MessageBox.Show($"Ocurrio un error al consultar los vendedores \n{e}");
+                connection.Close();
+                return null;
+            } finally {
+                connection.Close();
+            }
+            return vendedor;
+        }
+
+        public ClienteJARR ConsultarCliente(string cedulaCliente) {
+            string query = $"SELECT * FROM clientes WHERE cedula = '{cedulaCliente}'";
+            try {
+                connection.Open();
+                SqlCommand comando = new SqlCommand(query);
+                comando.Connection = connection;
+                SqlDataReader reader = comando.ExecuteReader();
+                cliente = new ClienteJARR();
+
+                while (reader.Read()) {
+                    cliente.Id = (int)reader["id"];
+                    cliente.Cedula = cedulaCliente;
+                }
+            } catch (Exception e) {
+                MessageBox.Show($"Ocurrio un error al consultar los clientes \n{e}");
+                connection.Close();
+                return null;
+            } finally {
+                connection.Close();
+            }
+            return cliente;
+        }
+
         public void InsertarPago(PagoJARR pago){
 
-            string query = $"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago, fechaPagoFinal) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}', '{pago.FechaPagoFin.ToString("yyyy-MM-dd")}')";
+            string query = $"INSERT INTO PAGOS (idCliente, idVendedor, idJuego, cantidad, idTipoPago, fechaPago, fechaPagoFinal) VALUES ({pago.Cliente.Id}, {pago.Vendedor.Id}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}', '{pago.FechaPagoFin.ToString("yyyy-MM-dd")}')";
 
             if (pago.FechaPagoFin.ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd"))){
-                query = $"INSERT INTO PAGOS (cedulaCliente, cedulaVendedor, idJuego, cantidad, idTipoPago, fechaPago) VALUES ({pago.Cliente.Cedula}, {pago.Vendedor.Cedula}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}')";
+                query = $"INSERT INTO PAGOS (idCliente, idVendedor, idJuego, cantidad, idTipoPago, fechaPago) VALUES ({pago.Cliente.Id}, {pago.Vendedor.Id}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}')";
             }
 
             try{

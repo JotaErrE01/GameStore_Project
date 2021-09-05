@@ -14,7 +14,7 @@ namespace Controller{
     public class AdmDigitalGames{
 
         private static AdmDigitalGames adm = null;
-        Validacion v = null;
+        //Validacion v = null;
         List<PagoJARR> pagos = null;
         ClienteJARR cliente = null;
         VendedorJARR vendedor = null;
@@ -23,9 +23,9 @@ namespace Controller{
         SqlConfig bd = null;
         int id;
 
-        private AdmDigitalGames(){
-            //inicializamos la lista
-            bd = SqlConfig.GetSql();
+        private AdmDigitalGames() {
+            //    inicializamos la lista
+                bd = SqlConfig.GetSql();
         }
 
         public static AdmDigitalGames GetAdm(){
@@ -67,7 +67,9 @@ namespace Controller{
 
         public void LlenarCampos(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtCantidad, ComboBox cmbTipoPago, DateTimePicker dtpFechaPagoFinal){
 
-            pago = bd.ConsultarPago(id);
+            //pago = bd.ConsultarPago(id);
+
+            pago = pagos.Find( pago => pago.Id == id );
 
             txtCedulaCliente.Text = pago.Cliente.Cedula;
             txtCedulaVendedor.Text = pago.Vendedor.Cedula;
@@ -96,6 +98,8 @@ namespace Controller{
 
             if (pago == null) return;
 
+            //pago.Id = id;
+
             bd.EditarPago(pago, id);
 
             MessageBox.Show("Pago actualizado exitosamente");
@@ -113,14 +117,19 @@ namespace Controller{
         }
 
         public PagoJARR CrearObjs(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego,  TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
-            //Validacion
+
+            // Validar que no haya campos vacios
             if (txtCedulaCliente.Text.Trim() == "" || txtCedulaVendedor.Text.Trim() == "" || txtidJuego.Text.Trim() == "" || txtCantidad.Text.Trim() == ""){
                 MessageBox.Show("Por favor llene todos los campos");
                 return null;
             }
 
             string cedulaCliente = txtCedulaCliente.Text;
+            cliente = bd.ConsultarCliente(cedulaCliente);
+
             string cedulaVendedor = txtCedulaVendedor.Text;
+            vendedor = bd.ConsultarVendedor(cedulaVendedor);
+
             int juegoId = Convert.ToInt32(txtidJuego.Text);
             int cantidad = Convert.ToInt32(txtCantidad.Text);
             string tipo_pago = (cmbTipoPago.SelectedIndex + 1) + "";
@@ -128,11 +137,11 @@ namespace Controller{
             DateTime fechaPagoFinal = dtpFechaPagoFinal.Value.Date;
             if (!dtpFechaPagoFinal.Enabled) fechaPagoFinal = DateTime.Today;
 
-            cliente = new ClienteJARR();
-            cliente.Cedula = cedulaCliente;
+            //cliente = new ClienteJARR();
+            //cliente.Id = ;
 
-            vendedor = new VendedorJARR();
-            vendedor.Cedula = cedulaVendedor;
+            //vendedor = new VendedorJARR();
+            //vendedor.Cedula = cedulaVendedor;
 
             juego = new JuegoJARR();
             juego.IdJuego = juegoId;

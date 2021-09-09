@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Data{
         string connectionString = "Data Source = DESKTOP-N6UR074\\SQLEXPRESS; Initial Catalog=DigitalGames; Integrated Security=True";
         private static SqlConfig sql = null;
         private SqlConnection connection = null;
+
         private List<PagoJARR> pagos = null;
         private ClienteJARR cliente = null;
         private VendedorJARR vendedor = null;
@@ -228,6 +230,24 @@ namespace Data{
                 MessageBox.Show($"Ocurrio un error al insertar los datos {e}");
             }finally{
                 connection.Close();
+            }
+        }
+
+        public DataSet ConsultarReportes() {
+            string query = $"SELECT Vendedores.cedula, clientes.cedula, juegos.nombre, precio, cantidad, tipoPago, fechaPago, fechaPagoFinal FROM pagos INNER JOIN juegos ON juegos.id=pagos.idJuego INNER JOIN clientes ON clientes.id=idCliente INNER JOIN Vendedores ON Vendedores.id=pagos.idVendedor INNER JOIN TipoPagos ON pagos.idTipoPago=TipoPagos.id WHERE juegos.nombre LIKE 'GTA V';";
+            try {
+                DataSet ds = new DataSet();// tabla virtual
+                SqlCommand comando = new SqlCommand();
+                connection.Open();
+                comando.Connection = connection;
+                comando.CommandText = query;
+                SqlDataAdapter da = new SqlDataAdapter(comando.CommandText, comando.Connection);
+                da.Fill(ds);
+                connection.Close();
+                return ds;
+            } catch (Exception e) {
+                MessageBox.Show($"Error en la consuluta \n{e}");
+                throw;
             }
         }
     }

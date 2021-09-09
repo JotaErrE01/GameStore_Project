@@ -39,5 +39,14 @@ namespace DigitalGamesStore{
         private void btnBuscar_Click(object sender, EventArgs e){
             adm.BuscarJuego(txtJuego, dgvPago);
         }
+
+        private void btnPrint_Click(object sender, EventArgs e) {
+
+            // Metodo para generar el reporte
+            adm.GenerarReporte(txtJuego);
+
+            //FrmReports frm = new FrmReports();
+            //frm.ShowDialog();
+        }
     }
 }

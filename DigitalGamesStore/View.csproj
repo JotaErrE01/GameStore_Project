@@ -33,8 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,12 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmReports.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmReports.Designer.cs">
-      <DependentUpon>FrmReports.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +73,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmReports.resx">
-      <DependentUpon>FrmReports.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmVendedor.resx">
       <DependentUpon>FrmVendedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +113,14 @@
       <Project>{993f14c1-27b4-434e-a151-18f5474857e4}</Project>
       <Name>Controller</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{3498c570-1b9c-44d3-b9f8-a2bb020826da}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{ac0cdcce-8f92-4040-bc93-9aef16634b09}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Group 9.png" />
@@ -154,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Group 38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

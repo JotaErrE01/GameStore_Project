@@ -1,4 +1,11 @@
 ﻿using Data;
+using iText.IO.Font.Constants;
+using iText.Kernel.Font;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -21,6 +28,7 @@ namespace Controller{
         JuegoJARR juego = null;
         PagoJARR pago = null;
         SqlConfig bd = null;
+        List<PagoJARR> pagosFiltro = null;
         int id;
 
         private AdmDigitalGames() {
@@ -49,13 +57,61 @@ namespace Controller{
             }
         }
 
+        public void GenerarReporte(TextBox txtJuego) {
+
+            // Fonts
+            PdfFont fontHeader = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+            PdfFont fontBody = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+
+            // Generar el PDF
+            PdfWriter pdfWriter = new PdfWriter("../../../Reporte_Pagos.pdf");
+            PdfDocument pdf = new PdfDocument(pdfWriter);
+            Document documento = new Document(pdf, PageSize.LETTER);
+            var titulo = new Paragraph("Registo de Pagos").SetFont(fontHeader);
+            //var style = new Style();
+            titulo.SetFontSize(16);
+            titulo.SetMarginBottom(20);
+
+            documento.SetMargins(60, 10, 55, 10);            
+
+            string[] headers = { "Cedula Vendedor", "Cedula Cliente", "Nombre Juego", "Cantidad Comprada", "Precio", "Total", "Tipo de Pago" };
+
+            float[] width = { 2.5f, 2.5f, 2.5f, 2, 2, 2, 2 };
+
+            Table tabla = new Table(UnitValue.CreatePercentArray(width));
+            tabla.SetWidth(UnitValue.CreatePercentValue(100));
+
+            foreach (var header in headers) {
+                tabla.AddHeaderCell(new Cell().Add(new Paragraph(header).SetFont(fontHeader).SetFontSize(10.5f)));
+            }
+
+            pagos.ForEach( pago => {
+                tabla.AddCell(new Cell().Add(new Paragraph(pago.Vendedor.Cedula).SetFont(fontBody).SetFontSize(10)));
+                tabla.AddCell(new Cell().Add(new Paragraph(pago.Cliente.Cedula).SetFont(fontBody).SetFontSize(10)));
+                tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Nombre).SetFont(fontBody).SetFontSize(10)));
+                tabla.AddCell(new Cell().Add(new Paragraph(pago.CantidadJuegos.ToString()).SetFont(fontBody).SetFontSize(10)));
+                tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Precio.ToString()).SetFont(fontBody).SetFontSize(10)));
+                tabla.AddCell(new Cell().Add(new Paragraph(pago.calcularTotal(pago.Juego.Precio, pago.CantidadJuegos).ToString()).SetFont(fontBody).SetFontSize(10)));
+                tabla.AddCell(new Cell().Add(new Paragraph(pago.TipoPago).SetFont(fontBody).SetFontSize(10)));
+            });
+
+            // Centrar el texto del documento
+            documento.SetTextAlignment(TextAlignment.CENTER);
+
+            documento.Add(titulo);
+
+            documento.Add(tabla);
+
+            documento.Close();
+        }
+
         public void BuscarJuego(TextBox txtJuego, DataGridView dgvPago){
             //validar si hay campos vacios
             string nombreJuego = txtJuego.Text;
 
             if (nombreJuego.Trim() == "") return;
 
-            List<PagoJARR> pagosFiltro = new List<PagoJARR>();
+            //pagosFiltro = new List<PagoJARR>();
 
             pagosFiltro = pagos.FindAll( pago => pago.Juego.Nombre == nombreJuego );
             
@@ -155,6 +211,7 @@ namespace Controller{
             pago.FechaPago = fechaPago;
             pago.FechaPagoFin = fechaPagoFinal;
             //MessageBox.Show(fechaPago.ToString());
+            //MessageBox.Show(pago.Cliente.Id.ToString());
 
             return pago;
         }

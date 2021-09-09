@@ -50,6 +50,7 @@ namespace DigitalGamesStore
             this.txtJuego = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPago)).BeginInit();
             this.SuspendLayout();
             // 
@@ -266,12 +267,23 @@ namespace DigitalGamesStore
             this.panel1.Size = new System.Drawing.Size(188, 74);
             this.panel1.TabIndex = 21;
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(238, 420);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(89, 51);
+            this.btnPrint.TabIndex = 24;
+            this.btnPrint.Text = "button1";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // FrmListarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(896, 500);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtJuego);
@@ -307,5 +319,6 @@ namespace DigitalGamesStore
         private System.Windows.Forms.TextBox txtJuego;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

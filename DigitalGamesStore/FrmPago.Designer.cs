@@ -36,13 +36,12 @@ namespace DigitalGamesStore
             this.cmbTipoPago = new System.Windows.Forms.ComboBox();
             this.dtpFechaPagoFinal = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // txtidJuego
             // 
             this.txtidJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtidJuego.Location = new System.Drawing.Point(290, 67);
+            this.txtidJuego.Location = new System.Drawing.Point(280, 73);
             this.txtidJuego.Multiline = true;
             this.txtidJuego.Name = "txtidJuego";
             this.txtidJuego.Size = new System.Drawing.Size(168, 29);
@@ -51,7 +50,7 @@ namespace DigitalGamesStore
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(694, 139);
+            this.txtCantidad.Location = new System.Drawing.Point(684, 139);
             this.txtCantidad.Multiline = true;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(168, 29);
@@ -60,7 +59,7 @@ namespace DigitalGamesStore
             // txtCedulaVendedor
             // 
             this.txtCedulaVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaVendedor.Location = new System.Drawing.Point(290, 201);
+            this.txtCedulaVendedor.Location = new System.Drawing.Point(280, 201);
             this.txtCedulaVendedor.Multiline = true;
             this.txtCedulaVendedor.Name = "txtCedulaVendedor";
             this.txtCedulaVendedor.Size = new System.Drawing.Size(168, 29);
@@ -69,7 +68,7 @@ namespace DigitalGamesStore
             // txtCedulaCliente
             // 
             this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaCliente.Location = new System.Drawing.Point(290, 130);
+            this.txtCedulaCliente.Location = new System.Drawing.Point(280, 139);
             this.txtCedulaCliente.Multiline = true;
             this.txtCedulaCliente.Name = "txtCedulaCliente";
             this.txtCedulaCliente.Size = new System.Drawing.Size(168, 29);
@@ -85,7 +84,7 @@ namespace DigitalGamesStore
             "Credito",
             "Bitcoin",
             "Paypal"});
-            this.cmbTipoPago.Location = new System.Drawing.Point(694, 68);
+            this.cmbTipoPago.Location = new System.Drawing.Point(684, 74);
             this.cmbTipoPago.Name = "cmbTipoPago";
             this.cmbTipoPago.Size = new System.Drawing.Size(168, 28);
             this.cmbTipoPago.TabIndex = 5;
@@ -95,7 +94,7 @@ namespace DigitalGamesStore
             // 
             this.dtpFechaPagoFinal.Enabled = false;
             this.dtpFechaPagoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaPagoFinal.Location = new System.Drawing.Point(271, 270);
+            this.dtpFechaPagoFinal.Location = new System.Drawing.Point(280, 271);
             this.dtpFechaPagoFinal.Name = "dtpFechaPagoFinal";
             this.dtpFechaPagoFinal.Size = new System.Drawing.Size(200, 26);
             this.dtpFechaPagoFinal.TabIndex = 6;
@@ -107,28 +106,20 @@ namespace DigitalGamesStore
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Image = global::DigitalGamesStore.Properties.Resources.Group_31;
-            this.btnGuardar.Location = new System.Drawing.Point(373, 365);
+            this.btnGuardar.Location = new System.Drawing.Point(336, 371);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(201, 39);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnRegistrarPago_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(559, 201);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 79);
-            this.panel1.TabIndex = 8;
-            // 
             // FrmPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.BackgroundImage = global::DigitalGamesStore.Properties.Resources.v;
+            this.BackgroundImage = global::DigitalGamesStore.Properties.Resources.FrmRegistroPagos;
             this.ClientSize = new System.Drawing.Size(896, 500);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dtpFechaPagoFinal);
             this.Controls.Add(this.cmbTipoPago);
@@ -153,6 +144,5 @@ namespace DigitalGamesStore
         private System.Windows.Forms.ComboBox cmbTipoPago;
         private System.Windows.Forms.DateTimePicker dtpFechaPagoFinal;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Panel panel1;
     }
 }

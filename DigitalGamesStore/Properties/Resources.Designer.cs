@@ -113,6 +113,16 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FrmRegistroPagos {
+            get {
+                object obj = ResourceManager.GetObject("FrmRegistroPagos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Group_31 {
             get {
                 object obj = ResourceManager.GetObject("Group 31", resourceCulture);
@@ -166,6 +176,16 @@ namespace DigitalGamesStore.Properties {
         internal static System.Drawing.Bitmap pagobtn {
             get {
                 object obj = ResourceManager.GetObject("pagobtn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PdfBtn {
+            get {
+                object obj = ResourceManager.GetObject("PdfBtn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

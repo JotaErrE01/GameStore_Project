@@ -9,12 +9,6 @@ using iText.Layout.Properties;
 using Model;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Controller{
@@ -85,24 +79,40 @@ namespace Controller{
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(header).SetFont(fontHeader).SetFontSize(10.5f)));
             }
 
-            pagos.ForEach( pago => {
-                tabla.AddCell(new Cell().Add(new Paragraph(pago.Vendedor.Cedula).SetFont(fontBody).SetFontSize(10)));
-                tabla.AddCell(new Cell().Add(new Paragraph(pago.Cliente.Cedula).SetFont(fontBody).SetFontSize(10)));
-                tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Nombre).SetFont(fontBody).SetFontSize(10)));
-                tabla.AddCell(new Cell().Add(new Paragraph(pago.CantidadJuegos.ToString()).SetFont(fontBody).SetFontSize(10)));
-                tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Precio.ToString()).SetFont(fontBody).SetFontSize(10)));
-                tabla.AddCell(new Cell().Add(new Paragraph(pago.calcularTotal(pago.Juego.Precio, pago.CantidadJuegos).ToString()).SetFont(fontBody).SetFontSize(10)));
-                tabla.AddCell(new Cell().Add(new Paragraph(pago.TipoPago).SetFont(fontBody).SetFontSize(10)));
-            });
+            if (pagosFiltro != null) {
+                pagosFiltro.ForEach(pago => {
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Vendedor.Cedula).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Cliente.Cedula).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Nombre).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.CantidadJuegos.ToString()).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Precio.ToString()).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.calcularTotal(pago.Juego.Precio, pago.CantidadJuegos).ToString()).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.TipoPago).SetFont(fontBody).SetFontSize(10)));
+                });
+            } else {
+                pagos.ForEach( pago => {
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Vendedor.Cedula).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Cliente.Cedula).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Nombre).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.CantidadJuegos.ToString()).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.Juego.Precio.ToString()).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.calcularTotal(pago.Juego.Precio, pago.CantidadJuegos).ToString()).SetFont(fontBody).SetFontSize(10)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(pago.TipoPago).SetFont(fontBody).SetFontSize(10)));
+                });
+            }
 
             // Centrar el texto del documento
             documento.SetTextAlignment(TextAlignment.CENTER);
 
+            // Agregar un titulo al pdf
             documento.Add(titulo);
 
+            // agregando la tabla al pdf
             documento.Add(tabla);
 
             documento.Close();
+
+            MessageBox.Show("Reporte Generado en La carpeta Raiz del Proyecto");
         }
 
         public void BuscarJuego(TextBox txtJuego, DataGridView dgvPago){
@@ -111,25 +121,25 @@ namespace Controller{
 
             if (nombreJuego.Trim() == "") return;
 
-            //pagosFiltro = new List<PagoJARR>();
-
             pagosFiltro = pagos.FindAll( pago => pago.Juego.Nombre == nombreJuego );
             
             // Limpiar el grid
             dgvPago.Rows.Clear();
 
+            // Validar que existan pagos despues de realizar la consulta de los pagos
+            if (pagos.Count == 0) return;
+
             llenarGrid(dgvPago, pagosFiltro);
         }
 
-        public void LlenarCampos(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtCantidad, ComboBox cmbTipoPago, DateTimePicker dtpFechaPagoFinal){
+        public void LlenarCampos(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtcodigoJuego, TextBox txtCantidad, ComboBox cmbTipoPago, DateTimePicker dtpFechaPagoFinal){
 
-            //pago = bd.ConsultarPago(id);
-
+            // Buscando campos que coincidan
             pago = pagos.Find( pago => pago.Id == id );
 
             txtCedulaCliente.Text = pago.Cliente.Cedula;
             txtCedulaVendedor.Text = pago.Vendedor.Cedula;
-            txtidJuego.Text = pago.Juego.IdJuego.ToString();
+            txtcodigoJuego.Text = pago.Juego.CodigoJuego.ToString();
             txtCantidad.Text = pago.CantidadJuegos.ToString();
             cmbTipoPago.SelectedItem = pago.TipoPago;
             dtpFechaPagoFinal.Value = dtpFechaPagoFinal.Enabled ? pago.FechaPagoFin : DateTime.Today;
@@ -143,7 +153,6 @@ namespace Controller{
             }
 
             id = (int)dgvPago[0, dgvPago.CurrentRow.Index].Value;
-            //MessageBox.Show(id.ToString());
 
             return true;            
         }
@@ -154,53 +163,55 @@ namespace Controller{
 
             if (pago == null) return;
 
-            //pago.Id = id;
+            bool pagoActualizado = bd.EditarPago(pago, id);
 
-            bd.EditarPago(pago, id);
+            if (!pagoActualizado) return;
 
             MessageBox.Show("Pago actualizado exitosamente");
         }
 
-        public void RegistrarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
+        public void RegistrarPago(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtCodigoJuego, TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
 
-            pago = CrearObjs(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
+            pago = CrearObjs(txtCedulaCliente, txtCedulaVendedor, txtCodigoJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
 
             if (pago == null) return;
 
-            bd.InsertarPago(pago);
+            bool pagoInsertado = bd.InsertarPago(pago);
+
+            // validar que el pago se haya registrado correctamente
+            if (!pagoInsertado) return;
 
             MessageBox.Show("Registro guardado exitosamente");
         }
 
-        public PagoJARR CrearObjs(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtidJuego,  TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
+        public PagoJARR CrearObjs(TextBox txtCedulaCliente, TextBox txtCedulaVendedor, TextBox txtCodigoJuego,  TextBox txtCantidad, DateTimePicker dtpFechaPagoFinal, ComboBox cmbTipoPago){
 
             // Validar que no haya campos vacios
-            if (txtCedulaCliente.Text.Trim() == "" || txtCedulaVendedor.Text.Trim() == "" || txtidJuego.Text.Trim() == "" || txtCantidad.Text.Trim() == ""){
+            if (txtCedulaCliente.Text.Trim() == "" || txtCedulaVendedor.Text.Trim() == "" || txtCodigoJuego.Text.Trim() == "" || txtCantidad.Text.Trim() == ""){
                 MessageBox.Show("Por favor llene todos los campos");
                 return null;
             }
 
+            // Verificar si existe ese cliente
             string cedulaCliente = txtCedulaCliente.Text;
             cliente = bd.ConsultarCliente(cedulaCliente);
+            if(cliente == null) return null;
 
+            // Verificar si el vendedor existe
             string cedulaVendedor = txtCedulaVendedor.Text;
             vendedor = bd.ConsultarVendedor(cedulaVendedor);
+            if(vendedor == null) return null;
 
-            int juegoId = Convert.ToInt32(txtidJuego.Text);
+            // Verificar si el juego existe mediante su codigo
+            int codigoJuego = Convert.ToInt32(txtCodigoJuego.Text);
+            juego = bd.ConsultartJuego(codigoJuego);
+            if (juego == null) return null;
+
             int cantidad = Convert.ToInt32(txtCantidad.Text);
             string tipo_pago = (cmbTipoPago.SelectedIndex + 1) + "";
             DateTime fechaPago = DateTime.Now.Date;
             DateTime fechaPagoFinal = dtpFechaPagoFinal.Value.Date;
             if (!dtpFechaPagoFinal.Enabled) fechaPagoFinal = DateTime.Today;
-
-            //cliente = new ClienteJARR();
-            //cliente.Id = ;
-
-            //vendedor = new VendedorJARR();
-            //vendedor.Cedula = cedulaVendedor;
-
-            juego = new JuegoJARR();
-            juego.IdJuego = juegoId;
 
             PagoJARR pago = new PagoJARR();
             pago.TipoPago = tipo_pago;
@@ -210,8 +221,6 @@ namespace Controller{
             pago.Vendedor = vendedor;
             pago.FechaPago = fechaPago;
             pago.FechaPagoFin = fechaPagoFinal;
-            //MessageBox.Show(fechaPago.ToString());
-            //MessageBox.Show(pago.Cliente.Id.ToString());
 
             return pago;
         }
@@ -219,10 +228,16 @@ namespace Controller{
         public void ListarPagos(DataGridView dgvPago){
             dgvPago.Rows.Clear();
 
+            // Regresamos la lista filtrada a null
+            pagosFiltro = null;
+
             // limpiar la lista
             if (pagos != null) pagos.Clear();
 
             pagos = bd.ConsultarPagos();
+
+            // Validar que existan pagos despues de realizar la consulta de los pagos
+            if (pagos.Count == 0) return;
 
             llenarGrid(dgvPago, pagos);
         }
@@ -235,7 +250,6 @@ namespace Controller{
                 if (pago.FechaPagoFin != DateTime.Today){
                     dgvPago["fechaPagoFinal", index].Value = pago.FechaPagoFin.ToString("yyyy-MM-dd");
                 }
-
                 index++;
             });
         }

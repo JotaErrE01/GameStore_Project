@@ -44,13 +44,13 @@ namespace DigitalGamesStore
             this.tipoPagoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPagoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaPagoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtJuego = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPago)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +94,7 @@ namespace DigitalGamesStore
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(103)))), ((int)(((byte)(227)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPago.DefaultCellStyle = dataGridViewCellStyle2;
@@ -197,49 +197,6 @@ namespace DigitalGamesStore
             this.fechaPagoFinal.ReadOnly = true;
             this.fechaPagoFinal.Width = 106;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(9)))), ((int)(((byte)(77)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Image = global::DigitalGamesStore.Properties.Resources.btneliminarpago;
-            this.btnEliminar.Location = new System.Drawing.Point(49, 420);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(171, 39);
-            this.btnEliminar.TabIndex = 14;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FlatAppearance.BorderSize = 0;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Image = global::DigitalGamesStore.Properties.Resources.Group_36;
-            this.btnEditar.Location = new System.Drawing.Point(593, 420);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(173, 39);
-            this.btnEditar.TabIndex = 19;
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Image = global::DigitalGamesStore.Properties.Resources.Search;
-            this.btnBuscar.Location = new System.Drawing.Point(616, 32);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(150, 39);
-            this.btnBuscar.TabIndex = 21;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // txtJuego
             // 
             this.txtJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,22 +217,70 @@ namespace DigitalGamesStore
             this.label1.TabIndex = 23;
             this.label1.Text = "Nombre del Juego:";
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(333, 397);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(188, 74);
-            this.panel1.TabIndex = 21;
-            // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(238, 420);
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnPrint.BackgroundImage = global::DigitalGamesStore.Properties.Resources.PdfBtn;
+            this.btnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Location = new System.Drawing.Point(355, 408);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(89, 51);
+            this.btnPrint.Size = new System.Drawing.Size(185, 46);
             this.btnPrint.TabIndex = 24;
-            this.btnPrint.Text = "button1";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = global::DigitalGamesStore.Properties.Resources.Search;
+            this.btnBuscar.Location = new System.Drawing.Point(616, 32);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(150, 39);
+            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Image = global::DigitalGamesStore.Properties.Resources.Group_36;
+            this.btnEditar.Location = new System.Drawing.Point(67, 408);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(172, 46);
+            this.btnEditar.TabIndex = 19;
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(9)))), ((int)(((byte)(77)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Image = global::DigitalGamesStore.Properties.Resources.btneliminarpago;
+            this.btnEliminar.Location = new System.Drawing.Point(656, 408);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(177, 46);
+            this.btnEliminar.TabIndex = 14;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(560, 408);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(90, 62);
+            this.panel1.TabIndex = 25;
             // 
             // FrmListarPago
             // 
@@ -283,8 +288,8 @@ namespace DigitalGamesStore
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(896, 500);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtJuego);
             this.Controls.Add(this.btnBuscar);
@@ -318,7 +323,7 @@ namespace DigitalGamesStore
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtJuego;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Panel panel1;
     }
 }

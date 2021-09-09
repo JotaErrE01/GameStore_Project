@@ -8,6 +8,7 @@ namespace Model{
     public class JuegoJARR{
 
         int idJuego;
+        int codigoJuego;
         string rutaImagen;
         string nombre;
         decimal precio;
@@ -16,18 +17,6 @@ namespace Model{
         string plataforma;
         string genero;
         DateTime fechaLanzamiento;
-
-        //public JuegoJARR (int idJuego, string rutaImagen, string nombre, decimal precio, string genero, string clasificacion, double peso, string plataforma, DateTime fechaLanzamiento){
-        //    this.idJuego = idJuego;
-        //    this.rutaImagen = rutaImagen;
-        //    this.nombre = nombre;
-        //    this.precio = precio;
-        //    this.genero = genero;
-        //    this.clasificacion = clasificacion;
-        //    this.peso = peso;
-        //    this.plataforma = plataforma;
-        //    this.fechaLanzamiento = fechaLanzamiento;
-        //}
 
         public int IdJuego { get => idJuego; set => idJuego = value; }
         public string RutaImagen { get => rutaImagen; set => rutaImagen = value; }
@@ -38,5 +27,6 @@ namespace Model{
         public DateTime FechaLanzamiento { get => fechaLanzamiento; set => fechaLanzamiento = value; }
         public string Plataforma { get => plataforma; set => plataforma = value; }
         public string Genero { get => genero; set => genero = value; }
+        public int CodigoJuego { get => codigoJuego; set => codigoJuego = value; }
     }
 }

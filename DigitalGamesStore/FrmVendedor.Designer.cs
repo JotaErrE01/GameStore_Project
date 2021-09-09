@@ -44,9 +44,8 @@ namespace DigitalGamesStore
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.txtCedulaVendedor = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.txtidJuego = new System.Windows.Forms.TextBox();
+            this.txtCodigoJuego = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -167,14 +166,13 @@ namespace DigitalGamesStore
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panelChildForm.Controls.Add(this.panel2);
             this.panelChildForm.Controls.Add(this.btnRegistrarPago);
             this.panelChildForm.Controls.Add(this.dtpFechaPagoFinal);
             this.panelChildForm.Controls.Add(this.cmbTipoPago);
             this.panelChildForm.Controls.Add(this.txtCedulaCliente);
             this.panelChildForm.Controls.Add(this.txtCedulaVendedor);
             this.panelChildForm.Controls.Add(this.txtCantidad);
-            this.panelChildForm.Controls.Add(this.txtidJuego);
+            this.panelChildForm.Controls.Add(this.txtCodigoJuego);
             this.panelChildForm.Controls.Add(this.pictureBox2);
             this.panelChildForm.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -190,7 +188,7 @@ namespace DigitalGamesStore
             this.btnRegistrarPago.FlatAppearance.BorderSize = 0;
             this.btnRegistrarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarPago.Image = global::DigitalGamesStore.Properties.Resources.pagobtn;
-            this.btnRegistrarPago.Location = new System.Drawing.Point(373, 364);
+            this.btnRegistrarPago.Location = new System.Drawing.Point(335, 370);
             this.btnRegistrarPago.Name = "btnRegistrarPago";
             this.btnRegistrarPago.Size = new System.Drawing.Size(201, 39);
             this.btnRegistrarPago.TabIndex = 15;
@@ -216,7 +214,7 @@ namespace DigitalGamesStore
             "Credito",
             "Bitcoin",
             "Paypal"});
-            this.cmbTipoPago.Location = new System.Drawing.Point(694, 67);
+            this.cmbTipoPago.Location = new System.Drawing.Point(687, 69);
             this.cmbTipoPago.Name = "cmbTipoPago";
             this.cmbTipoPago.Size = new System.Drawing.Size(168, 28);
             this.cmbTipoPago.TabIndex = 13;
@@ -225,59 +223,52 @@ namespace DigitalGamesStore
             // txtCedulaCliente
             // 
             this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaCliente.Location = new System.Drawing.Point(290, 129);
+            this.txtCedulaCliente.Location = new System.Drawing.Point(271, 138);
             this.txtCedulaCliente.Multiline = true;
             this.txtCedulaCliente.Name = "txtCedulaCliente";
-            this.txtCedulaCliente.Size = new System.Drawing.Size(168, 29);
+            this.txtCedulaCliente.Size = new System.Drawing.Size(187, 29);
             this.txtCedulaCliente.TabIndex = 12;
             this.txtCedulaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCliente_KeyPress);
             // 
             // txtCedulaVendedor
             // 
             this.txtCedulaVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaVendedor.Location = new System.Drawing.Point(290, 200);
+            this.txtCedulaVendedor.Location = new System.Drawing.Point(271, 204);
             this.txtCedulaVendedor.Multiline = true;
             this.txtCedulaVendedor.Name = "txtCedulaVendedor";
-            this.txtCedulaVendedor.Size = new System.Drawing.Size(168, 29);
+            this.txtCedulaVendedor.Size = new System.Drawing.Size(187, 29);
             this.txtCedulaVendedor.TabIndex = 11;
             this.txtCedulaVendedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaVendedor_KeyPress);
             // 
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(694, 138);
+            this.txtCantidad.Location = new System.Drawing.Point(687, 138);
             this.txtCantidad.Multiline = true;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(168, 29);
             this.txtCantidad.TabIndex = 10;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
-            // txtidJuego
+            // txtCodigoJuego
             // 
-            this.txtidJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtidJuego.Location = new System.Drawing.Point(290, 66);
-            this.txtidJuego.Multiline = true;
-            this.txtidJuego.Name = "txtidJuego";
-            this.txtidJuego.Size = new System.Drawing.Size(168, 29);
-            this.txtidJuego.TabIndex = 8;
-            this.txtidJuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtidJuego_KeyPress);
+            this.txtCodigoJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoJuego.Location = new System.Drawing.Point(271, 69);
+            this.txtCodigoJuego.Multiline = true;
+            this.txtCodigoJuego.Name = "txtCodigoJuego";
+            this.txtCodigoJuego.Size = new System.Drawing.Size(187, 28);
+            this.txtCodigoJuego.TabIndex = 8;
+            this.txtCodigoJuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtidJuego_KeyPress);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::DigitalGamesStore.Properties.Resources.v;
+            this.pictureBox2.Image = global::DigitalGamesStore.Properties.Resources.FrmRegistroPagos;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(896, 500);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(564, 200);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(248, 48);
-            this.panel2.TabIndex = 16;
             // 
             // FrmVendedor
             // 
@@ -316,11 +307,10 @@ namespace DigitalGamesStore
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnRegistrarPago;
         private System.Windows.Forms.DateTimePicker dtpFechaPagoFinal;
-        private System.Windows.Forms.ComboBox cmbTipoPago;
         private System.Windows.Forms.TextBox txtCedulaCliente;
         private System.Windows.Forms.TextBox txtCedulaVendedor;
         private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.TextBox txtidJuego;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtCodigoJuego;
+        private System.Windows.Forms.ComboBox cmbTipoPago;
     }
 }

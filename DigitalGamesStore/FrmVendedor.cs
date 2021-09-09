@@ -67,7 +67,7 @@ namespace DigitalGamesStore{
         }
 
         private void btnRegistrarPago_Click(object sender, EventArgs e){
-            adm.RegistrarPago(txtCedulaCliente, txtCedulaVendedor, txtidJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
+            adm.RegistrarPago(txtCedulaCliente, txtCedulaVendedor, txtCodigoJuego, txtCantidad, dtpFechaPagoFinal, cmbTipoPago);
         }
 
         private void cmbTipoPago_SelectedIndexChanged(object sender, EventArgs e){

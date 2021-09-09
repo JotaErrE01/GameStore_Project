@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
-using MySql.Data.MySqlClient;
 
 namespace Data{
     public class SqlConfig{
@@ -48,78 +43,36 @@ namespace Data{
             }
             catch (Exception e){
                 MessageBox.Show($"Ocurrio un error a la hora de eliminar el pago {e}");
-                    return false;
-            }finally {
                 connection.Close();
+                return false;
             }
+            connection.Close();
             return true;
         }
 
-        //public PagoJARR ConsultarPago(int id){
-        //    string query = $"SELECT * FROM pagos INNER JOIN TipoPagos ON pagos.idTipoPago = TipoPagos.id WHERE pagos.id= ${id};";
-
-        //    try{
-        //        connection.Open();
-        //        SqlCommand comando = new SqlCommand(query);
-        //        comando.Connection = connection;
-        //        SqlDataReader reader = comando.ExecuteReader();
-
-        //        while (reader.Read()){
-        //            juego = new JuegoJARR();
-        //            juego.IdJuego = (int)reader["idJuego"];
-                    
-        //            vendedor = new VendedorJARR();
-        //            vendedor.Cedula = reader["cedulaVendedor"].ToString();
-
-        //            cliente = new ClienteJARR();
-        //            cliente.Cedula = reader["cedulaCliente"].ToString();
-
-        //            pago = new PagoJARR();
-        //            pago.Juego = juego;
-        //            pago.Cliente = cliente;
-        //            pago.Vendedor = vendedor;
-        //            pago.CantidadJuegos = (int)reader["cantidad"];
-        //            pago.FechaPago = (DateTime)reader["fechaPago"];
-        //            pago.TipoPago = reader["tipoPago"].ToString();
-
-        //            if(pago.TipoPago == "Credito"){
-        //                pago.FechaPagoFin = (DateTime)reader["fechaPagoFinal"];
-        //            }
-        //        }
-
-        //        return pago;
-        //    }catch (Exception e){
-        //        MessageBox.Show($"Error en la consulta {e}");
-        //    }finally {
-        //        connection.Close();
-        //    }
-
-        //    return pago;
-        //}
-
-        public void EditarPago(PagoJARR pago, int id){
-
+        public bool EditarPago(PagoJARR pago, int id){
             string query = $"UPDATE pagos SET idCliente={pago.Cliente.Id}, idVendedor={pago.Vendedor.Id}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos}, fechaPagoFinal='{pago.FechaPagoFin.ToString("yyyy-MM-dd")}' WHERE id={id}";
 
             if (pago.FechaPagoFin.ToString("yyyy-MM-dd").Equals(DateTime.Today)){
                 query = $"UPDATE pagos SET idCliente={pago.Cliente.Id}, idVendedor={pago.Vendedor.Id}, idJuego={pago.Juego.IdJuego}, fechaPago='{pago.FechaPago.ToString("yyyy-MM-dd")}', idTipoPago={pago.TipoPago}, cantidad={pago.CantidadJuegos} WHERE id={id}";
             }
-
             try{
                 connection.Open();
                 SqlCommand comando = new SqlCommand(query);
                 comando.Connection = connection;
                 comando.ExecuteNonQuery();
             }catch (Exception e){
-                MessageBox.Show($"Error al actualizar {e}");
-            }finally{
+                MessageBox.Show($"Error al actualizar los pagos");
+                Console.WriteLine(e);
                 connection.Close();
+                return false;
             }
+            connection.Close();
+            return true;
         }
 
         public List<PagoJARR> ConsultarPagos(){
-            string query = $"SELECT pagos.id, clientes.cedula as cedulaCliente, vendedores.cedula as cedulaVendedor, idJuego, juegos.nombre, cantidad, precio, tipoPago, fechaPago, fechaPagoFinal FROM pagos INNER JOIN clientes ON clientes.id = pagos.idCliente INNER JOIN vendedores ON pagos.idVendedor = Vendedores.id INNER JOIN juegos ON juegos.id = pagos.idJuego INNER JOIN TipoPagos ON TipoPagos.id = pagos.idTipoPago;";
-
+            string query = $"SELECT pagos.id, clientes.cedula as cedulaCliente, vendedores.cedula as cedulaVendedor, Codigo_Juego,idJuego, juegos.nombre, cantidad, precio, tipoPago, fechaPago, fechaPagoFinal FROM pagos INNER JOIN clientes ON clientes.id = pagos.idCliente INNER JOIN vendedores ON pagos.idVendedor = Vendedores.id INNER JOIN juegos ON juegos.id = pagos.idJuego INNER JOIN TipoPagos ON TipoPagos.id = pagos.idTipoPago;";
             try{
                 connection.Open();
                 SqlCommand comando = new SqlCommand(query);
@@ -137,6 +90,7 @@ namespace Data{
                     juego.IdJuego = (int)reader["idJuego"];
                     juego.Precio = (decimal)reader["precio"];
                     juego.Nombre = reader["nombre"].ToString();
+                    juego.CodigoJuego = (int)reader["Codigo_Juego"];
 
                     pago = new PagoJARR();
                     pago.Id = (int)reader["id"];
@@ -151,18 +105,14 @@ namespace Data{
                     }else{
                         pago.FechaPagoFin = DateTime.Today;
                     }
-
                     pagos.Add(pago);
                 }
             }
             catch (Exception e){
-                MessageBox.Show($"Ocurrio un error al consuiltar los datos {e}");
-                return pagos;
+                MessageBox.Show($"Ocurrio un error al consultar los datos");
+                Console.WriteLine(e);
             }
-            finally{
-                connection.Close();
-            }
-
+            connection.Close();
             return pagos;
         }
 
@@ -175,17 +125,23 @@ namespace Data{
                 SqlDataReader reader = comando.ExecuteReader();
                 vendedor = new VendedorJARR();
 
+                if (!reader.HasRows) {
+                    MessageBox.Show("No existe un Vendedor registrado con la cedula dada");
+                    connection.Close();
+                    return null;
+                }
+
                 while (reader.Read()) {
                     vendedor.Id = (int)reader["id"];
                     vendedor.Cedula = cedulaVendedor;
                 }
             } catch (Exception e) {
-                MessageBox.Show($"Ocurrio un error al consultar los vendedores \n{e}");
+                MessageBox.Show("Error al consultar vendedores");
+                Console.WriteLine(e);
                 connection.Close();
                 return null;
-            } finally {
-                connection.Close();
             }
+            connection.Close();
             return vendedor;
         }
 
@@ -198,22 +154,56 @@ namespace Data{
                 SqlDataReader reader = comando.ExecuteReader();
                 cliente = new ClienteJARR();
 
+                if (!reader.HasRows) {
+                    MessageBox.Show("No existe un cliente registrado con la cedula dada");
+                    connection.Close();
+                    return null;
+                }
+
                 while (reader.Read()) {
                     cliente.Id = (int)reader["id"];
                     cliente.Cedula = cedulaCliente;
                 }
             } catch (Exception e) {
-                MessageBox.Show($"Ocurrio un error al consultar los clientes \n{e}");
+                MessageBox.Show("Error al consultar clientes");
+                Console.WriteLine(e);
                 connection.Close();
                 return null;
-            } finally {
-                connection.Close();
-            }
+            } 
+            connection.Close();
             return cliente;
         }
 
-        public void InsertarPago(PagoJARR pago){
+        public JuegoJARR ConsultartJuego(int codigoJuego) {
+            string query = $"SELECT * FROM juegos WHERE codigo_juego = {codigoJuego}";
+            try {
+                connection.Open();
+                SqlCommand comando = new SqlCommand(query);
+                comando.Connection = connection;
+                SqlDataReader reader = comando.ExecuteReader();
+                juego = new JuegoJARR();
 
+                if (!reader.HasRows) {
+                    MessageBox.Show("No existe un juego registrado con el codigo dado");
+                    connection.Close();
+                    return null;
+                }
+
+                while (reader.Read()) {
+                    juego.IdJuego = (int)reader["id"];
+                    juego.CodigoJuego = codigoJuego;
+                }
+            } catch (Exception e) {
+                MessageBox.Show("Error en al consultar los juegos");
+                Console.WriteLine(e);
+                connection.Close();
+                return null;
+            }
+            connection.Close();
+            return juego;
+        }
+
+        public bool InsertarPago(PagoJARR pago){
             string query = $"INSERT INTO PAGOS (idCliente, idVendedor, idJuego, cantidad, idTipoPago, fechaPago, fechaPagoFinal) VALUES ({pago.Cliente.Id}, {pago.Vendedor.Id}, {pago.Juego.IdJuego}, {pago.CantidadJuegos}, {pago.TipoPago}, '{pago.FechaPago.ToString("yyyy-MM-dd")}', '{pago.FechaPagoFin.ToString("yyyy-MM-dd")}')";
 
             if (pago.FechaPagoFin.ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd"))){
@@ -227,28 +217,13 @@ namespace Data{
                 comando.ExecuteNonQuery();
             }
             catch (Exception e){
-                MessageBox.Show($"Ocurrio un error al insertar los datos {e}");
-            }finally{
+                MessageBox.Show($"Ocurrio un error al registrar el pago");
+                Console.WriteLine(e);
                 connection.Close();
+                return false;
             }
-        }
-
-        public DataSet ConsultarReportes() {
-            string query = $"SELECT Vendedores.cedula, clientes.cedula, juegos.nombre, precio, cantidad, tipoPago, fechaPago, fechaPagoFinal FROM pagos INNER JOIN juegos ON juegos.id=pagos.idJuego INNER JOIN clientes ON clientes.id=idCliente INNER JOIN Vendedores ON Vendedores.id=pagos.idVendedor INNER JOIN TipoPagos ON pagos.idTipoPago=TipoPagos.id WHERE juegos.nombre LIKE 'GTA V';";
-            try {
-                DataSet ds = new DataSet();// tabla virtual
-                SqlCommand comando = new SqlCommand();
-                connection.Open();
-                comando.Connection = connection;
-                comando.CommandText = query;
-                SqlDataAdapter da = new SqlDataAdapter(comando.CommandText, comando.Connection);
-                da.Fill(ds);
-                connection.Close();
-                return ds;
-            } catch (Exception e) {
-                MessageBox.Show($"Error en la consuluta \n{e}");
-                throw;
-            }
+            connection.Close();
+            return true;
         }
     }
 }

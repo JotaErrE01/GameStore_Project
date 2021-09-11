@@ -50,6 +50,8 @@ namespace DigitalGamesStore
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPago)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +102,7 @@ namespace DigitalGamesStore
             this.dgvPago.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPago.EnableHeadersVisualStyles = false;
             this.dgvPago.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(103)))), ((int)(((byte)(227)))));
-            this.dgvPago.Location = new System.Drawing.Point(12, 98);
+            this.dgvPago.Location = new System.Drawing.Point(12, 122);
             this.dgvPago.Name = "dgvPago";
             this.dgvPago.ReadOnly = true;
             this.dgvPago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -118,12 +120,12 @@ namespace DigitalGamesStore
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(120)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgvPago.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPago.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPago.Size = new System.Drawing.Size(857, 281);
+            this.dgvPago.Size = new System.Drawing.Size(857, 304);
             this.dgvPago.TabIndex = 1;
             // 
             // idCol
@@ -199,21 +201,22 @@ namespace DigitalGamesStore
             // 
             // txtJuego
             // 
-            this.txtJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJuego.Location = new System.Drawing.Point(270, 32);
+            this.txtJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJuego.Location = new System.Drawing.Point(254, 25);
             this.txtJuego.Multiline = true;
             this.txtJuego.Name = "txtJuego";
-            this.txtJuego.Size = new System.Drawing.Size(270, 34);
+            this.txtJuego.Size = new System.Drawing.Size(235, 28);
             this.txtJuego.TabIndex = 22;
+            this.txtJuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtJuego_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(44, 32);
+            this.label1.Location = new System.Drawing.Point(36, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 29);
+            this.label1.Size = new System.Drawing.Size(193, 25);
             this.label1.TabIndex = 23;
             this.label1.Text = "Nombre del Juego:";
             // 
@@ -225,7 +228,7 @@ namespace DigitalGamesStore
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.FlatAppearance.BorderSize = 0;
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Location = new System.Drawing.Point(355, 408);
+            this.btnPrint.Location = new System.Drawing.Point(346, 442);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(185, 46);
             this.btnPrint.TabIndex = 24;
@@ -239,7 +242,7 @@ namespace DigitalGamesStore
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Image = global::DigitalGamesStore.Properties.Resources.Search;
-            this.btnBuscar.Location = new System.Drawing.Point(616, 32);
+            this.btnBuscar.Location = new System.Drawing.Point(561, 40);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(150, 39);
             this.btnBuscar.TabIndex = 21;
@@ -253,7 +256,7 @@ namespace DigitalGamesStore
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Image = global::DigitalGamesStore.Properties.Resources.Group_36;
-            this.btnEditar.Location = new System.Drawing.Point(67, 408);
+            this.btnEditar.Location = new System.Drawing.Point(58, 442);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(172, 46);
             this.btnEditar.TabIndex = 19;
@@ -268,19 +271,40 @@ namespace DigitalGamesStore
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Image = global::DigitalGamesStore.Properties.Resources.btneliminarpago;
-            this.btnEliminar.Location = new System.Drawing.Point(656, 408);
+            this.btnEliminar.Location = new System.Drawing.Point(676, 442);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(177, 46);
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(36, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 25);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Cedula del Cliente:";
+            // 
+            // txtCedulaCliente
+            // 
+            this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaCliente.Location = new System.Drawing.Point(254, 71);
+            this.txtCedulaCliente.Multiline = true;
+            this.txtCedulaCliente.Name = "txtCedulaCliente";
+            this.txtCedulaCliente.Size = new System.Drawing.Size(235, 28);
+            this.txtCedulaCliente.TabIndex = 27;
+            this.txtCedulaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCliente_KeyPress);
+            // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(560, 408);
+            this.panel1.Location = new System.Drawing.Point(551, 442);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(90, 62);
-            this.panel1.TabIndex = 25;
+            this.panel1.Size = new System.Drawing.Size(90, 46);
+            this.panel1.TabIndex = 26;
             // 
             // FrmListarPago
             // 
@@ -289,6 +313,8 @@ namespace DigitalGamesStore
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(896, 500);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txtCedulaCliente);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtJuego);
@@ -324,6 +350,8 @@ namespace DigitalGamesStore
         private System.Windows.Forms.TextBox txtJuego;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCedulaCliente;
         private System.Windows.Forms.Panel panel1;
     }
 }

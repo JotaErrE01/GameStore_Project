@@ -115,13 +115,22 @@ namespace Controller{
             MessageBox.Show("Reporte Generado en La carpeta Raiz del Proyecto");
         }
 
-        public void BuscarJuego(TextBox txtJuego, DataGridView dgvPago){
-            //validar si hay campos vacios
+        public void BuscarJuego(TextBox txtJuego, TextBox txtCedulaCliente, DataGridView dgvPago){
             string nombreJuego = txtJuego.Text;
+            string cedula = txtCedulaCliente.Text;
 
-            if (nombreJuego.Trim() == "") return;
+            //validar si hay campos vacios
+            if (nombreJuego.Trim() == "") {
+                MessageBox.Show("El nombre del juego es obligatorio");
+                return;
+            };
 
-            pagosFiltro = pagos.FindAll( pago => pago.Juego.Nombre == nombreJuego );
+            if (cedula.Trim() == "") {
+                MessageBox.Show("La cedula es obligatoria");
+                return;
+            }
+
+            pagosFiltro = pagos.FindAll( pago => pago.Juego.Nombre.Equals(nombreJuego, StringComparison.OrdinalIgnoreCase) && pago.Cliente.Cedula == cedula);
             
             // Limpiar el grid
             dgvPago.Rows.Clear();
@@ -148,7 +157,7 @@ namespace Controller{
         public bool EditarPago(DataGridView dgvPago){
             // Validar si hay seleccionada una fila
             if (dgvPago.SelectedRows.Count != 1){
-                MessageBox.Show("Seleccione una Fila");
+                MessageBox.Show("Seleccione una unica Fila");
                 return false;
             }
 
@@ -192,6 +201,11 @@ namespace Controller{
                 return null;
             }
 
+            // Verificar si el juego existe mediante su codigo
+            int codigoJuego = Convert.ToInt32(txtCodigoJuego.Text);
+            juego = bd.ConsultartJuego(codigoJuego);
+            if (juego == null) return null;
+
             // Verificar si existe ese cliente
             string cedulaCliente = txtCedulaCliente.Text;
             cliente = bd.ConsultarCliente(cedulaCliente);
@@ -201,11 +215,6 @@ namespace Controller{
             string cedulaVendedor = txtCedulaVendedor.Text;
             vendedor = bd.ConsultarVendedor(cedulaVendedor);
             if(vendedor == null) return null;
-
-            // Verificar si el juego existe mediante su codigo
-            int codigoJuego = Convert.ToInt32(txtCodigoJuego.Text);
-            juego = bd.ConsultartJuego(codigoJuego);
-            if (juego == null) return null;
 
             int cantidad = Convert.ToInt32(txtCantidad.Text);
             string tipo_pago = (cmbTipoPago.SelectedIndex + 1) + "";

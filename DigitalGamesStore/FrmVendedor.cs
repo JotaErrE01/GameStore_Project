@@ -88,23 +88,41 @@ namespace DigitalGamesStore{
 
         private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e){
             char c = e.KeyChar;
-            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
-                e.Handled = true;
-                return;
-            }
-        }
 
-        private void txtCedulaVendedor_KeyPress(object sender, KeyPressEventArgs e){
-            char c = e.KeyChar;
             if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
                 e.Handled = true;
                 return;
             }
+
+            if (txtCedulaCliente.Text.Length > 9 && (e.KeyChar != Convert.ToChar(Keys.Back))) {
+                e.Handled = true;
+                return;
+            }
+
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e){
             char c = e.KeyChar;
             if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))){
+                e.Handled = true;
+                return;
+            }
+
+            if (txtCantidad.Text.Length > 2 && (e.KeyChar != Convert.ToChar(Keys.Back))) {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCedulaVendedor_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+
+            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))) {
+                e.Handled = true;
+                return;
+            }
+
+            if (txtCedulaVendedor.Text.Length > 9 && (e.KeyChar != Convert.ToChar(Keys.Back))) {
                 e.Handled = true;
                 return;
             }

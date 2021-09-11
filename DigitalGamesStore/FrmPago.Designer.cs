@@ -55,6 +55,7 @@ namespace DigitalGamesStore
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(168, 29);
             this.txtCantidad.TabIndex = 2;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // txtCedulaVendedor
             // 
@@ -64,6 +65,7 @@ namespace DigitalGamesStore
             this.txtCedulaVendedor.Name = "txtCedulaVendedor";
             this.txtCedulaVendedor.Size = new System.Drawing.Size(168, 29);
             this.txtCedulaVendedor.TabIndex = 3;
+            this.txtCedulaVendedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaVendedor_KeyPress);
             // 
             // txtCedulaCliente
             // 
@@ -73,6 +75,7 @@ namespace DigitalGamesStore
             this.txtCedulaCliente.Name = "txtCedulaCliente";
             this.txtCedulaCliente.Size = new System.Drawing.Size(168, 29);
             this.txtCedulaCliente.TabIndex = 4;
+            this.txtCedulaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaCliente_KeyPress);
             // 
             // cmbTipoPago
             // 

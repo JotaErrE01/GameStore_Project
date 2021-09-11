@@ -113,14 +113,6 @@
       <Project>{993f14c1-27b4-434e-a151-18f5474857e4}</Project>
       <Name>Controller</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{3498c570-1b9c-44d3-b9f8-a2bb020826da}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{ac0cdcce-8f92-4040-bc93-9aef16634b09}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Group 9.png" />

@@ -37,16 +37,33 @@ namespace DigitalGamesStore{
         }
 
         private void btnBuscar_Click(object sender, EventArgs e){
-            adm.BuscarJuego(txtJuego, dgvPago);
+            adm.BuscarJuego(txtJuego, txtCedulaCliente, dgvPago);
         }
 
         private void btnPrint_Click(object sender, EventArgs e) {
-
             // Metodo para generar el reporte
             adm.GenerarReporte(txtJuego);
+        }
 
-            //FrmReports frm = new FrmReports();
-            //frm.ShowDialog();
+        private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+
+            if (!char.IsDigit(c) && (e.KeyChar != Convert.ToChar(Keys.Back))) {
+                e.Handled = true;
+                return;
+            }
+
+            if (txtCedulaCliente.Text.Length > 9 && (e.KeyChar != Convert.ToChar(Keys.Back))) {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtJuego_KeyPress(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter)) {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

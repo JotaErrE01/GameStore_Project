@@ -9,5 +9,5 @@ CREATE, READ, UPDATE, DELETE
 ```
 
 ```
-TODO: Agregar busquedad mediante filtros
+TODO: AGREGAR VALIDACION A LOS CAMPOS
 ```

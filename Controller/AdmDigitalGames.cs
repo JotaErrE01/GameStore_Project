@@ -15,7 +15,6 @@ namespace Controller{
     public class AdmDigitalGames{
 
         private static AdmDigitalGames adm = null;
-        //Validacion v = null;
         List<PagoJARR> pagos = null;
         ClienteJARR cliente = null;
         VendedorJARR vendedor = null;
@@ -26,8 +25,8 @@ namespace Controller{
         int id;
 
         private AdmDigitalGames() {
-            //    inicializamos la lista
-                bd = SqlConfig.GetSql();
+            // instancimos la clase SqlConfig
+            bd = SqlConfig.GetSql();
         }
 
         public static AdmDigitalGames GetAdm(){
@@ -111,6 +110,8 @@ namespace Controller{
             documento.Add(tabla);
 
             documento.Close();
+
+            documento.GetPdfDocument();
 
             MessageBox.Show("Reporte Generado en La carpeta Raiz del Proyecto");
         }

@@ -63,9 +63,9 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BtnAtras {
+        internal static System.Drawing.Bitmap Ayuda {
             get {
-                object obj = ResourceManager.GetObject("BtnAtras", resourceCulture);
+                object obj = ResourceManager.GetObject("Ayuda", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Group_9 {
+        internal static System.Drawing.Bitmap helfrm {
             get {
-                object obj = ResourceManager.GetObject("Group 9", resourceCulture);
+                object obj = ResourceManager.GetObject("helfrm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,29 +193,9 @@ namespace DigitalGamesStore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Registro {
-            get {
-                object obj = ResourceManager.GetObject("Registro", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Search {
             get {
                 object obj = ResourceManager.GetObject("Search", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap v {
-            get {
-                object obj = ResourceManager.GetObject("v", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -7,7 +7,9 @@ using Model;
 namespace Data{
     public class SqlConfig{
 
+        // Configure el String de conexion para un correcto funcionamiento
         string connectionString = "Data Source = DESKTOP-N6UR074\\SQLEXPRESS; Initial Catalog=DigitalGames; Integrated Security=True";
+
         private static SqlConfig sql = null;
         private SqlConnection connection = null;
 

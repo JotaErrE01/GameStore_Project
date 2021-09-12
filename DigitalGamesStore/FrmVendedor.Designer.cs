@@ -32,26 +32,27 @@ namespace DigitalGamesStore
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.btnListarPagos = new System.Windows.Forms.Button();
-            this.btnPago = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.btnRegistrarPago = new System.Windows.Forms.Button();
             this.dtpFechaPagoFinal = new System.Windows.Forms.DateTimePicker();
             this.cmbTipoPago = new System.Windows.Forms.ComboBox();
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.txtCedulaVendedor = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtCodigoJuego = new System.Windows.Forms.TextBox();
+            this.btnRegistrarPago = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnListarPagos = new System.Windows.Forms.Button();
+            this.btnPago = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panelSideMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,6 +79,7 @@ namespace DigitalGamesStore
             // panelSideMenu
             // 
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSideMenu.Controls.Add(this.btnHelp);
             this.panelSideMenu.Controls.Add(this.btnListarPagos);
             this.panelSideMenu.Controls.Add(this.btnPago);
             this.panelSideMenu.Controls.Add(this.btnExit);
@@ -88,61 +90,6 @@ namespace DigitalGamesStore
             this.panelSideMenu.Size = new System.Drawing.Size(250, 575);
             this.panelSideMenu.TabIndex = 3;
             // 
-            // btnListarPagos
-            // 
-            this.btnListarPagos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnListarPagos.FlatAppearance.BorderSize = 0;
-            this.btnListarPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListarPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListarPagos.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnListarPagos.Image = global::DigitalGamesStore.Properties.Resources.btnlistarp;
-            this.btnListarPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListarPagos.Location = new System.Drawing.Point(0, 160);
-            this.btnListarPagos.Name = "btnListarPagos";
-            this.btnListarPagos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnListarPagos.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnListarPagos.Size = new System.Drawing.Size(250, 60);
-            this.btnListarPagos.TabIndex = 8;
-            this.btnListarPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListarPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnListarPagos.UseVisualStyleBackColor = true;
-            this.btnListarPagos.Click += new System.EventHandler(this.btnListarPagos_Click);
-            // 
-            // btnPago
-            // 
-            this.btnPago.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPago.FlatAppearance.BorderSize = 0;
-            this.btnPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPago.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPago.Image = global::DigitalGamesStore.Properties.Resources.Group_38;
-            this.btnPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPago.Location = new System.Drawing.Point(0, 100);
-            this.btnPago.Name = "btnPago";
-            this.btnPago.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnPago.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnPago.Size = new System.Drawing.Size(250, 60);
-            this.btnPago.TabIndex = 6;
-            this.btnPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPago.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnPago.UseVisualStyleBackColor = true;
-            this.btnPago.Click += new System.EventHandler(this.btnPago_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.btnSalir;
-            this.btnExit.Location = new System.Drawing.Point(0, 537);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(92, 38);
-            this.btnExit.TabIndex = 5;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            this.btnExit.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
-            this.btnExit.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
-            // 
             // panelLogo
             // 
             this.panelLogo.Controls.Add(this.pictureBox1);
@@ -151,17 +98,6 @@ namespace DigitalGamesStore
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(250, 100);
             this.panelLogo.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.pictureBox1.Image = global::DigitalGamesStore.Properties.Resources.Frame_2;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // panelChildForm
             // 
@@ -180,20 +116,6 @@ namespace DigitalGamesStore
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(896, 500);
             this.panelChildForm.TabIndex = 5;
-            // 
-            // btnRegistrarPago
-            // 
-            this.btnRegistrarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
-            this.btnRegistrarPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarPago.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarPago.Image = global::DigitalGamesStore.Properties.Resources.pagobtn;
-            this.btnRegistrarPago.Location = new System.Drawing.Point(335, 370);
-            this.btnRegistrarPago.Name = "btnRegistrarPago";
-            this.btnRegistrarPago.Size = new System.Drawing.Size(201, 39);
-            this.btnRegistrarPago.TabIndex = 15;
-            this.btnRegistrarPago.UseVisualStyleBackColor = false;
-            this.btnRegistrarPago.Click += new System.EventHandler(this.btnRegistrarPago_Click);
             // 
             // dtpFechaPagoFinal
             // 
@@ -260,6 +182,20 @@ namespace DigitalGamesStore
             this.txtCodigoJuego.TabIndex = 8;
             this.txtCodigoJuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtidJuego_KeyPress);
             // 
+            // btnRegistrarPago
+            // 
+            this.btnRegistrarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(60)))), ((int)(((byte)(85)))));
+            this.btnRegistrarPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarPago.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarPago.Image = global::DigitalGamesStore.Properties.Resources.pagobtn;
+            this.btnRegistrarPago.Location = new System.Drawing.Point(335, 370);
+            this.btnRegistrarPago.Name = "btnRegistrarPago";
+            this.btnRegistrarPago.Size = new System.Drawing.Size(201, 39);
+            this.btnRegistrarPago.TabIndex = 15;
+            this.btnRegistrarPago.UseVisualStyleBackColor = false;
+            this.btnRegistrarPago.Click += new System.EventHandler(this.btnRegistrarPago_Click);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -269,6 +205,92 @@ namespace DigitalGamesStore
             this.pictureBox2.Size = new System.Drawing.Size(896, 500);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnHelp.Image = global::DigitalGamesStore.Properties.Resources.Ayuda;
+            this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.Location = new System.Drawing.Point(0, 220);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnHelp.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnHelp.Size = new System.Drawing.Size(250, 60);
+            this.btnHelp.TabIndex = 9;
+            this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnListarPagos
+            // 
+            this.btnListarPagos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnListarPagos.FlatAppearance.BorderSize = 0;
+            this.btnListarPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListarPagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarPagos.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnListarPagos.Image = global::DigitalGamesStore.Properties.Resources.btnlistarp;
+            this.btnListarPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListarPagos.Location = new System.Drawing.Point(0, 160);
+            this.btnListarPagos.Name = "btnListarPagos";
+            this.btnListarPagos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnListarPagos.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnListarPagos.Size = new System.Drawing.Size(250, 60);
+            this.btnListarPagos.TabIndex = 8;
+            this.btnListarPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListarPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnListarPagos.UseVisualStyleBackColor = true;
+            this.btnListarPagos.Click += new System.EventHandler(this.btnListarPagos_Click);
+            // 
+            // btnPago
+            // 
+            this.btnPago.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPago.FlatAppearance.BorderSize = 0;
+            this.btnPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPago.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPago.Image = global::DigitalGamesStore.Properties.Resources.Group_38;
+            this.btnPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPago.Location = new System.Drawing.Point(0, 100);
+            this.btnPago.Name = "btnPago";
+            this.btnPago.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnPago.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnPago.Size = new System.Drawing.Size(250, 60);
+            this.btnPago.TabIndex = 6;
+            this.btnPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPago.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPago.UseVisualStyleBackColor = true;
+            this.btnPago.Click += new System.EventHandler(this.btnPago_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = global::DigitalGamesStore.Properties.Resources.btnSalir;
+            this.btnExit.Location = new System.Drawing.Point(0, 537);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(92, 38);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseHover);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.pictureBox1.Image = global::DigitalGamesStore.Properties.Resources.Frame_2;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmVendedor
             // 
@@ -286,10 +308,10 @@ namespace DigitalGamesStore
             this.panel1.PerformLayout();
             this.panelSideMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             this.panelChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,5 +334,6 @@ namespace DigitalGamesStore
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtCodigoJuego;
         private System.Windows.Forms.ComboBox cmbTipoPago;
+        private System.Windows.Forms.Button btnHelp;
     }
 }

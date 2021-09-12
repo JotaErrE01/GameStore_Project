@@ -1,12 +1,6 @@
 ﻿using Controller;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DigitalGamesStore{
@@ -29,14 +23,12 @@ namespace DigitalGamesStore{
         private void btnRegistrar_MouseHover(object sender, EventArgs e){
             Button btn = (Button)sender;
             btn.BackColor = Color.FromArgb(37, 36, 81);
-            //btnBiblioteca.ForeColor = color;
         }
 
         private void btnRegistrar_MouseLeave(object sender, EventArgs e){
             if (sender != null){
                 Button btn = (Button)sender;
                 btn.BackColor = Color.FromArgb(11, 7, 17);
-                //btnBiblioteca.ForeColor = color;
             }
         }
 
@@ -56,7 +48,6 @@ namespace DigitalGamesStore{
         }
 
         private void btnPago_Click(object sender, EventArgs e){
-            //openChildForm(new FrmPago());
             if (activeForm != null){
                 activeForm.Close();
             }
@@ -126,6 +117,10 @@ namespace DigitalGamesStore{
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e) {
+            openChildForm(new FrmAyuda());
         }
     }
 }

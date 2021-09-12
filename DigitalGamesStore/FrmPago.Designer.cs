@@ -29,7 +29,7 @@ namespace DigitalGamesStore
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtidJuego = new System.Windows.Forms.TextBox();
+            this.txtCodigoJuego = new System.Windows.Forms.TextBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtCedulaVendedor = new System.Windows.Forms.TextBox();
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
@@ -38,14 +38,15 @@ namespace DigitalGamesStore
             this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtidJuego
+            // txtCodigoJuego
             // 
-            this.txtidJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtidJuego.Location = new System.Drawing.Point(280, 73);
-            this.txtidJuego.Multiline = true;
-            this.txtidJuego.Name = "txtidJuego";
-            this.txtidJuego.Size = new System.Drawing.Size(168, 29);
-            this.txtidJuego.TabIndex = 0;
+            this.txtCodigoJuego.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoJuego.Location = new System.Drawing.Point(280, 73);
+            this.txtCodigoJuego.Multiline = true;
+            this.txtCodigoJuego.Name = "txtCodigoJuego";
+            this.txtCodigoJuego.Size = new System.Drawing.Size(168, 29);
+            this.txtCodigoJuego.TabIndex = 0;
+            this.txtCodigoJuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoJuego_KeyPress);
             // 
             // txtCantidad
             // 
@@ -129,7 +130,7 @@ namespace DigitalGamesStore
             this.Controls.Add(this.txtCedulaCliente);
             this.Controls.Add(this.txtCedulaVendedor);
             this.Controls.Add(this.txtCantidad);
-            this.Controls.Add(this.txtidJuego);
+            this.Controls.Add(this.txtCodigoJuego);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPago";
             this.Text = "FrmPago";
@@ -140,7 +141,7 @@ namespace DigitalGamesStore
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtidJuego;
+        private System.Windows.Forms.TextBox txtCodigoJuego;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtCedulaVendedor;
         private System.Windows.Forms.TextBox txtCedulaCliente;
